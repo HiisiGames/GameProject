@@ -1,2 +1,2 @@
-﻿61620
-C:/School/Godot/Godot_v4.3-stable_mono_win64/Godot_v4.3-stable_mono_win64.exe
+﻿54366
+C:/Users/juuso/OneDrive/Työpöytä/Godot/Godot_v4.3-stable_mono_win64/Godot_v4.3-stable_mono_win64.exe
