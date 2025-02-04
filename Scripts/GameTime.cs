@@ -31,7 +31,8 @@ namespace TruckGame
 			if (_Time >= 1.0f)
 			{
 				_SecondCounter++;
-				if(_SecondCounter >= 60) {
+				if (_SecondCounter >= 60)
+				{
 					_MinuteCounter++;
 					_SecondCounter -= 60;
 				}
