@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://cs7np4n8fa8ry"]
+[gd_scene load_steps=3 format=3 uid="uid://cs7np4n8fa8ry"]
+
+[ext_resource type="Texture2D" uid="uid://ehrbx2wc4aup" path="res://icon.svg" id="1_blv3q"]
+[ext_resource type="Script" path="res://Scripts/Movement.cs" id="2_of7n1"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_blv3q")
+script = ExtResource("2_of7n1")
+_speed = 50.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
