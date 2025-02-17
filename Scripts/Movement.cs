@@ -3,7 +3,7 @@ using System;
 
 namespace TruckGame {
 
-	public partial class Movement : Sprite2D
+	public partial class Movement : RigidBody2D
 	{
 		float _PositionY = 0.0f;
 		float _PositionX = 0.0f;
@@ -25,19 +25,26 @@ namespace TruckGame {
 		{
 			//A
 			if(Input.IsActionPressed("Break"))
-			{
-				GD.Print("vasemmalle");
+			{	
 				Vector2 Move = Vector2.Left;
 				GlobalPosition += _speed * Move * (float)delta;
+				float Speedometer = (_speed * Move).Length();
 			}
 
 			//D
-			else if(Input.IsActionPressed("Accelerate"))
+			if(Input.IsActionPressed("Accelerate"))
 			{
-				GD.Print("Oikealle");
 				Vector2 Move = Vector2.Right;
 				GlobalPosition += _speed * Move * (float)delta;
-			} 
+				float Speedometer = (_speed * Move).Length();
+				GD.Print($"nopeus vasemmalle: {Speedometer}");
+			}
+
+			//Vektorin normalisointi
+			/*if (Move !=Vector2.Zero)
+			{
+				Move = Move;
+			}*/
 		}
 	}
 }

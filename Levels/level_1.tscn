@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c81coexwuo4pe"]
+
+[ext_resource type="PackedScene" uid="uid://dmlyh3tblpr4t" path="res://Scenes/RigidBodyScene.tscn" id="1_wpqk3"]
+[ext_resource type="Script" path="res://Scripts/Movement.cs" id="2_swsph"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-929, -25, -969, 648, 2942, 671, 4190, 671, 4172, -25, 2564, -66, 1155, -34)
+
+[node name="PlayerVehicle" parent="." instance=ExtResource("1_wpqk3")]
+position = Vector2(297, -227)
+script = ExtResource("2_swsph")
+
+[node name="Camera2D" type="Camera2D" parent="PlayerVehicle"]
