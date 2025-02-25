@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://buj8bfjtogyat"]
+
+[ext_resource type="PackedScene" uid="uid://dcsq3srig3kgu" path="res://Scenes/Wheel.tscn" id="1_k7eev"]
+[ext_resource type="Texture2D" uid="uid://cmeaq1iqnsou0" path="res://Arts/TutorialAssets/Images/Car/Car.png" id="1_tm1mg"]
+
+[node name="PlayerVehicle" type="RigidBody2D" groups=["PlayerVehicle"]]
+
+[node name="WheelAxle2" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("wheel")
+softness = 2.52
+
+[node name="wheel" parent="WheelAxle2" groups=["PlayerVehicle"] instance=ExtResource("1_k7eev")]
+position = Vector2(110, 92)
+
+[node name="WheelAxle" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("wheel")
+softness = 2.52
+
+[node name="wheel" parent="WheelAxle" groups=["PlayerVehicle"] instance=ExtResource("1_k7eev")]
+position = Vector2(-151, 92)
+
+[node name="Car" type="Sprite2D" parent="."]
+texture = ExtResource("1_tm1mg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-134, -61, -204, -55, -219, -43, -217, 85, 212, 85, 211, -2, 116, -44, 44, -56, 11, -58)
