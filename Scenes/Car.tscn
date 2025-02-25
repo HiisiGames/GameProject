@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dmlyh3tblpr4t"]
 
 [ext_resource type="PackedScene" uid="uid://dmdjy2f447vgx" path="res://Scenes/Wheel.tscn" id="1_k7eev"]
-[ext_resource type="Script" path="res://Scenes/Car.cs" id="1_qbx05"]
+[ext_resource type="Script" path="res://Scripts/Car.cs" id="1_qbx05"]
 [ext_resource type="Texture2D" uid="uid://cmeaq1iqnsou0" path="res://Arts/TutorialAssets/Images/Car/Car.png" id="1_tm1mg"]
 
 [node name="PlayerVehicle" type="RigidBody2D" groups=["PlayerVehicle"]]
@@ -10,16 +10,16 @@ script = ExtResource("1_qbx05")
 [node name="WheelAxle" type="PinJoint2D" parent="."]
 position = Vector2(-153, 82)
 node_a = NodePath("..")
-node_b = NodePath("RigidBody2D")
+node_b = NodePath("Wheel")
 
-[node name="RigidBody2D" parent="WheelAxle" instance=ExtResource("1_k7eev")]
+[node name="Wheel" parent="WheelAxle" instance=ExtResource("1_k7eev")]
 
 [node name="WheelAxle2" type="PinJoint2D" parent="."]
 position = Vector2(111, 79)
 node_a = NodePath("..")
-node_b = NodePath("RigidBody2D")
+node_b = NodePath("Wheel")
 
-[node name="RigidBody2D" parent="WheelAxle2" instance=ExtResource("1_k7eev")]
+[node name="Wheel" parent="WheelAxle2" instance=ExtResource("1_k7eev")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_tm1mg")

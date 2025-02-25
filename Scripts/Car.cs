@@ -7,7 +7,7 @@ namespace TruckGame
 	public partial class Car : RigidBody2D
 	{
 		// Called when the node enters the scene tree for the first time.
-		private List<Wheel> WheelArray = new List<Wheel>();
+		private ArrayList<Wheel> WheelArray = new ArrayList<Wheel>();
 		public override void _Ready()
 		{
 			WheelArray = GetTree().GetNodesInGroup("Wheels");
