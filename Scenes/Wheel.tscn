@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq6ors8r4ybjs"]
+[gd_scene load_steps=3 format=3 uid="uid://dcsq3srig3kgu"]
 
-[ext_resource type="Texture2D" path="res://Arts/TutorialAssets/Images/Car/Wheel.png" id="1_rskuo"]
+[ext_resource type="Texture2D" uid="uid://dkh1a4y4e8ft4" path="res://Arts/TutorialAssets/Images/Car/Wheel.png" id="1_rskuo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vkm2q"]
 radius = 63.2851

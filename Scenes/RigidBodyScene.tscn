@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bll2isp8qp7uv"]
+[gd_scene load_steps=3 format=3 uid="uid://buj8bfjtogyat"]
 
-[ext_resource type="PackedScene" uid="uid://dq6ors8r4ybjs" path="res://Scenes/Wheel.tscn" id="1_k7eev"]
-[ext_resource type="Texture2D" path="res://Arts/TutorialAssets/Images/Car/Car.png" id="1_tm1mg"]
+[ext_resource type="PackedScene" uid="uid://dcsq3srig3kgu" path="res://Scenes/Wheel.tscn" id="1_k7eev"]
+[ext_resource type="Texture2D" uid="uid://cmeaq1iqnsou0" path="res://Arts/TutorialAssets/Images/Car/Car.png" id="1_tm1mg"]
 
 [node name="PlayerVehicle" type="RigidBody2D" groups=["PlayerVehicle"]]
 
