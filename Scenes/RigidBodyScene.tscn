@@ -1,26 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmlyh3tblpr4t"]
+[gd_scene load_steps=3 format=3 uid="uid://bll2isp8qp7uv"]
 
-[ext_resource type="PackedScene" uid="uid://dmdjy2f447vgx" path="res://Scenes/Wheel.tscn" id="1_k7eev"]
-[ext_resource type="Texture2D" uid="uid://cmeaq1iqnsou0" path="res://Arts/TutorialAssets/Images/Car/Car.png" id="1_tm1mg"]
+[ext_resource type="PackedScene" uid="uid://dq6ors8r4ybjs" path="res://Scenes/Wheel.tscn" id="1_k7eev"]
+[ext_resource type="Texture2D" uid="uid://cblsqso7n501b" path="res://Arts/basemoffett.png" id="2_xsalh"]
 
 [node name="PlayerVehicle" type="RigidBody2D" groups=["PlayerVehicle"]]
 
-[node name="WheelAxle" type="PinJoint2D" parent="."]
-node_a = NodePath("..")
-node_b = NodePath("RigidBody2D")
-
-[node name="RigidBody2D" parent="WheelAxle" instance=ExtResource("1_k7eev")]
-position = Vector2(-151, 92)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["PlayerVehicle"]]
+position = Vector2(-14, -119)
+polygon = PackedVector2Array(-4, -223, -124, -222, -120, -67, -109, 53, 236, 55, 238, -22, 180, -39, 87, -42, 88, -234)
 
 [node name="WheelAxle2" type="PinJoint2D" parent="."]
+position = Vector2(-75, -62)
 node_a = NodePath("..")
-node_b = NodePath("RigidBody2D")
+node_b = NodePath("wheel")
 
-[node name="RigidBody2D" parent="WheelAxle2" instance=ExtResource("1_k7eev")]
-position = Vector2(110, 92)
+[node name="wheel" parent="WheelAxle2" instance=ExtResource("1_k7eev")]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_tm1mg")
+[node name="Car" type="Sprite2D" parent="."]
+position = Vector2(53, -327)
+scale = Vector2(5, 5)
+texture = ExtResource("2_xsalh")
+flip_h = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-134, -61, -204, -55, -219, -43, -217, 85, 212, 85, 211, -2, 116, -44, 44, -56, 11, -58)
+[node name="WheelAxle" type="PinJoint2D" parent="."]
+position = Vector2(171, -62)
+node_a = NodePath("..")
+node_b = NodePath("wheel1")
+
+[node name="wheel1" parent="WheelAxle" instance=ExtResource("1_k7eev")]
