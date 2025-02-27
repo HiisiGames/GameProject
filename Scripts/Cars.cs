@@ -4,7 +4,7 @@ using Godot.Collections;
 
 namespace TruckGame
 {
-	public partial class Car : RigidBody2D
+	public partial class Cars : RigidBody2D
 	{
 		[Export] private float _speed = 60000f;
 
