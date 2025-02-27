@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6jvfjhxwg0si"]
+
+[ext_resource type="Script" path="res://Scripts/Level1.cs" id="1_7miqs"]
+[ext_resource type="PackedScene" uid="uid://bll2isp8qp7uv" path="res://Scenes/RigidBodyScene.tscn" id="2_bimpj"]
+[ext_resource type="Script" path="res://Scripts/Cars.cs" id="3_ft7hi"]
+[ext_resource type="Texture2D" uid="uid://b3k1pv6xnfv02" path="res://Arts/cone.png" id="4_ul0q3"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_7miqs")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["PlayerVehicle"]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-929, -25, -969, 648, 2942, 671, 89604, 3993, 24114, -4310, 2564, -66, 1155, -34)
+
+[node name="PlayerVehicle" parent="." instance=ExtResource("2_bimpj")]
+position = Vector2(254, -170)
+script = ExtResource("3_ft7hi")
+
+[node name="Camera2D" type="Camera2D" parent="PlayerVehicle"]
+position = Vector2(74, -258)
+
+[node name="Cone" type="Sprite2D" parent="."]
+position = Vector2(-320, -54)
+scale = Vector2(2, 2)
+texture = ExtResource("4_ul0q3")
+
+[node name="Cone2" type="Sprite2D" parent="."]
+position = Vector2(-256, -55)
+scale = Vector2(2, 2)
+texture = ExtResource("4_ul0q3")
+
+[node name="Cone3" type="Sprite2D" parent="."]
+position = Vector2(-287, -110)
+scale = Vector2(2, 2)
+texture = ExtResource("4_ul0q3")
