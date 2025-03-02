@@ -9,6 +9,7 @@
 script = ExtResource("1_7miqs")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["PlayerVehicle"]]
+collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 polygon = PackedVector2Array(-929, -25, -969, 648, 2942, 671, 89604, 3993, 24114, -4310, 2564, -66, 1155, -34)
