@@ -5,7 +5,6 @@
 
 [node name="PlayerVehicle" type="RigidBody2D" groups=["PlayerVehicle"]]
 collision_mask = 2
-mass = 500.0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["PlayerVehicle"]]
 position = Vector2(-14, -119)
@@ -17,7 +16,6 @@ node_a = NodePath("..")
 node_b = NodePath("wheel")
 
 [node name="wheel" parent="WheelAxle2" instance=ExtResource("1_k7eev")]
-mass = 20.0
 
 [node name="Car" type="Sprite2D" parent="."]
 position = Vector2(53, -327)
@@ -31,4 +29,3 @@ node_a = NodePath("..")
 node_b = NodePath("wheel1")
 
 [node name="wheel1" parent="WheelAxle" instance=ExtResource("1_k7eev")]
-mass = 20.0

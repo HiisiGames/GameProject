@@ -25,6 +25,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="HiabGameProject"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/rmsmartshape/plugin.cfg")
+
 [input]
 
 Break={
