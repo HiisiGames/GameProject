@@ -14,6 +14,7 @@ polygon = PackedVector2Array(-4, -223, -124, -222, -120, -67, -109, 53, 236, 55,
 position = Vector2(-75, -62)
 node_a = NodePath("..")
 node_b = NodePath("wheel")
+softness = 2.0
 
 [node name="wheel" parent="WheelAxle2" instance=ExtResource("1_k7eev")]
 
@@ -27,5 +28,6 @@ flip_h = true
 position = Vector2(171, -62)
 node_a = NodePath("..")
 node_b = NodePath("wheel1")
+softness = 2.0
 
 [node name="wheel1" parent="WheelAxle" instance=ExtResource("1_k7eev")]
