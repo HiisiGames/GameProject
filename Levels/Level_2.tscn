@@ -1,5 +1,6 @@
-[gd_scene load_steps=65 format=3 uid="uid://dncq1ipsb2d74"]
+[gd_scene load_steps=66 format=3 uid="uid://dncq1ipsb2d74"]
 
+[ext_resource type="PackedScene" uid="uid://bisp2fp0w4eew" path="res://Scenes/parallax.tscn" id="1_7xvb4"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape_closed.gd" id="1_gsjns"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/vertex_properties.gd" id="2_40myg"]
 [ext_resource type="Script" path="res://Scripts/Car.cs" id="2_42ddi"]
@@ -7,7 +8,7 @@
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="4_mebif"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="5_y48ty"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="6_bks42"]
-[ext_resource type="Texture2D" uid="uid://cp42on0yhq3qt" path="res://Arts/GroundTopPixel_01.png" id="7_fwb1c"]
+[ext_resource type="Texture2D" uid="uid://dkf3au663nwth" path="res://Arts/Ground_Top.png" id="7_kpstd"]
 [ext_resource type="PackedScene" uid="uid://bll2isp8qp7uv" path="res://Scenes/RigidBodyScene.tscn" id="7_s0odn"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material.gd" id="7_vi6a3"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="9_0du10"]
@@ -351,7 +352,7 @@ curve_bake_interval = 20.0
 
 [sub_resource type="Resource" id="Resource_36t1m"]
 script = ExtResource("7_vi6a3")
-textures = Array[Texture2D]([ExtResource("7_fwb1c")])
+textures = Array[Texture2D]([ExtResource("7_kpstd")])
 textures_corner_outer = Array[Texture2D]([])
 textures_corner_inner = Array[Texture2D]([])
 textures_taper_left = Array[Texture2D]([])
@@ -414,12 +415,16 @@ collision_polygon_node_path = NodePath("../CollisionPolygon2D")
 modulate = Color(1, 1, 1, 0.3)
 polygon = PackedVector2Array(-1004.78, 88.5165, -171.433, 107.461, 720.9, 105.945, 1476.57, 27.4614, 2340.57, 75.4614, 3357.61, -31.346, 3940.57, -255.563, 4685.56, -138.641, 5268.57, 187.461, 6020.57, 187.461, 7444.57, 11.4614, 8660.57, -36.5386, 9796.57, -292.539, 10884.6, -292.539, 10580.6, 635.461, 6564.57, 683.461, 4788.57, 635.461, 3152.46, 639.125, 2443.69, 639.125, 1011.88, 634.368, -96.4567, 601.071, -1013.96, 558.877, -1004.78, 88.5165)
 
+[node name="Parallax" parent="." instance=ExtResource("1_7xvb4")]
+position = Vector2(100, -200)
+
 [node name="PlayerVehicle" parent="." instance=ExtResource("7_s0odn")]
 position = Vector2(242, -323)
 script = ExtResource("2_42ddi")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerVehicle"]
 position = Vector2(5, -227)
+zoom = Vector2(0.2, 0.2)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 collision_layer = 2
