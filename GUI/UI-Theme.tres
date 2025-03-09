@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d83pc62edyya"]
+
+[ext_resource type="FontFile" uid="uid://byjiufyrlwd5d" path="res://Fonts/PIXY.otf" id="1_d13se"]
+
+[resource]
+default_font = ExtResource("1_d13se")
+default_font_size = 16
+VBoxContainer/constants/separation = 20
