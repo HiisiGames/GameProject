@@ -4,17 +4,25 @@
 [ext_resource type="Texture2D" uid="uid://cblsqso7n501b" path="res://Arts/basemoffett.png" id="2_xsalh"]
 
 [node name="PlayerVehicle" type="RigidBody2D" groups=["PlayerVehicle"]]
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["PlayerVehicle"]]
 position = Vector2(-14, -119)
 polygon = PackedVector2Array(-4, -223, -124, -222, -120, -67, -109, 53, 236, 55, 238, -22, 180, -39, 87, -42, 88, -234)
 
-[node name="WheelAxle2" type="PinJoint2D" parent="."]
-position = Vector2(-75, -62)
+[node name="GrooveJoint2D" type="GrooveJoint2D" parent="."]
+position = Vector2(-61, -60)
 node_a = NodePath("..")
-node_b = NodePath("wheel")
+node_b = NodePath("WheelAxle2/wheel")
+length = 10.0
+initial_offset = 1.0
 
-[node name="wheel" parent="WheelAxle2" instance=ExtResource("1_k7eev")]
+[node name="WheelAxle2" type="PinJoint2D" parent="GrooveJoint2D"]
+node_a = NodePath("../..")
+node_b = NodePath("wheel")
+softness = 2.0
+
+[node name="wheel" parent="GrooveJoint2D/WheelAxle2" instance=ExtResource("1_k7eev")]
 
 [node name="Car" type="Sprite2D" parent="."]
 position = Vector2(53, -327)
@@ -22,9 +30,16 @@ scale = Vector2(5, 5)
 texture = ExtResource("2_xsalh")
 flip_h = true
 
-[node name="WheelAxle" type="PinJoint2D" parent="."]
-position = Vector2(171, -62)
+[node name="GrooveJoint2D2" type="GrooveJoint2D" parent="."]
+position = Vector2(163, -60)
 node_a = NodePath("..")
-node_b = NodePath("wheel1")
+node_b = NodePath("WheelAxle/wheel1")
+length = 10.0
+initial_offset = 1.0
 
-[node name="wheel1" parent="WheelAxle" instance=ExtResource("1_k7eev")]
+[node name="WheelAxle" type="PinJoint2D" parent="GrooveJoint2D2"]
+node_a = NodePath("../..")
+node_b = NodePath("wheel1")
+softness = 2.0
+
+[node name="wheel1" parent="GrooveJoint2D2/WheelAxle" instance=ExtResource("1_k7eev")]
