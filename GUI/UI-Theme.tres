@@ -5,4 +5,7 @@
 [resource]
 default_font = ExtResource("1_d13se")
 default_font_size = 16
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/styles/normal = null
+Button/styles/pressed = null
 VBoxContainer/constants/separation = 20

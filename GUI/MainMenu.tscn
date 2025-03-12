@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm36tlcqd87lp"]
+[gd_scene load_steps=8 format=3 uid="uid://bm36tlcqd87lp"]
 
 [ext_resource type="FontFile" uid="uid://byjiufyrlwd5d" path="res://Fonts/PIXY.otf" id="1_2l0y2"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_llnjy"]
 [ext_resource type="Theme" uid="uid://d83pc62edyya" path="res://GUI/UI-Theme.tres" id="2_4a8vh"]
+[ext_resource type="Texture2D" uid="uid://begnjfqnf47i1" path="res://Arts/background1.png" id="2_qgr4f"]
+[ext_resource type="Texture2D" uid="uid://bo4xjg6sd36xm" path="res://Arts/UI/Play_Button.png" id="5_o5m2v"]
+[ext_resource type="Texture2D" uid="uid://i35fsqa60abe" path="res://Arts/UI/Options_Button.png" id="6_8wr0u"]
+[ext_resource type="Texture2D" uid="uid://da1o1gxblsx31" path="res://Arts/UI/Credits_Button.png" id="7_upn6s"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,35 +15,55 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_llnjy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(498, 351)
+scale = Vector2(3, 4)
+texture = ExtResource("2_qgr4f")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -121.0
-offset_top = 132.0
-offset_right = 148.0
-offset_bottom = 166.0
+offset_left = -107.0
+offset_top = 317.0
+offset_right = 162.0
+offset_bottom = 351.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_2l0y2")
 theme_override_font_sizes/font_size = 32
 text = "Don't Fork It Up"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="PlayButton" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 437.0
+offset_top = 410.0
+offset_right = 501.0
+offset_bottom = 442.0
+scale = Vector2(3, 3)
+theme = ExtResource("2_4a8vh")
+texture_normal = ExtResource("5_o5m2v")
+stretch_mode = 6
+
+[node name="SettingsButton" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 682.0
+offset_top = 409.0
+offset_right = 746.0
+offset_bottom = 441.0
+scale = Vector2(3, 3)
+theme = ExtResource("2_4a8vh")
+texture_normal = ExtResource("6_8wr0u")
+stretch_mode = 5
+metadata/_edit_group_ = true
+
+[node name="CreditsButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 465.0
-offset_top = 226.0
-offset_right = 625.0
-offset_bottom = 252.0
-script = ExtResource("1_llnjy")
-
-[node name="PlayButton" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_4a8vh")
-text = "Play"
-
-[node name="SettingsButton" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_4a8vh")
-text = "Settings"
+offset_left = 186.0
+offset_top = 409.0
+offset_right = 250.0
+offset_bottom = 441.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("7_upn6s")
