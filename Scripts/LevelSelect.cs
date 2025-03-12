@@ -7,7 +7,7 @@ namespace TruckGame
 	public partial class LevelSelect : Node
 	{
 		[Export] private string _mainMenuScenePath = "res://GUI/MainMenu.tscn";
-		[Export] private string _level1ScenePath = "res://Levels/level_1.tscn";
+		[Export] private string _level1ScenePath = "res://Levels/Level_2.tscn";
 		[Export] private string _level2ScenePath = "";
 		[Export] private string _level3ScenePath = "";
 		private Button _selectBack;

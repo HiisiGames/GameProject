@@ -3,10 +3,10 @@
 [ext_resource type="FontFile" uid="uid://byjiufyrlwd5d" path="res://Fonts/PIXY.otf" id="1_2l0y2"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_llnjy"]
 [ext_resource type="Theme" uid="uid://d83pc62edyya" path="res://GUI/UI-Theme.tres" id="2_4a8vh"]
-[ext_resource type="Texture2D" uid="uid://begnjfqnf47i1" path="res://Arts/background1.png" id="2_qgr4f"]
+[ext_resource type="Texture2D" uid="uid://bgs3h7t8e3m05" path="res://Arts/background1.png" id="2_qgr4f"]
 [ext_resource type="Texture2D" uid="uid://bo4xjg6sd36xm" path="res://Arts/UI/Play_Button.png" id="5_o5m2v"]
 [ext_resource type="Texture2D" uid="uid://i35fsqa60abe" path="res://Arts/UI/Options_Button.png" id="6_8wr0u"]
-[ext_resource type="Texture2D" uid="uid://da1o1gxblsx31" path="res://Arts/UI/Credits_Button.png" id="7_upn6s"]
+[ext_resource type="Texture2D" uid="uid://c2y7onrh0b2at" path="res://Arts/UI/Credits_Button.png" id="7_upn6s"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
