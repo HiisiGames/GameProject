@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2mobulw8fxsw"]
+
+[ext_resource type="Script" path="res://Scripts/LevelSelect.cs" id="1_fcwep"]
+[ext_resource type="Theme" uid="uid://d83pc62edyya" path="res://GUI/UI-Theme.tres" id="2_t146k"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fcwep")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Press to go back."
+
+[node name="Level1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 360.0
+offset_right = 341.0
+offset_bottom = 391.0
+theme = ExtResource("2_t146k")
+text = "Level 1"
+
+[node name="Level2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 360.0
+offset_right = 559.0
+offset_bottom = 391.0
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 685.0
+offset_top = 360.0
+offset_right = 751.0
+offset_bottom = 391.0
+text = "Level 3"

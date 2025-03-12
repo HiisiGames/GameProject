@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="HiabGameProject"
-run/main_scene="res://Levels/level_1.tscn"
+run/main_scene="res://GUI/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
 config/icon="res://icon.svg"
 
@@ -45,3 +45,4 @@ Accelerate={
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

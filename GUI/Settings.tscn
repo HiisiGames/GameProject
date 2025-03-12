@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp86dwsi2po36"]
+
+[ext_resource type="Script" path="res://Scripts/Settings.cs" id="1_18u8v"]
+[ext_resource type="Texture2D" uid="uid://bgs3h7t8e3m05" path="res://Arts/background1.png" id="2_871h4"]
+
+[node name="Panel" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_18u8v")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Press to go back."
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 187.0
+offset_top = 127.0
+offset_right = 195.0
+offset_bottom = 143.0
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 67.0
+offset_right = 533.0
+offset_bottom = 98.0
+text = "Mute"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(478, 453)
+texture = ExtResource("2_871h4")
