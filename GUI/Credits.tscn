@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs1xnu1baisak"]
+
+[ext_resource type="Theme" uid="uid://d83pc62edyya" path="res://GUI/UI-Theme.tres" id="1_o3030"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 149.0
+offset_bottom = 373.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+offset_right = 1066.0
+offset_bottom = 591.0
+theme = ExtResource("1_o3030")
+text = "Don't Fork it up!
+
+Team: HiisiGames
+
+Programmers:
+Henri 
+Juuso
+
+Artists:
+Aleksi
+Sofia
+
+Collaborators: 
+HIAB
+TAMK
+
+Font:
+PIXY"

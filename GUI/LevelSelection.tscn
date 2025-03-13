@@ -16,29 +16,33 @@ script = ExtResource("1_fcwep")
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
+scale = Vector2(3, 3)
 text = "Press to go back."
 
 [node name="Level1" type="Button" parent="."]
 layout_mode = 0
-offset_left = 275.0
-offset_top = 360.0
-offset_right = 341.0
-offset_bottom = 391.0
+offset_left = 461.0
+offset_top = 495.0
+offset_right = 529.0
+offset_bottom = 526.0
+scale = Vector2(3, 3)
 theme = ExtResource("2_t146k")
 text = "Level 1"
 
 [node name="Level2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 493.0
-offset_top = 360.0
-offset_right = 559.0
-offset_bottom = 391.0
+offset_left = 861.0
+offset_top = 495.0
+offset_right = 927.0
+offset_bottom = 526.0
+scale = Vector2(3, 3)
 text = "Level 2"
 
 [node name="Level3" type="Button" parent="."]
 layout_mode = 0
-offset_left = 685.0
-offset_top = 360.0
-offset_right = 751.0
-offset_bottom = 391.0
+offset_left = 1275.0
+offset_top = 495.0
+offset_right = 1341.0
+offset_bottom = 526.0
+scale = Vector2(3, 3)
 text = "Level 3"

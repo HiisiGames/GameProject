@@ -21,16 +21,7 @@ namespace TruckGame
 		}
 		private void OnBackButtonPressed()
 		{
-			PackedScene selectBackButton = ResourceLoader.Load<PackedScene>(_mainMenuScenePath);
-			if ( selectBackButton != null)
-			{
-				GetTree().ChangeSceneToPacked(selectBackButton);
-			}
-			else
-			{
-				GD.Print("Main menu scene not found");
-			}
-
+			this.QueueFree();
 		}
 	}
 }

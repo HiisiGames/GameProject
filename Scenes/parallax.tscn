@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bisp2fp0w4eew"]
+[gd_scene load_steps=2 format=3 uid="uid://ym4xcutuael1"]
 
-[ext_resource type="Texture2D" uid="uid://c3pjw650fhpw3" path="res://Arts/City_Black.png" id="1_f5wln"]
+[ext_resource type="Texture2D" uid="uid://ne7yym77i8c1" path="res://Arts/City_Black.png" id="1_f5wln"]
 
 [node name="Parallax" type="Node2D"]
 

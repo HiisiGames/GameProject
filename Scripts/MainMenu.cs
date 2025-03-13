@@ -7,11 +7,11 @@ namespace TruckGame
 	{
 		[Export] private string _levelScenePath = "res://GUI/LevelSelection.tscn";
 		[Export] private string _settingsScenePath = "res://GUI/Settings.tscn";
+		[Export] private string _creditsScenePath = "res://GUI/Credits.tscn";
 		private TextureButton _selectPlay;
 		private TextureButton _selectSettings;
 		private TextureButton _selectCredits;
 		private PackedScene _selectSettingsScene;
-		private Panel _settingsPanel;
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
@@ -36,7 +36,8 @@ namespace TruckGame
 			if (selectLevelScene != null)
 			{
 				GetTree().ChangeSceneToPacked(selectLevelScene);
-			} else
+			}
+			else
 			{
 				GD.Print("Level selection scene not found");
 			}
@@ -46,21 +47,24 @@ namespace TruckGame
 
 			if (_selectSettingsScene != null)
 			{
-				_settingsPanel = (Panel)_selectSettingsScene.Instantiate();
-				AddChild(_settingsPanel);
-			} else {
+				Node settingsPanel = _selectSettingsScene.Instantiate();
+				AddChild(settingsPanel);
+			}
+			else
+			{
 				GD.Print("Settings scene not found");
 			}
 		}
 		private void OnCreditsPressed()
 		{
-			PackedScene selectLevelScene = ResourceLoader.Load<PackedScene>(_levelScenePath);
-			if (selectLevelScene != null)
+			PackedScene selectCreditsScene = ResourceLoader.Load<PackedScene>(_creditsScenePath);
+			if (selectCreditsScene != null)
 			{
-				GetTree().ChangeSceneToPacked(selectLevelScene);
-			} else
+				GetTree().ChangeSceneToPacked(selectCreditsScene);
+			}
+			else
 			{
-				GD.Print("Level selection scene not found");
+				GD.Print("credits scene scene not found");
 			}
 		}
 	}
