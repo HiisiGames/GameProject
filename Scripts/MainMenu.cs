@@ -48,6 +48,7 @@ namespace TruckGame
 			if (_selectSettingsScene != null)
 			{
 				Node settingsPanel = _selectSettingsScene.Instantiate();
+				settingsPanel.Name = "SettingsPanel";
 				AddChild(settingsPanel);
 			}
 			else

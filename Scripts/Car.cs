@@ -27,11 +27,11 @@ namespace TruckGame
 		}
 		public override void _PhysicsProcess(double delta)
 		{
-			movementForward((float)delta);
-			movementBackward((float)delta);
+			MovementForward((float)delta);
+			MovementBackward((float)delta);
 		}
 
-		public void movementForward(float delta)
+		public void MovementForward(float delta)
 		// Make two different methods, one for gas and one for brake
 		{
 			//D
@@ -52,8 +52,7 @@ namespace TruckGame
 				}
 			}
 		}
-		public void movementBackward(float delta)
-		// Make two different methods, one for gas and one for brake
+		public void MovementBackward(float delta)
 		{
 			//A
 			if (Input.IsActionPressed("Break"))
