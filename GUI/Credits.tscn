@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cs1xnu1baisak"]
+[gd_scene load_steps=3 format=3 uid="uid://cs1xnu1baisak"]
 
 [ext_resource type="Theme" uid="uid://d83pc62edyya" path="res://GUI/UI-Theme.tres" id="1_o3030"]
+[ext_resource type="Script" path="res://Scripts/Credits.cs" id="1_pvprw"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -9,11 +10,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pvprw")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 149.0
-offset_bottom = 373.0
+offset_left = 445.0
+offset_top = 159.0
+offset_right = 1538.0
+offset_bottom = 1030.0
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
@@ -38,3 +42,9 @@ TAMK
 
 Font:
 PIXY"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "BACK"

@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dttsx40cfx2l3"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1569.0
+offset_top = 137.0
+offset_right = 1639.0
+offset_bottom = 168.0
+scale = Vector2(2, 2)
+text = "Settings"
+
+[node name="GasButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1537.0
+offset_top = 835.0
+offset_right = 1587.0
+offset_bottom = 866.0
+scale = Vector2(3, 3)
+text = "Gas"
+
+[node name="BrakeButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 835.0
+offset_right = 250.0
+offset_bottom = 866.0
+scale = Vector2(3, 3)
+text = "Brake"
