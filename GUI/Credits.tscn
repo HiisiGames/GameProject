@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs1xnu1baisak"]
+[gd_scene load_steps=2 format=3 uid="uid://cs1xnu1baisak"]
 
-[ext_resource type="Theme" uid="uid://d83pc62edyya" path="res://GUI/UI-Theme.tres" id="1_o3030"]
 [ext_resource type="Script" path="res://Scripts/Credits.cs" id="1_pvprw"]
 
 [node name="Control" type="Control"]
@@ -14,19 +13,19 @@ script = ExtResource("1_pvprw")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 445.0
-offset_top = 159.0
-offset_right = 1538.0
-offset_bottom = 1030.0
+offset_left = 264.0
+offset_top = 166.0
+offset_right = 1617.0
+offset_bottom = 929.0
 
 [node name="Label" type="Label" parent="Panel"]
-layout_mode = 1
-offset_right = 1066.0
-offset_bottom = 591.0
-theme = ExtResource("1_o3030")
-text = "Don't Fork it up!
-
-Team: HiisiGames
+layout_mode = 0
+offset_left = 526.0
+offset_top = 58.0
+offset_right = 735.0
+offset_bottom = 471.0
+scale = Vector2(2, 2)
+text = "Team: HiisiGames
 
 Programmers:
 Henri 
@@ -40,8 +39,7 @@ Collaborators:
 HIAB
 TAMK
 
-Font:
-PIXY"
+"
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0

@@ -67,3 +67,12 @@ offset_right = 604.0
 offset_bottom = 693.0
 scale = Vector2(3, 3)
 texture_normal = ExtResource("7_upn6s")
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1669.0
+offset_top = 40.0
+offset_right = 1756.0
+offset_bottom = 71.0
+scale = Vector2(2, 2)
+text = "Exit Game"

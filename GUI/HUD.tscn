@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/HUDSettings.cs" id="1_ltner"]
 [ext_resource type="Texture2D" uid="uid://i35fsqa60abe" path="res://Arts/UI/Options_Button.png" id="1_oh2do"]
-[ext_resource type="Texture2D" uid="uid://bch3413w4w2ah" path="res://Arts/UI/PlaceHolderButton.png" id="1_tdsxc"]
+[ext_resource type="Texture2D" uid="uid://8yyvt0rwnhy6" path="res://Arts/UI/Gas pedal.png" id="3_1rnpd"]
 
 [node name="Control" type="CanvasLayer"]
 
@@ -23,13 +23,13 @@ scale = Vector2(4, 4)
 texture_normal = ExtResource("1_oh2do")
 
 [node name="BrakeButton" type="TouchScreenButton" parent="Control"]
-position = Vector2(232, 766)
-scale = Vector2(10, 10)
-texture_normal = ExtResource("1_tdsxc")
+position = Vector2(221, 709)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_1rnpd")
 action = "Break"
 
 [node name="GasButton" type="TouchScreenButton" parent="Control"]
-position = Vector2(1525, 766)
-scale = Vector2(10, 10)
-texture_normal = ExtResource("1_tdsxc")
+position = Vector2(1488, 709)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_1rnpd")
 action = "Accelerate"

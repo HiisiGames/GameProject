@@ -12,6 +12,7 @@ namespace TruckGame
 		private TextureButton _selectSettings;
 		private TextureButton _selectCredits;
 		private PackedScene _selectSettingsScene;
+		private Button _selectQuit;
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
@@ -20,10 +21,12 @@ namespace TruckGame
 			_selectPlay = GetNode<TextureButton>("PlayButton");
 			_selectSettings = GetNode<TextureButton>("SettingsButton");
 			_selectCredits = GetNode<TextureButton>("CreditsButton");
+			_selectQuit = GetNode<Button>("QuitButton");
 
 			_selectPlay.Pressed += OnPlayPressed;
 			_selectSettings.Pressed += OnSettingsPressed;
 			_selectCredits.Pressed += OnCreditsPressed;
+			_selectQuit.Pressed += OnQuitButtonPressed;
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -67,6 +70,11 @@ namespace TruckGame
 			{
 				GD.Print("credits scene scene not found");
 			}
+		}
+
+		private void OnQuitButtonPressed()
+		{
+			GetTree().Quit(); // This code seems to work only on pc
 		}
 	}
 }
