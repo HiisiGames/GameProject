@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dttsx40cfx2l3"]
+[gd_scene load_steps=6 format=3 uid="uid://dttsx40cfx2l3"]
 
+[ext_resource type="Script" path="res://Scripts/GameTime.cs" id="1_ahngx"]
 [ext_resource type="Script" path="res://Scripts/HUDSettings.cs" id="1_ltner"]
-[ext_resource type="Texture2D" uid="uid://i35fsqa60abe" path="res://Arts/UI/Options_Button.png" id="1_oh2do"]
-[ext_resource type="Texture2D" uid="uid://8yyvt0rwnhy6" path="res://Arts/UI/Gas pedal.png" id="3_1rnpd"]
+[ext_resource type="Texture2D" uid="uid://cx7lwxha8h0iw" path="res://Arts/UI/Pause_Icon.png" id="3_5o70f"]
+[ext_resource type="Texture2D" uid="uid://bsgvl62gomnbt" path="res://Arts/UI/Gas_pedal_Right.png" id="3_jfmud"]
+[ext_resource type="Texture2D" uid="uid://dds7ervwyabep" path="res://Arts/UI/Gas_pedal_Left.png" id="3_r2ehh"]
 
-[node name="Control" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_ahngx")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -16,20 +19,29 @@ script = ExtResource("1_ltner")
 [node name="SettingsButton" type="TextureButton" parent="Control"]
 layout_mode = 0
 offset_left = 1488.0
-offset_top = 102.0
+offset_top = 40.0
 offset_right = 1552.0
-offset_bottom = 134.0
+offset_bottom = 72.0
 scale = Vector2(4, 4)
-texture_normal = ExtResource("1_oh2do")
+texture_normal = ExtResource("3_5o70f")
+stretch_mode = 3
 
 [node name="BrakeButton" type="TouchScreenButton" parent="Control"]
 position = Vector2(221, 709)
 scale = Vector2(2, 2)
-texture_normal = ExtResource("3_1rnpd")
+texture_normal = ExtResource("3_r2ehh")
 action = "Break"
 
 [node name="GasButton" type="TouchScreenButton" parent="Control"]
 position = Vector2(1488, 709)
 scale = Vector2(2, 2)
-texture_normal = ExtResource("3_1rnpd")
+texture_normal = ExtResource("3_jfmud")
 action = "Accelerate"
+
+[node name="GameTime" type="Label" parent="."]
+offset_left = 835.0
+offset_top = 66.0
+offset_right = 885.0
+offset_bottom = 89.0
+scale = Vector2(3, 3)
+text = "Timer"

@@ -13,6 +13,7 @@ namespace TruckGame
 		private TextureButton _selectCredits;
 		private PackedScene _selectSettingsScene;
 		private Button _selectQuit;
+
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
@@ -33,7 +34,7 @@ namespace TruckGame
 		public override void _Process(double delta)
 		{
 		}
-		private void OnPlayPressed()
+		private void OnPlayPressed() // This will let the user to the level selection scene
 		{
 			PackedScene selectLevelScene = ResourceLoader.Load<PackedScene>(_levelScenePath);
 			if (selectLevelScene != null)
@@ -45,7 +46,7 @@ namespace TruckGame
 				GD.Print("Level selection scene not found");
 			}
 		}
-		private void OnSettingsPressed()
+		private void OnSettingsPressed() // This will bring settings to the user after pressing settings button
 		{
 
 			if (_selectSettingsScene != null)
@@ -59,7 +60,7 @@ namespace TruckGame
 				GD.Print("Settings scene not found");
 			}
 		}
-		private void OnCreditsPressed()
+		private void OnCreditsPressed() // this brings player to the credits scene
 		{
 			PackedScene selectCreditsScene = ResourceLoader.Load<PackedScene>(_creditsScenePath);
 			if (selectCreditsScene != null)
@@ -72,7 +73,7 @@ namespace TruckGame
 			}
 		}
 
-		private void OnQuitButtonPressed()
+		private void OnQuitButtonPressed() // this will quit the game
 		{
 			GetTree().Quit(); // This code seems to work only on pc
 		}

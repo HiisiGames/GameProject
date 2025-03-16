@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bp86dwsi2po36"]
+[gd_scene load_steps=4 format=3 uid="uid://bp86dwsi2po36"]
 
 [ext_resource type="Script" path="res://Scripts/Settings.cs" id="1_18u8v"]
+[ext_resource type="Texture2D" uid="uid://ce8s1v1x5vwhg" path="res://Arts/UI/Home_Icon.png" id="2_nmt4u"]
+[ext_resource type="Texture2D" uid="uid://bo1d2rwckjtco" path="res://Arts/UI/Restart_Icon.png" id="3_1dcpd"]
 
 [node name="Panel" type="Panel"]
-offset_left = 154.0
-offset_top = 175.0
-offset_right = 1741.0
-offset_bottom = 957.0
+offset_left = 156.0
+offset_top = 121.0
+offset_right = 1743.0
+offset_bottom = 903.0
 script = ExtResource("1_18u8v")
 
 [node name="HSlider" type="HSlider" parent="."]
@@ -82,3 +84,21 @@ offset_right = 1424.0
 offset_bottom = 35.0
 scale = Vector2(2, 2)
 text = "Lvl Select"
+
+[node name="MainMenuButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1122.0
+offset_right = 1182.0
+offset_bottom = 34.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_nmt4u")
+stretch_mode = 3
+
+[node name="RestartButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 748.0
+offset_top = 668.0
+offset_right = 788.0
+offset_bottom = 708.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_1dcpd")

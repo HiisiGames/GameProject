@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8yyvt0rwnhy6"
-path="res://.godot/imported/Gas pedal.png-1b1a5d5067adc9c08a660fc0a08251c4.ctex"
+uid="uid://bo1d2rwckjtco"
+path="res://.godot/imported/Restart_Icon.png-a6d006dca2410a888f15f75ab4da4e87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arts/UI/Gas pedal.png"
-dest_files=["res://.godot/imported/Gas pedal.png-1b1a5d5067adc9c08a660fc0a08251c4.ctex"]
+source_file="res://Arts/UI/Restart_Icon.png"
+dest_files=["res://.godot/imported/Restart_Icon.png-a6d006dca2410a888f15f75ab4da4e87.ctex"]
 
 [params]
 
