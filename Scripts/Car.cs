@@ -27,10 +27,32 @@ namespace TruckGame
 		}
 		public override void _PhysicsProcess(double delta)
 		{
-			_Movement((float)delta);
+			MovementForward((float)delta);
+			MovementBackward((float)delta);
 		}
 
-		public void _Movement(float delta)
+		public void MovementForward(float delta)
+		// Make two different methods, one for gas and one for brake
+		{
+			//D
+			if (Input.IsActionPressed("Accelerate"))
+			{
+				foreach (Node wheelNode in WheelArray)
+				{
+					GD.Print("Accel 1 ");
+					if (wheelNode is RigidBody2D wheel)
+					{
+						GD.Print("Accel 2");
+						if (wheel.AngularVelocity < _maxSpeed)
+						{
+							GD.Print("Accel toimii");
+							wheel.ApplyTorqueImpulse(_speed * (float)delta);
+						}
+					}
+				}
+			}
+		}
+		public void MovementBackward(float delta)
 		{
 			//A
 			if (Input.IsActionPressed("Break"))
@@ -45,24 +67,6 @@ namespace TruckGame
 						{
 							GD.Print("break toimii");
 							wheel.ApplyTorqueImpulse(-_speed * (float)delta);
-						}
-					}
-				}
-			}
-
-			//D
-			if (Input.IsActionPressed("Accelerate"))
-			{
-				foreach (Node wheelNode in WheelArray)
-				{
-					GD.Print("Accel 1 ");
-					if (wheelNode is RigidBody2D wheel)
-					{
-						GD.Print("Accel 2");
-						if (wheel.AngularVelocity < _maxSpeed)
-						{
-							GD.Print("Accel toimii");
-							wheel.ApplyTorqueImpulse(_speed * (float)delta);
 						}
 					}
 				}
