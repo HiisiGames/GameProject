@@ -1,10 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://ym4xcutuael1"]
+[gd_scene load_steps=2 format=3 uid="uid://bisp2fp0w4eew"]
 
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://xxkudc1xsk4e" path="res://Arts/background4X.png" id="1_0u2jm"]
-=======
-[ext_resource type="Texture2D" uid="uid://ne7yym77i8c1" path="res://Arts/City_Black.png" id="1_f5wln"]
->>>>>>> 4e540a5ec8396fda8647029bb8223939ba1bd3b5
 
 [node name="Parallax" type="Parallax2D"]
 
