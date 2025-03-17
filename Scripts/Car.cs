@@ -2,6 +2,9 @@ using Godot;
 using System;
 using Godot.Collections;
 
+
+//TODO: Change acceleration mechanism from torqueimpulse
+
 namespace TruckGame
 {
 	public partial class Car : RigidBody2D

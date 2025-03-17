@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmih6r5dvrcae"]
+
+[ext_resource type="Texture2D" uid="uid://b32dsixxlvhxh" path="res://Arts/steelbeam.png" id="1_qoq45"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbodd"]
+size = Vector2(486, 46)
+
+[node name="Beam" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 152)
+scale = Vector2(4, 4)
+texture = ExtResource("1_qoq45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_pbodd")
