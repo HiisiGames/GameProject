@@ -39,40 +39,39 @@ text = "Don't Fork It Up"
 
 [node name="PlayButton" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = 853.0
-offset_top = 661.0
-offset_right = 917.0
-offset_bottom = 693.0
-scale = Vector2(3, 3)
+offset_left = 689.0
+offset_top = 612.0
+offset_right = 753.0
+offset_bottom = 644.0
+scale = Vector2(8, 8)
 theme = ExtResource("2_4a8vh")
 texture_normal = ExtResource("5_o5m2v")
 stretch_mode = 6
 
 [node name="SettingsButton" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = 1161.0
+offset_left = 1283.0
 offset_top = 661.0
-offset_right = 1225.0
+offset_right = 1347.0
 offset_bottom = 693.0
-scale = Vector2(3, 3)
+scale = Vector2(5, 5)
 theme = ExtResource("2_4a8vh")
 texture_normal = ExtResource("6_8wr0u")
 stretch_mode = 5
 
 [node name="CreditsButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 540.0
+offset_left = 289.0
 offset_top = 661.0
-offset_right = 604.0
+offset_right = 353.0
 offset_bottom = 693.0
-scale = Vector2(3, 3)
+scale = Vector2(5, 5)
 texture_normal = ExtResource("7_upn6s")
 
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1669.0
-offset_top = 40.0
-offset_right = 1756.0
-offset_bottom = 71.0
-scale = Vector2(2, 2)
+offset_left = 1545.0
+offset_right = 1632.0
+offset_bottom = 31.0
+scale = Vector2(4, 4)
 text = "Exit Game"
