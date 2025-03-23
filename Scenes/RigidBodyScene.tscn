@@ -14,16 +14,9 @@ polygon = PackedVector2Array(-4, -223, -124, -222, -120, -67, -109, 53, 236, 55,
 [node name="GrooveJoint2D" type="GrooveJoint2D" parent="."]
 position = Vector2(-61, -60)
 node_a = NodePath("..")
-node_b = NodePath("WheelAxle2/wheel")
+node_b = NodePath("../wheel")
 length = 10.0
 initial_offset = 1.0
-
-[node name="WheelAxle2" type="PinJoint2D" parent="GrooveJoint2D"]
-node_a = NodePath("../..")
-node_b = NodePath("wheel")
-softness = 2.0
-
-[node name="wheel" parent="GrooveJoint2D/WheelAxle2" instance=ExtResource("1_k7eev")]
 
 [node name="Car" type="Sprite2D" parent="."]
 position = Vector2(53, -327)
@@ -34,16 +27,9 @@ flip_h = true
 [node name="GrooveJoint2D2" type="GrooveJoint2D" parent="."]
 position = Vector2(163, -60)
 node_a = NodePath("..")
-node_b = NodePath("WheelAxle/wheel1")
+node_b = NodePath("../wheel1")
 length = 10.0
 initial_offset = 1.0
-
-[node name="WheelAxle" type="PinJoint2D" parent="GrooveJoint2D2"]
-node_a = NodePath("../..")
-node_b = NodePath("wheel1")
-softness = 2.0
-
-[node name="wheel1" parent="GrooveJoint2D2/WheelAxle" instance=ExtResource("1_k7eev")]
 
 [node name="CollisionDetector" type="Area2D" parent="."]
 collision_layer = 64
@@ -52,3 +38,21 @@ script = ExtResource("3_jt5f1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionDetector"]
 polygon = PackedVector2Array(-124, -82, -142, -343, 74, -350, 75, -143, 218, -141, 217, -82)
+
+[node name="WheelAxle" type="PinJoint2D" parent="."]
+position = Vector2(163, -60)
+node_a = NodePath("..")
+node_b = NodePath("../wheel1")
+softness = 2.0
+
+[node name="WheelAxle2" type="PinJoint2D" parent="."]
+position = Vector2(-61, -60)
+node_a = NodePath("..")
+node_b = NodePath("../wheel")
+softness = 2.0
+
+[node name="wheel" parent="." instance=ExtResource("1_k7eev")]
+position = Vector2(-61, -60)
+
+[node name="wheel1" parent="." instance=ExtResource("1_k7eev")]
+position = Vector2(163, -60)
