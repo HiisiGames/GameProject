@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/HUDSettings.cs" id="1_ltner"]
 [ext_resource type="Texture2D" uid="uid://cx7lwxha8h0iw" path="res://Arts/UI/Pause_Icon.png" id="3_5o70f"]
 [ext_resource type="Texture2D" uid="uid://bsgvl62gomnbt" path="res://Arts/UI/Gas_pedal_Right.png" id="3_jfmud"]
-[ext_resource type="Texture2D" uid="uid://dds7ervwyabep" path="res://Arts/UI/Gas_pedal_Left.png" id="3_r2ehh"]
+[ext_resource type="Texture2D" uid="uid://cks6ix6ykq4ym" path="res://Arts/pedal.png" id="4_uqh3m"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_ahngx")
@@ -27,8 +27,7 @@ stretch_mode = 3
 
 [node name="BrakeButton" type="TouchScreenButton" parent="Control"]
 position = Vector2(221, 709)
-scale = Vector2(2, 2)
-texture_normal = ExtResource("3_r2ehh")
+texture_normal = ExtResource("4_uqh3m")
 action = "Break"
 
 [node name="GasButton" type="TouchScreenButton" parent="Control"]

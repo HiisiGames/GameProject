@@ -13,9 +13,9 @@ script = ExtResource("1_18u8v")
 
 [node name="HSlider" type="HSlider" parent="."]
 layout_mode = 0
-offset_left = 501.0
-offset_top = 132.0
-offset_right = 711.0
+offset_left = 307.0
+offset_top = 142.0
+offset_right = 593.0
 offset_bottom = 193.0
 scale = Vector2(3, 3)
 
@@ -25,10 +25,10 @@ scale = Vector2(4, 6)
 
 [node name="HSlider2" type="HSlider" parent="."]
 layout_mode = 0
-offset_left = 501.0
-offset_top = 353.0
-offset_right = 711.0
-offset_bottom = 414.0
+offset_left = 307.0
+offset_top = 404.0
+offset_right = 599.0
+offset_bottom = 461.0
 scale = Vector2(3, 3)
 
 [node name="Label2" type="Label" parent="."]
@@ -40,15 +40,6 @@ offset_bottom = 338.0
 scale = Vector2(3, 3)
 text = "Music"
 
-[node name="CheckBox2" type="CheckBox" parent="."]
-layout_mode = 0
-offset_left = 234.0
-offset_top = 395.0
-offset_right = 321.0
-offset_bottom = 452.0
-scale = Vector2(2, 2)
-text = "Mute"
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 555.0
@@ -57,15 +48,6 @@ offset_right = 661.0
 offset_bottom = 66.0
 scale = Vector2(3, 3)
 text = "Sound effects"
-
-[node name="CheckBox" type="CheckBox" parent="."]
-layout_mode = 0
-offset_left = 234.0
-offset_top = 159.0
-offset_right = 326.0
-offset_bottom = 224.0
-scale = Vector2(2, 2)
-text = "Mute"
 
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
@@ -76,19 +58,10 @@ offset_bottom = 36.0
 scale = Vector2(3, 3)
 text = "Back"
 
-[node name="LevelButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1342.0
-offset_top = 2.0
-offset_right = 1422.0
-offset_bottom = 33.0
-scale = Vector2(3, 3)
-text = "Lvl Select"
-
 [node name="MainMenuButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 1122.0
-offset_right = 1182.0
+offset_left = 1404.0
+offset_right = 1464.0
 offset_bottom = 34.0
 scale = Vector2(3, 3)
 texture_normal = ExtResource("2_nmt4u")
@@ -96,9 +69,9 @@ stretch_mode = 3
 
 [node name="RestartButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 692.0
-offset_top = 580.0
-offset_right = 725.0
-offset_bottom = 612.0
+offset_left = 697.0
+offset_top = 605.0
+offset_right = 730.0
+offset_bottom = 637.0
 scale = Vector2(5, 5)
 texture_normal = ExtResource("3_1dcpd")
