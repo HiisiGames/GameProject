@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bll2isp8qp7uv"]
+[gd_scene load_steps=4 format=3 uid="uid://bll2isp8qp7uv"]
 
 [ext_resource type="PackedScene" uid="uid://dq6ors8r4ybjs" path="res://Scenes/Wheel.tscn" id="1_k7eev"]
 [ext_resource type="Texture2D" uid="uid://cblsqso7n501b" path="res://Arts/basemoffett.png" id="2_xsalh"]
+[ext_resource type="Script" path="res://Scripts/CollisionDetector.cs" id="3_jt5f1"]
 
 [node name="PlayerVehicle" type="RigidBody2D" groups=["PlayerVehicle"]]
 collision_mask = 2
@@ -43,3 +44,11 @@ node_b = NodePath("wheel1")
 softness = 2.0
 
 [node name="wheel1" parent="GrooveJoint2D2/WheelAxle" instance=ExtResource("1_k7eev")]
+
+[node name="CollisionDetector" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 6
+script = ExtResource("3_jt5f1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionDetector"]
+polygon = PackedVector2Array(-124, -82, -142, -343, 74, -350, 75, -143, 218, -141, 217, -82)

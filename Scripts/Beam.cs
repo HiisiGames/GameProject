@@ -4,7 +4,6 @@ using TruckGame;
 
 public partial class Beam : RigidBody2D
 {
-	// Called when the node enters the scene tree for the first time.
 	private TriggerZone _triggerZone;
 	private bool Triggered = false;
 	public override void _Ready()
@@ -29,17 +28,20 @@ public partial class Beam : RigidBody2D
 			Freeze = false;
 			GD.Print($"Setting beam freeze state");
 			GD.Print($"Beam freeze state: {this.Freeze}");
+			Triggered = false;
 		}
 	}
+	
+	//Listens to TriggerZone's BodyEntered signal and sets the boolean Triggered to true, which causes the Freeze property to be set to false.
 	public void OnTriggerZoneBodyEntered(Node node) 
 		{	
 			GD.Print("Vehicle entered the trigger zone");
 			if(node is RigidBody2D vehicle)
 			{
 				GD.Print("Vehicle is RigidBody2D");
-					GD.Print($"Beam freeze state: {this.Freeze}");
-					Triggered = true;
-					GD.Print($"Trigger activated");
+				GD.Print($"Beam freeze state: {this.Freeze}");
+				Triggered = true;
+				GD.Print($"Trigger activated");
 			}
 	}
 }
