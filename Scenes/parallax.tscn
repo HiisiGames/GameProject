@@ -1,14 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ym4xcutuael1"]
+[gd_scene load_steps=2 format=3 uid="uid://bisp2fp0w4eew"]
 
-[ext_resource type="Texture2D" uid="uid://ne7yym77i8c1" path="res://Arts/City_Black.png" id="1_f5wln"]
+[ext_resource type="Texture2D" uid="uid://xxkudc1xsk4e" path="res://Arts/background4X.png" id="1_0u2jm"]
 
-[node name="Parallax" type="Node2D"]
+[node name="Parallax" type="Parallax2D"]
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.1, 0)
-repeat_size = Vector2(480, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
-scale = Vector2(2, 2)
-texture = ExtResource("1_f5wln")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -1200)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_0u2jm")
 centered = false
