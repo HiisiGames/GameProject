@@ -9,7 +9,7 @@ namespace TruckGame
         private Vector2 _forceVector;
         private Vector2 _directionVector;
         [Export]
-        private float _force = 10.0f;
+        private float _force = 5.0f;
         public override void _Ready()
         {
             GD.Print($"Wrecking Ball global position: {this.GlobalPosition}");
@@ -17,8 +17,9 @@ namespace TruckGame
             _localForcePosition = ToLocal(GlobalForcePosition);
             GD.Print($"Ball global position: {GlobalForcePosition}");
             GD.Print($"Ball local position: {_localForcePosition}");
-            _directionVector = new Vector2(100, 0);
+            _directionVector = new Vector2(10, 0);
             _forceVector = _directionVector * _force;
+            //RotationDegrees = 90.0f;
             
 
             //this.ApplyForce(_force, _localForcePosition);
@@ -28,21 +29,27 @@ namespace TruckGame
         {
             base._PhysicsProcess(delta);
             //this.ApplyForce(_forceVector, _localForcePosition);
-            MoveWreckingBall((float)delta);
+            //MoveWreckingBall((float)delta);
         }
         public void MoveWreckingBall(float delta)
         {
-            if(_localForcePosition.X < 400)
+            GD.Print(_localForcePosition);
+            //bool MovingRight = false;
+            if(_localForcePosition.X > 200)
             {
-                _directionVector = new Vector2(-100, 0);
+                //MovingRight = true;
+                _directionVector = new Vector2(10, 0);
                 _forceVector = _directionVector * _force;
-                this.ApplyImpulse(_forceVector, _localForcePosition);
+                //this.ApplyForce(_forceVector, _localForcePosition);
+                GD.Print("Moving left");
             }
             else
             {
-                _directionVector = new Vector2(100, 0);
+                //MovingRight = false;
+                _directionVector = new Vector2(-10, 0);
                 _forceVector = _directionVector * _force;
-                 this.ApplyImpulse(_forceVector , _localForcePosition);
+                this.ApplyForce(_forceVector , _localForcePosition);
+                GD.Print("Moving right");
             }
         }
     }
