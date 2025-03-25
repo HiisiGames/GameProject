@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck8lye1f51dta"]
+
+[ext_resource type="Texture2D" uid="uid://dd45gr05msasw" path="res://Arts/tusktech.png" id="1_j0c7k"]
+
+[node name="Container" type="Sprite2D"]
+texture = ExtResource("1_j0c7k")

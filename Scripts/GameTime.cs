@@ -16,6 +16,7 @@ namespace TruckGame
 		[Export] private float _thirdStar = 30;
 		private float _totalTime;
 
+
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{

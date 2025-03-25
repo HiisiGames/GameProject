@@ -2,6 +2,9 @@ using Godot;
 using System;
 using Godot.Collections;
 
+
+//TODO: Change acceleration mechanism from torqueimpulse
+
 namespace TruckGame
 {
 	public partial class Car : RigidBody2D
@@ -27,6 +30,7 @@ namespace TruckGame
 		}
 		public override void _PhysicsProcess(double delta)
 		{
+			base._PhysicsProcess(delta);
 			MovementForward((float)delta);
 			MovementBackward((float)delta);
 		}
@@ -39,13 +43,13 @@ namespace TruckGame
 			{
 				foreach (Node wheelNode in WheelArray)
 				{
-					GD.Print("Accel 1 ");
+					//GD.Print("Accel 1 ");
 					if (wheelNode is RigidBody2D wheel)
 					{
-						GD.Print("Accel 2");
+						//GD.Print("Accel 2");
 						if (wheel.AngularVelocity < _maxSpeed)
 						{
-							GD.Print("Accel toimii");
+							//GD.Print("Accel toimii");
 							wheel.ApplyTorqueImpulse(_speed * (float)delta);
 						}
 					}
@@ -57,15 +61,15 @@ namespace TruckGame
 			//A
 			if (Input.IsActionPressed("Break"))
 			{
-				GD.Print("break 1");
+				//GD.Print("break 1");
 				foreach (Node wheelNode in WheelArray)
 				{
-					GD.Print("break 2");
+					//GD.Print("break 2");
 					if (wheelNode is RigidBody2D wheel)
 					{
 						if (wheel.AngularVelocity > -_maxSpeed)
 						{
-							GD.Print("break toimii");
+							//GD.Print("break toimii");
 							wheel.ApplyTorqueImpulse(-_speed * (float)delta);
 						}
 					}
