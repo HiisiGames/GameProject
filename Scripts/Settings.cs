@@ -15,14 +15,14 @@ namespace TruckGame
 		public override void _Ready()
 		{
 			_selectBack = GetNode<Button>("BackButton");
-			_selectLevel = GetNode<Button>("LevelButton");
+			
 			_selectMainMenu = GetNode<TextureButton>("MainMenuButton");
 			_selectRestart = GetNode<TextureButton>("RestartButton");
 
 			CheckScene();
 
 			_selectBack.Pressed += OnBackButtonPressed;
-			_selectLevel.Pressed += OnLevelButtonPressed;
+			
 			_selectMainMenu.Pressed += OnMainMenuPressed;
 			_selectRestart.Pressed += OnRestartPressed;
 
@@ -36,7 +36,7 @@ namespace TruckGame
 		{
 			this.QueueFree();
 		}
-		private void OnLevelButtonPressed() // This will bring the user back to level selection
+		/*private void OnLevelButtonPressed() // This will bring the user back to level selection
 		{
 			PackedScene selectLevelScene = ResourceLoader.Load<PackedScene>(_levelScenePath);
 			if (selectLevelScene != null)
@@ -47,7 +47,7 @@ namespace TruckGame
 			{
 				GD.Print("Level selection scene not found");
 			}
-		}
+		}*/
 
 		private void OnMainMenuPressed() // Goes back to main menu
 		{
@@ -84,7 +84,7 @@ namespace TruckGame
 
 			if (currentScene.SceneFilePath == "res://GUI/MainMenu.tscn")
 			{
-				_selectLevel.Visible = false;
+				
 				_selectMainMenu.Visible = false;
 				_selectRestart.Visible = false;
 			}
