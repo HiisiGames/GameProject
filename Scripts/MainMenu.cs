@@ -81,5 +81,12 @@ namespace TruckGame
 		{
 			GetTree().Quit(); // This code seems to work only on pc
 		}
+
+		public bool SettingsOpen
+		{
+			get { return _settingsOpen; }
+
+			set { _settingsOpen = value; }
+		}
 	}
 }
