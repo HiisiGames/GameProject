@@ -1,4 +1,5 @@
 using Godot;
+using GodotPlugins.Game;
 using System;
 
 namespace TruckGame
@@ -8,21 +9,22 @@ namespace TruckGame
 		[Export] private string _mainMenuScenePath = "res://GUI/MainMenu.tscn";
 		[Export] private string _levelScenePath = "res://GUI/LevelSelection.tscn";
 		private Button _selectBack;
-		// private Button _selectLevel;
 		private TextureButton _selectMainMenu;
 		private TextureButton _selectRestart;
+		public MainMenu _mainMenuFile;
+		public bool _settingsOpen = false;
+
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
+			_mainMenuFile = GetNode<MainMenu>("res://GUI/MainMenu");
 			_selectBack = GetNode<Button>("BackButton");
-			// _selectLevel = GetNode<Button>("LevelButton");
 			_selectMainMenu = GetNode<TextureButton>("MainMenuButton");
 			_selectRestart = GetNode<TextureButton>("RestartButton");
 
 			CheckScene();
 
 			_selectBack.Pressed += OnBackButtonPressed;
-			// _selectLevel.Pressed += OnLevelButtonPressed; deleted. Redundant
 			_selectMainMenu.Pressed += OnMainMenuPressed;
 			_selectRestart.Pressed += OnRestartPressed;
 
@@ -35,19 +37,8 @@ namespace TruckGame
 		private void OnBackButtonPressed()
 		{
 			this.QueueFree();
+			_mainMenuFile.SettingsOpen = false;
 		}
-		// private void OnLevelButtonPressed() // This will bring the user back to level selection
-		// {
-		// 	PackedScene selectLevelScene = ResourceLoader.Load<PackedScene>(_levelScenePath);
-		// 	if (selectLevelScene != null)
-		// 	{
-		// 		GetTree().ChangeSceneToPacked(selectLevelScene);
-		// 	}
-		// 	else
-		// 	{
-		// 		GD.Print("Level selection scene not found");
-		// 	}
-		// }
 
 		private void OnMainMenuPressed() // Goes back to main menu
 		{
@@ -75,25 +66,26 @@ namespace TruckGame
 			}
 		}
 
-
-
-
 		private void CheckScene() // This will hide the specific buttons from the main menu
 		{
 			Node currentScene = GetTree().CurrentScene;
 
 			if (currentScene.SceneFilePath == "res://GUI/MainMenu.tscn")
 			{
-				// _selectLevel.Visible = false;
 				_selectMainMenu.Visible = false;
 				_selectRestart.Visible = false;
 			}
 			// else THIS IS NOT NEEDED, FOR CLARITY ONLY
 			// {
-			// 	_selectLevel.Visible = true;
 			// 	_selectMainMenu.Visible = true;
 			// }
 
+		}
+		public bool SettingsOpen
+		{
+			get { return _settingsOpen; }
+
+			set { _settingsOpen = value; }
 		}
 
 	}

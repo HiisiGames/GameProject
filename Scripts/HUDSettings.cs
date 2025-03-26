@@ -9,6 +9,7 @@ namespace TruckGame
 		[Export] private string _settingsScenePath = "res://GUI/Settings.tscn";
 		private TextureButton _selectSettings;
 		private PackedScene _selectSettingsScene;
+		public bool _isSettingsOpen = false;
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
@@ -24,19 +25,38 @@ namespace TruckGame
 		{
 
 		}
-		private void OnSettingsPressed()
+		// private void OnSettingsPressed()
+		// {
+
+		// 	if (_selectSettingsScene != null)
+		// 	{
+		// 		Node settingsPanel = _selectSettingsScene.Instantiate();
+		// 		AddChild(settingsPanel);
+		// 		GD.Print("Settings works");
+		// 	}
+		// 	else
+		// 	{
+		// 		GD.Print("Settings scene not found");
+		// 	}
+		// }
+		private void OnSettingsPressed() // This will bring settings to the user after pressing settings button
 		{
 
-			if (_selectSettingsScene != null)
+			if (!_isSettingsOpen)
 			{
-				Node settingsPanel = _selectSettingsScene.Instantiate();
-				AddChild(settingsPanel);
-				GD.Print("Settings works");
-			}
-			else
-			{
-				GD.Print("Settings scene not found");
+				if (_selectSettingsScene != null)
+				{
+					Node settingsPanel = _selectSettingsScene.Instantiate();
+					settingsPanel.Name = "SettingsPanel";
+					AddChild(settingsPanel);
+					_isSettingsOpen = true;
+				}
+				else
+				{
+					GD.Print("Settings scene not found");
+				}
 			}
 		}
+
 	}
 }
