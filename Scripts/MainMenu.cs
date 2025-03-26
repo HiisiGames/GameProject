@@ -13,7 +13,6 @@ namespace TruckGame
 		private TextureButton _selectCredits;
 		private PackedScene _selectSettingsScene;
 		private Button _selectQuit;
-		private bool _settingsOpen = false;
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
@@ -54,9 +53,6 @@ namespace TruckGame
 					Node settingsPanel = _selectSettingsScene.Instantiate();
 					settingsPanel.Name = "SettingsPanel";
 					AddChild(settingsPanel);
-
-					_settingsOpen = true;
-
 				}
 				else
 				{
@@ -79,14 +75,7 @@ namespace TruckGame
 
 		private void OnQuitButtonPressed() // this will quit the game
 		{
-			GetTree().Quit(); // This code seems to work only on pc
-		}
-
-		public bool SettingsOpen
-		{
-			get { return _settingsOpen; }
-
-			set { _settingsOpen = value; }
+			GetTree().Quit(); // Exits the game with the press of a button
 		}
 	}
 }

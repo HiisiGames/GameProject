@@ -4,12 +4,12 @@
 [ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_llnjy"]
 [ext_resource type="Theme" uid="uid://d83pc62edyya" path="res://GUI/UI-Theme.tres" id="2_4a8vh"]
 [ext_resource type="Texture2D" uid="uid://bgs3h7t8e3m05" path="res://Arts/background1.png" id="2_qgr4f"]
-[ext_resource type="Texture2D" uid="uid://cgft1ct765iiu" path="res://Arts/UI/PlayV2.png" id="5_jgkxy"]
-[ext_resource type="Texture2D" uid="uid://ddffgne1eyyj0" path="res://Arts/UI/Play_PressedV2.png" id="6_ik8xe"]
-[ext_resource type="Texture2D" uid="uid://bdmr5u32ta24i" path="res://Arts/UI/OptionsV2.png" id="7_0s36d"]
-[ext_resource type="Texture2D" uid="uid://ca4uv0qngal7g" path="res://Arts/UI/Options_PressedV2.png" id="8_mdhle"]
-[ext_resource type="Texture2D" uid="uid://cmlraorfmef5v" path="res://Arts/UI/CreditsV2.png" id="9_1m18h"]
-[ext_resource type="Texture2D" uid="uid://d3cq1706b6hbu" path="res://Arts/UI/Credits_PressedV2.png" id="10_k0lax"]
+[ext_resource type="Texture2D" uid="uid://crqrhdk6tpjyo" path="res://Arts/UI/PlayV2.png" id="5_jgkxy"]
+[ext_resource type="Texture2D" uid="uid://dwqbi6vmmyrr0" path="res://Arts/UI/Play_PressedV2.png" id="6_ik8xe"]
+[ext_resource type="Texture2D" uid="uid://bnsfrx75u8guv" path="res://Arts/UI/OptionsV2.png" id="7_0s36d"]
+[ext_resource type="Texture2D" uid="uid://da4mjbqld3mlf" path="res://Arts/UI/Options_PressedV2.png" id="8_mdhle"]
+[ext_resource type="Texture2D" uid="uid://cg55wj1d5bitu" path="res://Arts/UI/CreditsV2.png" id="9_1m18h"]
+[ext_resource type="Texture2D" uid="uid://chqhg62ybtq75" path="res://Arts/UI/Credits_PressedV2.png" id="10_k0lax"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
