@@ -1,6 +1,8 @@
 using Godot;
 using System;
 
+namespace TruckGame
+{
 public partial class Level1 : Node2D
 {
 	// Called when the node enters the scene tree for the first time.
@@ -12,4 +14,5 @@ public partial class Level1 : Node2D
 	public override void _Process(double delta)
 	{
 	}
+}
 }

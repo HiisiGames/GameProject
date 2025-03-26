@@ -23,7 +23,7 @@ namespace TruckGame
 			_selectRestart = GetNode<TextureButton>("RestartButton");
 			_selectResume = GetNode<TextureButton>("ResumeButton");
 
-			CheckScene();
+			CheckScene(); // Checks if current scene is main menu
 
 			_selectBack.Pressed += OnBackButtonPressed;
 			_selectMainMenu.Pressed += OnMainMenuPressed;
