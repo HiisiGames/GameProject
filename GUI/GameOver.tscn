@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://cfcnqxyvi88so"]
+
+[ext_resource type="Script" path="res://Scripts/GameOver.cs" id="1_5mdmg"]
+[ext_resource type="Texture2D" uid="uid://bsns3t0f7cj5v" path="res://Arts/UI/Restart_ButtonV2.png" id="1_gsnml"]
+[ext_resource type="Texture2D" uid="uid://c7o5lhpqtvnrj" path="res://Arts/UI/Restart_PressedV2.png" id="2_8bq5n"]
+[ext_resource type="Texture2D" uid="uid://db3wruogyq6wk" path="res://Arts/UI/options_background.png" id="2_wqkfl"]
+[ext_resource type="Texture2D" uid="uid://cm3x25vhpoi12" path="res://Arts/UI/Home_ButtonV2.png" id="3_28phx"]
+[ext_resource type="Texture2D" uid="uid://dpob7ofs07jqh" path="res://Arts/UI/Home_PressedV2.png" id="4_vf0co"]
+[ext_resource type="Texture2D" uid="uid://d1i4sj4nwnamh" path="res://Arts/UI/Continue_ButtonV2.png" id="5_e4g4q"]
+[ext_resource type="Texture2D" uid="uid://c1q21dd6nkf7w" path="res://Arts/UI/Continue_PressedV2.png" id="6_0fqrv"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+process_mode = 3
+offset_left = 251.0
+offset_top = 162.0
+offset_right = 1593.0
+offset_bottom = 916.0
+script = ExtResource("1_5mdmg")
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(645.5, 414.5)
+scale = Vector2(2.97461, 3.54102)
+texture = ExtResource("2_wqkfl")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 500.0
+offset_top = 296.0
+offset_right = 587.0
+offset_bottom = 319.0
+scale = Vector2(3, 3)
+text = "Game Over"
+
+[node name="ContinueButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 843.0
+offset_top = 517.0
+offset_right = 907.0
+offset_bottom = 581.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("5_e4g4q")
+texture_pressed = ExtResource("6_0fqrv")
+
+[node name="MainMenuButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 517.0
+offset_right = 301.0
+offset_bottom = 581.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("3_28phx")
+texture_pressed = ExtResource("4_vf0co")
+
+[node name="RestartButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 517.0
+offset_right = 605.0
+offset_bottom = 581.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_gsnml")
+texture_pressed = ExtResource("2_8bq5n")

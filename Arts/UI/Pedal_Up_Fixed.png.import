@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cf6si2t21raiu"
-path="res://.godot/imported/moffettproto.png-41eca9df513c882914f245f959dd1620.ctex"
+uid="uid://bsrrmm8ctl75p"
+path="res://.godot/imported/Pedal_Up_Fixed.png-9adf5100ce5a41968c97871ba0f5df60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arts/moffettproto.png"
-dest_files=["res://.godot/imported/moffettproto.png-41eca9df513c882914f245f959dd1620.ctex"]
+source_file="res://Arts/UI/Pedal_Up_Fixed.png"
+dest_files=["res://.godot/imported/Pedal_Up_Fixed.png-9adf5100ce5a41968c97871ba0f5df60.ctex"]
 
 [params]
 

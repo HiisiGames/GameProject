@@ -24,19 +24,21 @@ namespace TruckGame
 		{
 
 		}
-		private void OnSettingsPressed()
+		private void OnSettingsPressed() // This will bring settings to the user after pressing settings button
 		{
-
-			if (_selectSettingsScene != null)
 			{
-				Node settingsPanel = _selectSettingsScene.Instantiate();
-				AddChild(settingsPanel);
-				GD.Print("Settings works");
-			}
-			else
-			{
-				GD.Print("Settings scene not found");
+				if (_selectSettingsScene != null)
+				{
+					Node settingsPanel = _selectSettingsScene.Instantiate();
+					settingsPanel.Name = "SettingsPanel";
+					AddChild(settingsPanel);
+				}
+				else
+				{
+					GD.Print("Settings scene not found");
+				}
 			}
 		}
+
 	}
 }

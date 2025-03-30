@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bryhb3xwq1x68"
-path="res://.godot/imported/SimpleCarBody.png-7096df833a9eb0b1ecaa0b98d4313431.ctex"
+uid="uid://cks6ix6ykq4ym"
+path="res://.godot/imported/pedal.png-a6f5f2e78db4c390869d920f1269fe49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arts/SimpleCarBody.png"
-dest_files=["res://.godot/imported/SimpleCarBody.png-7096df833a9eb0b1ecaa0b98d4313431.ctex"]
+source_file="res://Arts/pedal.png"
+dest_files=["res://.godot/imported/pedal.png-a6f5f2e78db4c390869d920f1269fe49.ctex"]
 
 [params]
 

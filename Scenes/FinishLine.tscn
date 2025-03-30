@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://diqjr880hh081"]
+[gd_scene load_steps=3 format=3 uid="uid://b110f0cgvvtva"]
+
+[ext_resource type="Script" path="res://Scripts/FinishLine.cs" id="1_4qrun"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_verhm"]
 size = Vector2(158, 167)
 
 [node name="FinishLine" type="Area2D"]
+collision_layer = 255
+collision_mask = 255
+script = ExtResource("1_4qrun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(42, 7.5)
