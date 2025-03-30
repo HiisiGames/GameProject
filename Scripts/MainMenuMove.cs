@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace SnakeGame
+namespace TruckGame
 {
 	public partial class MainMenuMove : Sprite2D
 	{

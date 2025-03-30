@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bch3413w4w2ah"
-path="res://.godot/imported/PlaceHolderButton.png-8090554c989bf157a8dd9ce6212ee792.ctex"
+uid="uid://7ac3qiolq4kf"
+path="res://.godot/imported/wheel1.png-a09a87a87c4a85726b1c976d884ee27d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arts/UI/PlaceHolderButton.png"
-dest_files=["res://.godot/imported/PlaceHolderButton.png-8090554c989bf157a8dd9ce6212ee792.ctex"]
+source_file="res://Arts/wheel1.png"
+dest_files=["res://.godot/imported/wheel1.png-a09a87a87c4a85726b1c976d884ee27d.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i35fsqa60abe"
-path="res://.godot/imported/Options_Button.png-d26aa67b5f0ab34fedd2bc214f072117.ctex"
+uid="uid://d4di648qls1n3"
+path="res://.godot/imported/Return_Arrow.png-7c7799e57702e3488a1a31b3ace986bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arts/UI/Options_Button.png"
-dest_files=["res://.godot/imported/Options_Button.png-d26aa67b5f0ab34fedd2bc214f072117.ctex"]
+source_file="res://Arts/UI/Return_Arrow.png"
+dest_files=["res://.godot/imported/Return_Arrow.png-7c7799e57702e3488a1a31b3ace986bc.ctex"]
 
 [params]
 

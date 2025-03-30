@@ -4,41 +4,33 @@ using System;
 
 namespace TruckGame
 {
-	public partial class Settings : Node
+	public partial class GameOver : Node
 	{
 		[Export] private string _mainMenuScenePath = "res://GUI/MainMenu.tscn";
 		[Export] private string _levelScenePath = "res://GUI/LevelSelection.tscn";
-		private TextureButton _selectBack;
 		private TextureButton _selectMainMenu;
 		private TextureButton _selectRestart;
 		private TextureButton _selectResume;
-		public MainMenu _mainMenuFile;
-		public bool _settingsOpen = false;
 
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
-			_selectBack = GetNode<TextureButton>("BackButton");
+
 			_selectMainMenu = GetNode<TextureButton>("MainMenuButton");
 			_selectRestart = GetNode<TextureButton>("RestartButton");
-			_selectResume = GetNode<TextureButton>("ResumeButton");
+			_selectResume = GetNode<TextureButton>("ContinueButton");
 
 			CheckScene(); // Checks if current scene is main menu
 
-			_selectBack.Pressed += OnBackButtonPressed;
 			_selectMainMenu.Pressed += OnMainMenuPressed;
 			_selectRestart.Pressed += OnRestartPressed;
-			_selectResume.Pressed += OnResumePressed;
+			_selectResume.Pressed += OnContinuePressed;
 
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
 		public override void _Process(double delta)
 		{
-		}
-		private void OnBackButtonPressed() // deletes settings instance. In user eyes it just closes it
-		{
-			this.QueueFree();
 		}
 
 		private void OnMainMenuPressed() // Goes back to main menu
@@ -56,7 +48,6 @@ namespace TruckGame
 		}
 		private void OnRestartPressed()
 		{
-			// PackedScene selectRestartButton = ResourceLoader.Load<PackedScene>(_levelScenePath);
 			Node currentScene = GetTree().CurrentScene;
 			if (currentScene != null)
 			{
@@ -75,22 +66,26 @@ namespace TruckGame
 
 			if (currentScene.SceneFilePath == "res://GUI/MainMenu.tscn")
 			{
-				_selectMainMenu.Visible = false;
-				_selectRestart.Visible = false;
-				_selectBack.Visible = true;
-				_selectResume.Visible = false;
+
 			}
 			else
 			{
-				_selectMainMenu.Visible = true;
-				_selectBack.Visible = false;
 				GetTree().Paused = true;
 			}
 		}
-		private void OnResumePressed()
+		private void OnContinuePressed()
 		{
-			GetTree().Paused = false;
-			this.QueueFree();
+			PackedScene selectLevelButton = ResourceLoader.Load<PackedScene>(_levelScenePath);
+			if (selectLevelButton != null)
+			{
+				GetTree().Paused = false;
+				GetTree().ChangeSceneToPacked(selectLevelButton);
+			}
+			else
+			{
+				GD.Print("Main menu scene not found");
+			}
+
 		}
 
 

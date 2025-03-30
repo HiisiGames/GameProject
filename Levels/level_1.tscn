@@ -1,9 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6jvfjhxwg0si"]
+[gd_scene load_steps=11 format=3 uid="uid://b6jvfjhxwg0si"]
 
 [ext_resource type="Script" path="res://Scripts/Level1.cs" id="1_7miqs"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape.gd" id="2_7bvm0"]
 [ext_resource type="PackedScene" uid="uid://bll2isp8qp7uv" path="res://Scenes/RigidBodyScene.tscn" id="2_bimpj"]
 [ext_resource type="Script" path="res://Scripts/Car.cs" id="3_7d6np"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="3_d6b07"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="4_q0lio"]
 [ext_resource type="Texture2D" uid="uid://b3k1pv6xnfv02" path="res://Arts/cone.png" id="4_ul0q3"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="5_lvol6"]
+
+[sub_resource type="Resource" id="Resource_4qyms"]
+script = ExtResource("3_d6b07")
+_points = {}
+_point_order = PackedInt32Array()
+_constraints = {}
+_next_key = 0
+_material_overrides = {}
+tessellation_stages = 3
+tessellation_tolerance = 6.0
+curve_bake_interval = 20.0
+
+[sub_resource type="Resource" id="Resource_ry6iu"]
+script = ExtResource("5_lvol6")
+_edge_meta_materials = Array[ExtResource("4_q0lio")]([])
+fill_textures = Array[Texture2D]([])
+fill_texture_z_index = -10
+fill_texture_show_behind_parent = false
+fill_texture_scale = 1.0
+fill_texture_absolute_position = false
+fill_texture_absolute_rotation = false
+fill_texture_offset = Vector2(0, 0)
+fill_texture_angle_offset = 0.0
+fill_mesh_offset = 0.0
+render_offset = 0.0
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_7miqs")
@@ -12,7 +41,12 @@ script = ExtResource("1_7miqs")
 collision_layer = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-929, -25, -969, 648, 2942, 671, 89604, 3993, 24114, -4310, 2564, -66, 1155, -34)
+polygon = PackedVector2Array(-15090, -183, -3186, 14857, 16517, 14423, 43068, 14469, 59662, -631, 39104, -760, 3067, 48)
+
+[node name="SS2D_Shape" type="Node2D" parent="StaticBody2D"]
+script = ExtResource("2_7bvm0")
+_points = SubResource("Resource_4qyms")
+shape_material = SubResource("Resource_ry6iu")
 
 [node name="PlayerVehicle" parent="." instance=ExtResource("2_bimpj")]
 position = Vector2(254, -170)

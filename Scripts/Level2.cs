@@ -6,8 +6,9 @@ namespace TruckGame
     public partial class Level2 : Node2D
     {
         CollisionDetector _collisionDetector;
-        public override void _Ready() 
+        public override void _Ready()
         {
+
             _collisionDetector = GetNode<CollisionDetector>("/root/Level2/PlayerVehicle/CollisionDetector");
             if(_collisionDetector == null)
             {
@@ -26,7 +27,6 @@ namespace TruckGame
         }
         private void PauseGame()
         {
-            
             GetTree().Paused = true;
             GD.Print(".Paused was set to true");
         }
