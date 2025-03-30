@@ -41,7 +41,7 @@ namespace TruckGame
 				GD.Print("Collided with the finish line");
 				GD.Print("Game won");
 
-				if (_selectLevelCompleteScene != null)
+				if (_selectLevelCompleteScene != null) // This brings up the level complete scene
 				{
 					Node LevelCompletePanel = _selectLevelCompleteScene.Instantiate();
 					LevelCompletePanel.Name = "LevelCompletePanel";

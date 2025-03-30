@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cefsf77w722l0"]
+[gd_scene load_steps=10 format=3 uid="uid://cefsf77w722l0"]
 
+[ext_resource type="Script" path="res://Scripts/LevelCompleteTime.cs" id="1_mv11h"]
 [ext_resource type="Script" path="res://Scripts/LevelComplete.cs" id="1_qvlmb"]
 [ext_resource type="Texture2D" uid="uid://d1i4sj4nwnamh" path="res://Arts/UI/Continue_ButtonV2.png" id="1_uyv4u"]
+[ext_resource type="Texture2D" uid="uid://db3wruogyq6wk" path="res://Arts/UI/options_background.png" id="2_5kkg0"]
 [ext_resource type="Texture2D" uid="uid://c1q21dd6nkf7w" path="res://Arts/UI/Continue_PressedV2.png" id="2_tglbm"]
 [ext_resource type="Texture2D" uid="uid://cm3x25vhpoi12" path="res://Arts/UI/Home_ButtonV2.png" id="4_vf4w3"]
 [ext_resource type="Texture2D" uid="uid://dpob7ofs07jqh" path="res://Arts/UI/Home_PressedV2.png" id="5_u2v0g"]
@@ -9,51 +11,66 @@
 [ext_resource type="Texture2D" uid="uid://c7o5lhpqtvnrj" path="res://Arts/UI/Restart_PressedV2.png" id="7_wg8ai"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_mv11h")
 
 [node name="LevelComplete" type="Panel" parent="."]
 process_mode = 3
-offset_left = 307.0
-offset_top = 152.0
-offset_right = 1596.0
-offset_bottom = 889.0
+offset_left = 342.0
+offset_top = 173.0
+offset_right = 1631.0
+offset_bottom = 910.0
 script = ExtResource("1_qvlmb")
+
+[node name="Sprite2D" type="Sprite2D" parent="LevelComplete"]
+position = Vector2(613, 380)
+scale = Vector2(2.79297, 3.59375)
+texture = ExtResource("2_5kkg0")
+
+[node name="RestartButton" type="TextureButton" parent="LevelComplete"]
+layout_mode = 0
+offset_left = 887.0
+offset_top = 451.0
+offset_right = 951.0
+offset_bottom = 515.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("6_nep8s")
+texture_pressed = ExtResource("7_wg8ai")
 
 [node name="ContinueButton" type="TextureButton" parent="LevelComplete"]
 layout_mode = 0
-offset_left = 842.0
-offset_top = 454.0
-offset_right = 906.0
-offset_bottom = 518.0
+offset_left = 509.0
+offset_top = 450.0
+offset_right = 573.0
+offset_bottom = 514.0
 scale = Vector2(4, 4)
 texture_normal = ExtResource("1_uyv4u")
 texture_pressed = ExtResource("2_tglbm")
 
 [node name="RichTextLabel" type="Label" parent="LevelComplete"]
 layout_mode = 0
-offset_left = 519.0
-offset_top = 182.0
-offset_right = 667.0
-offset_bottom = 257.0
+offset_left = 405.0
+offset_top = 21.0
+offset_right = 553.0
+offset_bottom = 96.0
+scale = Vector2(3, 3)
 text = " Congratulations!
 
   Level complete"
 
 [node name="MainMenuButton" type="TextureButton" parent="LevelComplete"]
 layout_mode = 0
-offset_left = 84.0
-offset_top = 433.0
-offset_right = 148.0
-offset_bottom = 497.0
+offset_left = 118.0
+offset_top = 450.0
+offset_right = 182.0
+offset_bottom = 514.0
 scale = Vector2(4, 4)
 texture_normal = ExtResource("4_vf4w3")
 texture_pressed = ExtResource("5_u2v0g")
 
-[node name="RestartButton" type="TextureButton" parent="LevelComplete"]
-layout_mode = 0
-offset_left = 481.0
-offset_top = 450.0
-offset_right = 545.0
-offset_bottom = 514.0
-scale = Vector2(4, 4)
-texture_normal = ExtResource("6_nep8s")
-texture_pressed = ExtResource("7_wg8ai")
+[node name="TimeInTheEnd" type="Label" parent="."]
+offset_left = 486.0
+offset_top = 350.0
+offset_right = 536.0
+offset_bottom = 373.0
+scale = Vector2(2, 2)
+text = "Timer:"

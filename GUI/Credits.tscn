@@ -17,14 +17,14 @@ position = Vector2(960, 540)
 scale = Vector2(1, 1.5)
 texture = ExtResource("2_p2aav")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Programmers" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 415.0
-offset_top = 281.0
-offset_right = 763.0
-offset_bottom = 543.0
+offset_left = 271.0
+offset_top = 377.0
+offset_right = 619.0
+offset_bottom = 639.0
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="Programmers"]
 layout_mode = 0
 offset_right = 180.0
 offset_bottom = 133.0
@@ -41,7 +41,7 @@ offset_bottom = 40.0
 scale = Vector2(3, 3)
 text = "BACK"
 
-[node name="Panel2" type="Panel" parent="."]
+[node name="Header" type="Panel" parent="."]
 layout_mode = 0
 offset_left = 882.0
 offset_top = 78.0
@@ -49,20 +49,20 @@ offset_right = 1013.0
 offset_bottom = 101.0
 scale = Vector2(2, 2)
 
-[node name="Label" type="Label" parent="Panel2"]
+[node name="Label" type="Label" parent="Header"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Team Hiisigames"
 
-[node name="Panel3" type="Panel" parent="."]
+[node name="Artists" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 941.0
-offset_top = 247.0
-offset_right = 1266.0
-offset_bottom = 575.0
+offset_left = 815.0
+offset_top = 355.0
+offset_right = 1140.0
+offset_bottom = 683.0
 
-[node name="Label" type="Label" parent="Panel3"]
+[node name="Label" type="Label" parent="Artists"]
 layout_mode = 0
 offset_right = 163.0
 offset_bottom = 164.0
@@ -72,14 +72,14 @@ text = "Artists:
 Aleksi
 Sofia"
 
-[node name="Panel4" type="Panel" parent="."]
+[node name="Collaborators" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 1453.0
-offset_top = 295.0
-offset_right = 1699.0
-offset_bottom = 521.0
+offset_left = 1387.0
+offset_top = 408.0
+offset_right = 1633.0
+offset_bottom = 634.0
 
-[node name="Label" type="Label" parent="Panel4"]
+[node name="Label" type="Label" parent="Collaborators"]
 layout_mode = 0
 offset_right = 123.0
 offset_bottom = 130.0
