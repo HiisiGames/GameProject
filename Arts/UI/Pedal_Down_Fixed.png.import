@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b86jty7c6fg18"
-path="res://.godot/imported/Pedal_Down.png-a246e47dd31888b9a10cab79f43fe986.ctex"
+uid="uid://cvouvbmppqwqb"
+path="res://.godot/imported/Pedal_Down_Fixed.png-2c6cf946a1acfa1bfdaf602ae69029c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arts/UI/Pedal_Down.png"
-dest_files=["res://.godot/imported/Pedal_Down.png-a246e47dd31888b9a10cab79f43fe986.ctex"]
+source_file="res://Arts/UI/Pedal_Down_Fixed.png"
+dest_files=["res://.godot/imported/Pedal_Down_Fixed.png-2c6cf946a1acfa1bfdaf602ae69029c2.ctex"]
 
 [params]
 

@@ -10,7 +10,7 @@ namespace TruckGame
 		private int _secondCounter = 00;
 		private int _minuteCounter = 00;
 		private Label _gameTimeLabel;
-		private int _starCount;
+		public int _starCount = 0;
 		[Export] private float _firstStar = 90;
 		[Export] private float _secondStar = 60;
 		[Export] private float _thirdStar = 30;
@@ -18,8 +18,8 @@ namespace TruckGame
 
 		public float TotalTime
 		{
-			 get {return _totalTime; }
-			 private set {_totalTime = value;}
+			get { return _totalTime; }
+			private set { _totalTime = value; }
 
 		}
 
@@ -27,6 +27,7 @@ namespace TruckGame
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
+			GD.Print(GetTree().CurrentScene.Name);
 			_gameTimeLabel = GetNode<Label>("GameTime");
 			if (_gameTimeLabel == null)
 			{
@@ -63,20 +64,28 @@ namespace TruckGame
 			}
 		}
 
-		public void CountStars()
+		public int CountStars()
 		{
-			if (_thirdStar <= _totalTime)
+			if (_thirdStar >= _totalTime)
 			{
-				// TO DO Make sure to check scene so the times are right or make separate cs file for each of
+				_starCount = 3;
+				GD.Print("Full star");
 			}
-			if (_secondStar <= _totalTime)
+			else if (_secondStar >= _totalTime)
 			{
-
+				_starCount = 2;
+				GD.Print("Full star");
 			}
-			if (_firstStar <= _totalTime)
+			else if (_firstStar >= _totalTime)
 			{
-
+				_starCount = 1;
+				GD.Print("Full star");
 			}
+			else
+			{
+				_starCount = 0;
+			}
+			return _starCount;
 		}
 
 		// public void StarsAtTheEndGame()

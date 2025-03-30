@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cefsf77w722l0"]
+[gd_scene load_steps=11 format=3 uid="uid://cefsf77w722l0"]
 
 [ext_resource type="Script" path="res://Scripts/LevelCompleteTime.cs" id="1_mv11h"]
 [ext_resource type="Script" path="res://Scripts/LevelComplete.cs" id="1_qvlmb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dpob7ofs07jqh" path="res://Arts/UI/Home_PressedV2.png" id="5_u2v0g"]
 [ext_resource type="Texture2D" uid="uid://bsns3t0f7cj5v" path="res://Arts/UI/Restart_ButtonV2.png" id="6_nep8s"]
 [ext_resource type="Texture2D" uid="uid://c7o5lhpqtvnrj" path="res://Arts/UI/Restart_PressedV2.png" id="7_wg8ai"]
+[ext_resource type="Texture2D" uid="uid://cvyvywumom4mr" path="res://Arts/UI/Star_Empty.png" id="10_4m0v7"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_mv11h")
@@ -54,8 +55,7 @@ offset_right = 553.0
 offset_bottom = 96.0
 scale = Vector2(3, 3)
 text = " Congratulations!
-
-  Level complete"
+ Level complete :)"
 
 [node name="MainMenuButton" type="TextureButton" parent="LevelComplete"]
 layout_mode = 0
@@ -68,9 +68,24 @@ texture_normal = ExtResource("4_vf4w3")
 texture_pressed = ExtResource("5_u2v0g")
 
 [node name="TimeInTheEnd" type="Label" parent="."]
-offset_left = 486.0
-offset_top = 350.0
-offset_right = 536.0
-offset_bottom = 373.0
-scale = Vector2(2, 2)
+offset_left = 870.0
+offset_top = 343.0
+offset_right = 920.0
+offset_bottom = 366.0
+scale = Vector2(3, 3)
 text = "Timer:"
+
+[node name="StarOne" type="Sprite2D" parent="."]
+position = Vector2(639, 449)
+scale = Vector2(3, 3)
+texture = ExtResource("10_4m0v7")
+
+[node name="StarTwo" type="Sprite2D" parent="."]
+position = Vector2(979, 535)
+scale = Vector2(3, 3)
+texture = ExtResource("10_4m0v7")
+
+[node name="StarThree" type="Sprite2D" parent="."]
+position = Vector2(1352, 437)
+scale = Vector2(3, 3)
+texture = ExtResource("10_4m0v7")

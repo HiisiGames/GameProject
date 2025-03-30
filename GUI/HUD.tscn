@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Scripts/GameTime.cs" id="1_ahngx"]
 [ext_resource type="Script" path="res://Scripts/HUDSettings.cs" id="1_ltner"]
 [ext_resource type="Texture2D" uid="uid://cx7lwxha8h0iw" path="res://Arts/UI/Pause_Icon.png" id="3_5o70f"]
-[ext_resource type="Texture2D" uid="uid://b26rlyb0qr7re" path="res://Arts/UI/Pedal_Up.png" id="4_jjwrx"]
-[ext_resource type="Texture2D" uid="uid://b86jty7c6fg18" path="res://Arts/UI/Pedal_Down.png" id="5_ksiuc"]
+[ext_resource type="Texture2D" uid="uid://bsrrmm8ctl75p" path="res://Arts/UI/Pedal_Up_Fixed.png" id="4_clkd2"]
+[ext_resource type="Texture2D" uid="uid://cvouvbmppqwqb" path="res://Arts/UI/Pedal_Down_Fixed.png" id="5_tjef6"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_ahngx")
@@ -28,15 +28,15 @@ stretch_mode = 3
 [node name="BrakeButton" type="TouchScreenButton" parent="Control"]
 position = Vector2(212, 759)
 scale = Vector2(4, 4)
-texture_normal = ExtResource("4_jjwrx")
-texture_pressed = ExtResource("5_ksiuc")
+texture_normal = ExtResource("4_clkd2")
+texture_pressed = ExtResource("5_tjef6")
 action = "Break"
 
 [node name="GasButton" type="TouchScreenButton" parent="Control"]
 position = Vector2(1473, 760)
 scale = Vector2(4, 4)
-texture_normal = ExtResource("4_jjwrx")
-texture_pressed = ExtResource("5_ksiuc")
+texture_normal = ExtResource("4_clkd2")
+texture_pressed = ExtResource("5_tjef6")
 action = "Accelerate"
 
 [node name="GameTime" type="Label" parent="."]
