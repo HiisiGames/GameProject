@@ -27,7 +27,6 @@ namespace TruckGame
         }
         public override void _PhysicsProcess(double delta)
         {
-            base._PhysicsProcess(delta);
             //MoveWreckingBall((float)delta);
         }
         public void MoveWreckingBall(float delta)

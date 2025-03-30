@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bll2isp8qp7uv"]
+[gd_scene load_steps=5 format=3 uid="uid://bll2isp8qp7uv"]
 
 [ext_resource type="PackedScene" uid="uid://dq6ors8r4ybjs" path="res://Scenes/Wheel.tscn" id="1_k7eev"]
 [ext_resource type="Texture2D" uid="uid://cblsqso7n501b" path="res://Arts/basemoffett.png" id="2_xsalh"]
 [ext_resource type="Script" path="res://Scripts/CollisionDetector.cs" id="3_jt5f1"]
+[ext_resource type="Script" path="res://Scripts/TerrainDetector.cs" id="4_8rx57"]
 
 [node name="PlayerVehicle" type="RigidBody2D" groups=["PlayerVehicle"]]
 collision_mask = 2
@@ -56,3 +57,15 @@ position = Vector2(-61, -60)
 
 [node name="wheel1" parent="." instance=ExtResource("1_k7eev")]
 position = Vector2(163, -60)
+
+[node name="TerrainDetector" type="RayCast2D" parent="." groups=["TerrainDetectors"]]
+position = Vector2(-61, -70)
+target_position = Vector2(0, 55)
+collision_mask = 2
+script = ExtResource("4_8rx57")
+
+[node name="TerrainDetector2" type="RayCast2D" parent="." groups=["TerrainDetectors"]]
+position = Vector2(163, -70)
+target_position = Vector2(0, 55)
+collision_mask = 2
+script = ExtResource("4_8rx57")
