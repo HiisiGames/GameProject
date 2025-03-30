@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cefsf77w722l0"]
+[gd_scene load_steps=11 format=3 uid="uid://c0e3sl8252imy"]
 
 [ext_resource type="Script" path="res://Scripts/LevelCompleteTime.cs" id="1_mv11h"]
 [ext_resource type="Script" path="res://Scripts/LevelComplete.cs" id="1_qvlmb"]

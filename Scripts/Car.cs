@@ -12,7 +12,8 @@ namespace TruckGame
 		[Export] private float _speed = 60000f;
 
 		[Export] private float _maxSpeed = 100f;
-		[Export] private float _rotationTorque = 100000f;
+		[Export] private float _rotationTorque = 10000000f;
+
 
 
 		// Called when the node enters the scene tree for the first time.
@@ -35,18 +36,7 @@ namespace TruckGame
 		}
 		public override void _PhysicsProcess(double delta)
 		{
-			/*foreach(TerrainDetector TerrainDetector in _terrainDetectorArray)
-			{
-				if(TerrainDetector.IsOnTerrain)
-				{*/
-					MovementForward((float)delta);
-					MovementBackward((float)delta);
-				/*}
-				else
-				{
-					MovementWhileInAir((float)delta);
-				}
-			}*/
+			MovePlayerVehicle((float)delta);
 		}
 
 		public void MovementForward(float delta)
@@ -92,17 +82,38 @@ namespace TruckGame
 		}
 		public void MovementWhileInAir(float delta)
 		{
-			if (Input.IsActionPressed("Accelerate"))
+				if (Input.IsActionPressed("Accelerate"))
+				{
+					GD.Print("Applying torque");
+					ApplyTorque(_rotationTorque * (float)delta);
+				}
+				if (Input.IsActionPressed("Break"))
+				{
+					GD.Print("Applying negative torque");
+					ApplyTorque(-_rotationTorque * (float)delta);
+				}
+		}
+		public void MovePlayerVehicle(float delta)
+		{
+			if(!IsInAir())
 			{
-				GD.Print("Applying torque");
-				this.ApplyTorque(_rotationTorque * (float)delta);
+				MovementForward((float)delta);
+				MovementBackward((float)delta);
 			}
-			if (Input.IsActionPressed("Break"))
+			else
 			{
-				GD.Print("Applying negative torque");
-				this.ApplyTorque(-_rotationTorque * (float)delta);
+				MovementWhileInAir((float)delta);
 			}
-			
+		}
+		public bool IsInAir()
+		{
+
+			foreach(TerrainDetector detector in _terrainDetectorArray)
+				if(!detector.IsOnTerrain)
+				{
+					return true;
+				}
+			return false;
 		}
 	}
 }

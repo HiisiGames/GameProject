@@ -22,8 +22,8 @@ namespace TruckGame
             _directionVector = new Vector2(10, 0);
             _forceVector = _directionVector * _force;
             RotationDegrees = 90.0f;
+            Freeze = true;
             
-
         }
         public override void _PhysicsProcess(double delta)
         {
