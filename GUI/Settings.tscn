@@ -42,10 +42,10 @@ scale = Vector2(3, 3)
 
 [node name="MainMenuButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 1054.0
-offset_top = 530.0
-offset_right = 1118.0
-offset_bottom = 594.0
+offset_left = 170.0
+offset_top = 511.0
+offset_right = 234.0
+offset_bottom = 575.0
 scale = Vector2(4, 4)
 texture_normal = ExtResource("2_7fq7o")
 texture_pressed = ExtResource("3_40m3x")
@@ -53,10 +53,10 @@ stretch_mode = 3
 
 [node name="RestartButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 163.0
-offset_top = 517.0
-offset_right = 227.0
-offset_bottom = 581.0
+offset_left = 1147.0
+offset_top = 511.0
+offset_right = 1211.0
+offset_bottom = 575.0
 scale = Vector2(4, 4)
 texture_normal = ExtResource("4_qoij7")
 texture_pressed = ExtResource("5_y78ie")
@@ -75,10 +75,10 @@ stretch_mode = 3
 
 [node name="ResumeButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 626.0
-offset_top = 520.0
-offset_right = 690.0
-offset_bottom = 584.0
+offset_left = 637.0
+offset_top = 509.0
+offset_right = 701.0
+offset_bottom = 573.0
 scale = Vector2(4, 4)
 texture_normal = ExtResource("6_ir05n")
 texture_pressed = ExtResource("7_iahol")
