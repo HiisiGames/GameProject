@@ -44,7 +44,7 @@ namespace TruckGame
 				if (_selectLevelCompleteScene != null) // This brings up the level complete scene
 				{
 					Node LevelCompletePanel = _selectLevelCompleteScene.Instantiate();
-					LevelCompletePanel.Name = "LevelCompletePanel";
+					//LevelCompletePanel.Name = "LevelCompletePanel";
 					AddChild(LevelCompletePanel);
 
 					GD.Print("Level complete panel created");

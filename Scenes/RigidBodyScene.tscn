@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bll2isp8qp7uv"]
 
+[ext_resource type="Texture2D" uid="uid://54ghla5x0dh1" path="res://Arts/moffett_with_box.png" id="1_7twat"]
 [ext_resource type="PackedScene" uid="uid://dq6ors8r4ybjs" path="res://Scenes/Wheel.tscn" id="1_k7eev"]
-[ext_resource type="Texture2D" uid="uid://cblsqso7n501b" path="res://Arts/basemoffett.png" id="2_xsalh"]
 [ext_resource type="Script" path="res://Scripts/CollisionDetector.cs" id="3_jt5f1"]
 [ext_resource type="Script" path="res://Scripts/TerrainDetector.cs" id="4_8rx57"]
 
@@ -10,7 +10,7 @@ collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["PlayerVehicle"]]
 position = Vector2(-14, -119)
-polygon = PackedVector2Array(-4, -223, -124, -222, -120, -67, -109, 53, 236, 55, 238, -22, 180, -39, 87, -42, 88, -234)
+polygon = PackedVector2Array(-124, -234, -116, -66, -109, 53, 236, 55, 238, -22, 208, -151, 83, -232)
 
 [node name="GrooveJoint2D" type="GrooveJoint2D" parent="."]
 position = Vector2(-61, -60)
@@ -20,9 +20,9 @@ length = 10.0
 initial_offset = 1.0
 
 [node name="Car" type="Sprite2D" parent="."]
-position = Vector2(53, -327)
+position = Vector2(16, -227)
 scale = Vector2(5, 5)
-texture = ExtResource("2_xsalh")
+texture = ExtResource("1_7twat")
 flip_h = true
 
 [node name="GrooveJoint2D2" type="GrooveJoint2D" parent="."]
@@ -38,7 +38,7 @@ collision_mask = 6
 script = ExtResource("3_jt5f1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionDetector"]
-polygon = PackedVector2Array(-124, -82, -137, -345, 74, -352, 73, -161, 218, -141, 217, -82)
+polygon = PackedVector2Array(-129, -99, -141, -355, 71, -354, 198, -279, 227, -160, 226, -99)
 
 [node name="WheelAxle" type="PinJoint2D" parent="."]
 position = Vector2(163, -60)

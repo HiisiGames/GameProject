@@ -12,7 +12,7 @@ namespace TruckGame
 		[Export] private float _speed = 60000f;
 
 		[Export] private float _maxSpeed = 100f;
-		[Export] private float _rotationTorque = 10000000f;
+		[Export] private float _rotationTorque = 5000000f;
 
 
 
@@ -85,12 +85,12 @@ namespace TruckGame
 				if (Input.IsActionPressed("Accelerate"))
 				{
 					GD.Print("Applying torque");
-					ApplyTorque(_rotationTorque * (float)delta);
+					ApplyTorque(-_rotationTorque * (float)delta);
 				}
 				if (Input.IsActionPressed("Break"))
 				{
 					GD.Print("Applying negative torque");
-					ApplyTorque(-_rotationTorque * (float)delta);
+					ApplyTorque(_rotationTorque * (float)delta);
 				}
 		}
 		public void MovePlayerVehicle(float delta)
