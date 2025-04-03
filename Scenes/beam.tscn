@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pbodd"]
 size = Vector2(486, 46)
 
-[node name="Beam" type="RigidBody2D"]
+[node name="Beam" type="RigidBody2D" groups=["Obstacles"]]
 collision_layer = 4
 collision_mask = 9
 

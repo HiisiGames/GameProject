@@ -38,18 +38,7 @@ namespace TruckGame
 				GD.Print("Collided with beam");
 				GD.Print("Game over");
 
-				if (_selectGameOverScene != null)
-				{
-					Node gameOverPanel = _selectGameOverScene.Instantiate();
-					gameOverPanel.Name = "GameOverPanel";
-					AddChild(gameOverPanel);
-
-					GD.Print("game over panel created");
-				}
-				else
-				{
-					GD.Print("Game over scene not found");
-				}
+				InstantiateGameOverPanel();
 
 			}
 			if (node is StaticBody2D staticBody2D)
@@ -61,21 +50,25 @@ namespace TruckGame
 				}
 				else if (staticBody2D.Name == "Terrain")
 				{
-					if (_selectGameOverScene != null)
-					{
-						Node gameOverPanel = _selectGameOverScene.Instantiate();
-						gameOverPanel.Name = "GameOverPanel";
-						AddChild(gameOverPanel);
-
-						GD.Print("game over panel created");
-					}
-					else
-					{
-						GD.Print("Game over scene not found");
-					}
+					InstantiateGameOverPanel();
 				}
 			}
 
+		}
+		public void InstantiateGameOverPanel()
+		{
+			if (_selectGameOverScene != null)
+				{
+					Node gameOverPanel = _selectGameOverScene.Instantiate();
+					//gameOverPanel.Name = "GameOverPanel";
+					AddChild(gameOverPanel);
+
+					GD.Print("game over panel created");
+				}
+				else
+				{
+					GD.Print("Game over scene not found");
+				}
 		}
 	}
 }
