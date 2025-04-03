@@ -12,16 +12,22 @@ namespace TruckGame
 		[Export] private float _speed = 60000f;
 
 		[Export] private float _maxSpeed = 100f;
+		[Export] private float _rotationTorque = 5000000f;
+
 
 
 		// Called when the node enters the scene tree for the first time.
-		private Array<Node> WheelArray = new Array<Node>();
+		private Array<Node> _wheelArray = new Array<Node>();
+		private Array<Node> _terrainDetectorArray = new Array<Node>();
 		public override void _Ready()
 		{
-			WheelArray = GetTree().GetNodesInGroup("wheel");
+			_wheelArray = GetTree().GetNodesInGroup("wheel");
 
-			GD.Print("Wheel array count after _Ready: " + WheelArray.Count);  // Check count here
+			GD.Print("Wheel array count after _Ready: " + _wheelArray.Count);  // Check count here
 
+			_terrainDetectorArray = GetTree().GetNodesInGroup("TerrainDetectors");
+
+			GD.Print("Terrain detector array count after _Ready: " + _terrainDetectorArray.Count);  // Check count here
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,9 +36,7 @@ namespace TruckGame
 		}
 		public override void _PhysicsProcess(double delta)
 		{
-			base._PhysicsProcess(delta);
-			MovementForward((float)delta);
-			MovementBackward((float)delta);
+			MovePlayerVehicle((float)delta);
 		}
 
 		public void MovementForward(float delta)
@@ -41,7 +45,7 @@ namespace TruckGame
 			//D
 			if (Input.IsActionPressed("Accelerate"))
 			{
-				foreach (Node wheelNode in WheelArray)
+				foreach (Node wheelNode in _wheelArray)
 				{
 					//GD.Print("Accel 1 ");
 					if (wheelNode is RigidBody2D wheel)
@@ -62,7 +66,7 @@ namespace TruckGame
 			if (Input.IsActionPressed("Break"))
 			{
 				//GD.Print("break 1");
-				foreach (Node wheelNode in WheelArray)
+				foreach (Node wheelNode in _wheelArray)
 				{
 					//GD.Print("break 2");
 					if (wheelNode is RigidBody2D wheel)
@@ -75,6 +79,41 @@ namespace TruckGame
 					}
 				}
 			}
+		}
+		public void MovementWhileInAir(float delta)
+		{
+				if (Input.IsActionPressed("Accelerate"))
+				{
+					GD.Print("Applying torque");
+					ApplyTorque(-_rotationTorque * (float)delta);
+				}
+				if (Input.IsActionPressed("Break"))
+				{
+					GD.Print("Applying negative torque");
+					ApplyTorque(_rotationTorque * (float)delta);
+				}
+		}
+		public void MovePlayerVehicle(float delta)
+		{
+			if(!IsInAir())
+			{
+				MovementForward((float)delta);
+				MovementBackward((float)delta);
+			}
+			else
+			{
+				MovementWhileInAir((float)delta);
+			}
+		}
+		public bool IsInAir()
+		{
+
+			foreach(TerrainDetector detector in _terrainDetectorArray)
+				if(!detector.IsOnTerrain)
+				{
+					return true;
+				}
+			return false;
 		}
 	}
 }
