@@ -11,9 +11,9 @@ namespace TruckGame
 		private int _minuteCounter = 00;
 		private Label _gameTimeLabel;
 		public int _starCount = 0;
-		[Export] private float _firstStar = 90;
-		[Export] private float _secondStar = 60;
-		[Export] private float _thirdStar = 30;
+		[Export] private float _firstStar = 0;
+		[Export] private float _secondStar = 0;
+		[Export] private float _thirdStar = 0;
 		private float _totalTime;
 
 		public float TotalTime
@@ -66,6 +66,8 @@ namespace TruckGame
 
 		public int CountStars()
 		{
+			CheckLevelScene();
+
 			if (_thirdStar >= _totalTime)
 			{
 				_starCount = 3;
@@ -87,10 +89,30 @@ namespace TruckGame
 			}
 			return _starCount;
 		}
+		private void CheckLevelScene()
+		{
+			Node currentLevel = GetTree().CurrentScene;
 
-		// public void StarsAtTheEndGame()
-		// {
-
-		// }
+			if (currentLevel.SceneFilePath == "res://Levels/level_1.tscn")
+			{
+				_firstStar = 35;
+				_secondStar = 70;
+				_thirdStar = 110;
+			}
+			else if (currentLevel.SceneFilePath == "res://Levels/Level_2.tscn")
+			{
+				_firstStar = 40;
+				_secondStar = 60;
+				_thirdStar = 80;
+			}
+			else if (currentLevel.SceneFilePath == "res://Levels/Level_3.tscn")
+			{
+				_firstStar = 30;
+				_secondStar = 50;
+				_thirdStar = 100;
+			}
+			GD.Print("Tämä on:");
+			GD.Print(currentLevel.SceneFilePath);
+		}
 	}
 }

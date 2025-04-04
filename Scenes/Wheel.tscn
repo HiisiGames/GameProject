@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dq6ors8r4ybjs"]
 
-[ext_resource type="Texture2D" uid="uid://7ac3qiolq4kf" path="res://Arts/wheel1.png" id="1_2cife"]
+[ext_resource type="Texture2D" uid="uid://dn5aq5fg5xos2" path="res://Arts/Wheel.png" id="1_st0w4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vkm2q"]
 radius = 38.0132
@@ -9,9 +9,9 @@ radius = 38.0132
 collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4, -20)
-scale = Vector2(4, 4)
-texture = ExtResource("1_2cife")
+position = Vector2(-0.500002, -0.5)
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("1_st0w4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vkm2q")

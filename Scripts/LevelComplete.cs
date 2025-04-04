@@ -10,8 +10,7 @@ namespace TruckGame
 	public partial class LevelComplete : Node
 	{
 		[Export] private string _mainMenuScenePath = "res://GUI/MainMenu.tscn";
-
-		[Export] private string _levelScenePath = "res://Levels/Level_3.tscn";
+		[Export] private string _levelScenePath = "res://GUI/LevelSelection.tscn";
 		private TextureButton _selectMainMenu;
 		private TextureButton _selectRestart;
 		private TextureButton _selectResume;
