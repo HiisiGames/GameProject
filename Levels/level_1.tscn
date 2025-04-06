@@ -1,6 +1,7 @@
-[gd_scene load_steps=83 format=3 uid="uid://b6jvfjhxwg0si"]
+[gd_scene load_steps=90 format=3 uid="uid://b6jvfjhxwg0si"]
 
 [ext_resource type="Script" path="res://Scripts/Level1.cs" id="1_uuopp"]
+[ext_resource type="PackedScene" uid="uid://dmu4lc48porvv" path="res://Scenes/StreetLight.tscn" id="2_1swgi"]
 [ext_resource type="PackedScene" uid="uid://bisp2fp0w4eew" path="res://Scenes/parallax.tscn" id="2_mubsy"]
 [ext_resource type="Texture2D" uid="uid://b3rdykf6cj1jj" path="res://Arts/buildings.png" id="3_m7hp0"]
 [ext_resource type="Texture2D" uid="uid://8q8yt6aso1cd" path="res://Arts/sky.png" id="4_7u5ku"]
@@ -21,7 +22,12 @@
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="19_4b6ih"]
 [ext_resource type="PackedScene" uid="uid://jvhxcrn4e54s" path="res://Scenes/Character.tscn" id="20_dyc0l"]
 [ext_resource type="PackedScene" uid="uid://b110f0cgvvtva" path="res://Scenes/FinishLine.tscn" id="21_h2wyw"]
-[ext_resource type="PackedScene" uid="uid://bkb7xw2ayq7nu" path="res://Scenes/beam.tscn" id="22_m2k7b"]
+[ext_resource type="PackedScene" uid="uid://gcrvv6vnrbgm" path="res://Scenes/largeBeamObstacle.tscn" id="22_36t5f"]
+[ext_resource type="PackedScene" uid="uid://djkl24wear2is" path="res://Scenes/Truck.tscn" id="22_jatc4"]
+[ext_resource type="Script" path="res://Scripts/TriggerZone.cs" id="23_dbvus"]
+[ext_resource type="Texture2D" uid="uid://cpdjpxdgndkdn" path="res://Arts/protocrane256.png" id="23_twymr"]
+[ext_resource type="PackedScene" uid="uid://cm2f5uw4o0qfi" path="res://Scenes/Crate.tscn" id="24_1w2kf"]
+[ext_resource type="Script" path="res://Scripts/Crate.cs" id="26_tce1g"]
 
 [sub_resource type="Resource" id="Resource_n3x4f"]
 script = ExtResource("11_f1hkf")
@@ -463,8 +469,26 @@ render_offset = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpuq1"]
 size = Vector2(173, 500)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqkxv"]
+size = Vector2(114, 106)
+
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_uuopp")
+
+[node name="StreetLight" parent="." instance=ExtResource("2_1swgi")]
+position = Vector2(12968, 432)
+
+[node name="StreetLight2" parent="." instance=ExtResource("2_1swgi")]
+position = Vector2(8733, 123)
+
+[node name="StreetLight3" parent="." instance=ExtResource("2_1swgi")]
+position = Vector2(794, -444)
+
+[node name="StreetLight4" parent="." instance=ExtResource("2_1swgi")]
+position = Vector2(31259, 1378)
+
+[node name="StreetLight5" parent="." instance=ExtResource("2_1swgi")]
+position = Vector2(37889, 1366)
 
 [node name="Parallax" parent="." instance=ExtResource("2_mubsy")]
 z_index = -20
@@ -488,9 +512,11 @@ scale = Vector2(12, 12)
 texture = ExtResource("4_7u5ku")
 
 [node name="PlayerVehicle" parent="." instance=ExtResource("5_0ji7a")]
-position = Vector2(254, -170)
+position = Vector2(103, -282)
 collision_mask = 22
 script = ExtResource("6_7hkop")
+_speed = 65000.0
+_maxSpeed = 65.0
 
 [node name="Camera2D" type="Camera2D" parent="PlayerVehicle"]
 position = Vector2(74, -258)
@@ -548,14 +574,40 @@ shape = SubResource("RectangleShape2D_rpuq1")
 position = Vector2(38810, 1361)
 shape = SubResource("RectangleShape2D_rpuq1")
 
+[node name="Truck" parent="." instance=ExtResource("22_jatc4")]
+position = Vector2(36192, 1567)
+
+[node name="Character2" parent="." instance=ExtResource("20_dyc0l")]
+position = Vector2(36874, 1540)
+scale = Vector2(5, 5)
+
 [node name="FinishLine" parent="." instance=ExtResource("21_h2wyw")]
-position = Vector2(36387, 1494)
+position = Vector2(36986, 1508)
 collision_layer = 16
 collision_mask = 1
 
-[node name="Beam" parent="." instance=ExtResource("22_m2k7b")]
-position = Vector2(15326, 620)
+[node name="LargeBeamObstacle" parent="." instance=ExtResource("22_36t5f")]
+z_index = -3
+position = Vector2(15500, 990)
+
+[node name="TriggerZone" type="Area2D" parent="."]
+position = Vector2(20104, 3724)
+collision_layer = 16
+script = ExtResource("23_dbvus")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone"]
+position = Vector2(47, -43)
+shape = SubResource("RectangleShape2D_pqkxv")
+
+[node name="Crane" type="Sprite2D" parent="."]
+z_index = -12
+position = Vector2(21456, 3023)
+scale = Vector2(6, 6)
+texture = ExtResource("23_twymr")
+
+[node name="Crate" parent="." groups=["Obstacles"] instance=ExtResource("24_1w2kf")]
+position = Vector2(21843, 2839)
+script = ExtResource("26_tce1g")
 
 [editable path="Parallax"]
 [editable path="Parallax2"]
-[editable path="Beam"]

@@ -21,7 +21,7 @@ public partial class Beam : RigidBody2D
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		if(Triggered)
 		{
@@ -34,14 +34,14 @@ public partial class Beam : RigidBody2D
 	
 	//Listens to TriggerZone's BodyEntered signal and sets the boolean Triggered to true, which causes the Freeze property to be set to false.
 	public void OnTriggerZoneBodyEntered(Node node) 
-		{	
-			GD.Print("Vehicle entered the trigger zone");
-			if(node is RigidBody2D vehicle)
-			{
-				GD.Print("Vehicle is RigidBody2D");
-				GD.Print($"Beam freeze state: {this.Freeze}");
-				Triggered = true;
-				GD.Print($"Trigger activated");
-			}
+	{	
+		GD.Print("Vehicle entered the trigger zone");
+		if(node is RigidBody2D vehicle)
+		{
+			GD.Print("Vehicle is RigidBody2D");
+			GD.Print($"Beam freeze state: {this.Freeze}");
+			Triggered = true;
+			GD.Print($"Trigger activated");
+		}
 	}
 }

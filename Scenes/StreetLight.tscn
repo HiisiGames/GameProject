@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmu4lc48porvv"]
+
+[ext_resource type="Texture2D" uid="uid://bkavuc3wagf81" path="res://Arts/streetlamp.png" id="1_lucct"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7tyc"]
+size = Vector2(20, 480.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j47io"]
+size = Vector2(112.231, 11.0399)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grpox"]
+radius = 12.0
+height = 64.0
+
+[node name="StreetLight" type="RigidBody2D"]
+process_mode = 4
+collision_layer = 4
+freeze = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_lucct")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-81, 12.25)
+shape = SubResource("RectangleShape2D_f7tyc")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(-33.876, -238.819)
+rotation = -0.0959931
+shape = SubResource("RectangleShape2D_j47io")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(54, -242)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_grpox")
