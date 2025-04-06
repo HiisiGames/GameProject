@@ -22,7 +22,8 @@ namespace TruckGame
 		}
 		public void SetVolume(float volume)
 		{
-			float volumeDb = Mathf.Lerp(-80f, 0f, volume); // Convert to dB scale (0 = max, 1 = min)
+			if (data == null)
+
 
 			// Set volume for the Music bus
 			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex(_busName), volumeDb);
