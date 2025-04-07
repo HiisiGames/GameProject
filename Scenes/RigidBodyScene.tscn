@@ -42,7 +42,7 @@ collision_mask = 6
 script = ExtResource("3_jt5f1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionDetector"]
-polygon = PackedVector2Array(-129, -99, -141, -355, 71, -354, 198, -279, 227, -160, 226, -99)
+polygon = PackedVector2Array(-128, -99, -141, -355, 71, -354, 198, -279, 227, -160, 226, -99)
 
 [node name="WheelAxle" type="PinJoint2D" parent="."]
 position = Vector2(-106, -80)
@@ -66,11 +66,11 @@ position = Vector2(167, -80)
 [node name="TerrainDetector" type="RayCast2D" parent="." groups=["TerrainDetectors"]]
 position = Vector2(-106, -80)
 target_position = Vector2(0, 60)
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("4_8rx57")
 
 [node name="TerrainDetector2" type="RayCast2D" parent="." groups=["TerrainDetectors"]]
 position = Vector2(167, -80)
 target_position = Vector2(0, 60)
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("4_8rx57")

@@ -9,10 +9,11 @@ namespace TruckGame
 {
 	public partial class Car : RigidBody2D
 	{
-		[Export] private float _speed = 60000f;
+		[Export] private float _wheelTorque = 60000f;
 
-		[Export] private float _maxSpeed = 100f;
-		[Export] private float _rotationTorque = 5000000f;
+		[Export] private float _maxAngularVelocity = 100f;
+		[Export] private float _maxAngularVelocityInAir = 200f;
+		[Export] private float _bodyTorque = 5000000f;
 		private float _editorMaxSpeed;
 
 
@@ -22,7 +23,7 @@ namespace TruckGame
 		private Array<Node> _terrainDetectorArray = new Array<Node>();
 		public override void _Ready()
 		{
-			_editorMaxSpeed = _maxSpeed;
+			_editorMaxSpeed = _maxAngularVelocity;
 			_wheelArray = GetTree().GetNodesInGroup("wheel");
 
 			GD.Print("Wheel array count after _Ready: " + _wheelArray.Count);  // Check count here
@@ -55,10 +56,10 @@ namespace TruckGame
 					if (wheelNode is RigidBody2D wheel)
 					{
 						//GD.Print("Accel 2");
-						if (wheel.AngularVelocity < _maxSpeed)
+						if (wheel.AngularVelocity < _maxAngularVelocity)
 						{
 							//GD.Print("Accel toimii");
-							wheel.ApplyTorqueImpulse(_speed * (float)delta);
+							wheel.ApplyTorqueImpulse(_wheelTorque * (float)delta);
 						}
 					}
 				}
@@ -75,10 +76,10 @@ namespace TruckGame
 					//GD.Print("break 2");
 					if (wheelNode is RigidBody2D wheel)
 					{
-						if (wheel.AngularVelocity > -_maxSpeed)
+						if (wheel.AngularVelocity > -_maxAngularVelocity)
 						{
 							//GD.Print("break toimii");
-							wheel.ApplyTorqueImpulse(-_speed * (float)delta);
+							wheel.ApplyTorqueImpulse(-_wheelTorque * (float)delta);
 						}
 					}
 				}
@@ -89,25 +90,25 @@ namespace TruckGame
 				if (Input.IsActionPressed("Accelerate"))
 				{
 					GD.Print("Applying torque");
-					ApplyTorque(-_rotationTorque * (float)delta);
+					ApplyTorque(-_bodyTorque * (float)delta);
 				}
 				if (Input.IsActionPressed("Break"))
 				{
 					GD.Print("Applying negative torque");
-					ApplyTorque(_rotationTorque * (float)delta);
+					ApplyTorque(_bodyTorque * (float)delta);
 				}
 		}
 		public void MovePlayerVehicle(float delta)
 		{
 			if(!IsInAir())
 			{
-				_maxSpeed = _editorMaxSpeed;
+				_maxAngularVelocity = _editorMaxSpeed;
 				MovementForward((float)delta);
 				MovementBackward((float)delta);
 			}
 			else
 			{
-				_maxSpeed = 200f;
+				_maxAngularVelocity = _maxAngularVelocityInAir;
 				MovementWhileInAir((float)delta);
 				MovementForward((float)delta);
 				MovementBackward((float)delta);
