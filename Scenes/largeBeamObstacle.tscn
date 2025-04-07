@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://gcrvv6vnrbgm"]
+
+[ext_resource type="PackedScene" uid="uid://bkb7xw2ayq7nu" path="res://Scenes/beam.tscn" id="1_lr1ce"]
+[ext_resource type="Texture2D" uid="uid://b32dsixxlvhxh" path="res://Arts/steelbeam.png" id="2_bykdn"]
+
+[node name="LargeBeamObstacle" type="Node2D"]
+z_index = -2
+
+[node name="Beam" parent="." instance=ExtResource("1_lr1ce")]
+z_index = -1
+freeze = true
+
+[node name="LargeBeam" type="Sprite2D" parent="."]
+position = Vector2(-88, 99)
+rotation = 1.5708
+scale = Vector2(10, 10)
+texture = ExtResource("2_bykdn")
+
+[node name="LargeBeam2" type="Sprite2D" parent="."]
+z_index = -30
+position = Vector2(-88, 1322)
+rotation = 1.5708
+scale = Vector2(10, 10)
+texture = ExtResource("2_bykdn")
+
+[node name="LargeBeam1" type="Sprite2D" parent="."]
+position = Vector2(334, 99)
+rotation = 1.5708
+scale = Vector2(10, 10)
+texture = ExtResource("2_bykdn")
+
+[node name="LargeBeam3" type="Sprite2D" parent="."]
+z_index = -30
+position = Vector2(334, 1322)
+rotation = 1.5708
+scale = Vector2(10, 10)
+texture = ExtResource("2_bykdn")
+
+[node name="SmallBeam" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(499, 150)
+scale = Vector2(4, 4)
+texture = ExtResource("2_bykdn")
+
+[node name="SmallBeam2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1029, 150)
+scale = Vector2(4, 4)
+texture = ExtResource("2_bykdn")

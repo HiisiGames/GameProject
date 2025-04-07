@@ -13,6 +13,7 @@ namespace TruckGame
 
 		[Export] private float _maxSpeed = 100f;
 		[Export] private float _rotationTorque = 5000000f;
+		private float _editorMaxSpeed;
 
 
 
@@ -21,6 +22,7 @@ namespace TruckGame
 		private Array<Node> _terrainDetectorArray = new Array<Node>();
 		public override void _Ready()
 		{
+			_editorMaxSpeed = _maxSpeed;
 			_wheelArray = GetTree().GetNodesInGroup("wheel");
 
 			GD.Print("Wheel array count after _Ready: " + _wheelArray.Count);  // Check count here
@@ -28,6 +30,8 @@ namespace TruckGame
 			_terrainDetectorArray = GetTree().GetNodesInGroup("TerrainDetectors");
 
 			GD.Print("Terrain detector array count after _Ready: " + _terrainDetectorArray.Count);  // Check count here
+			GD.Print($"Car global position: {GlobalPosition}");
+			GD.Print($"Car center of mass: {ToGlobal(CenterOfMass)}");
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -97,23 +101,27 @@ namespace TruckGame
 		{
 			if(!IsInAir())
 			{
+				_maxSpeed = _editorMaxSpeed;
 				MovementForward((float)delta);
 				MovementBackward((float)delta);
 			}
 			else
 			{
+				_maxSpeed = 200f;
 				MovementWhileInAir((float)delta);
+				MovementForward((float)delta);
+				MovementBackward((float)delta);
 			}
 		}
 		public bool IsInAir()
 		{
 
 			foreach(TerrainDetector detector in _terrainDetectorArray)
-				if(!detector.IsOnTerrain)
+				if(detector.IsOnTerrain)
 				{
-					return true;
+					return false;
 				}
-			return false;
+			return true;
 		}
 	}
 }

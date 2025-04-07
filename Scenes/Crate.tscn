@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm2f5uw4o0qfi"]
+
+[ext_resource type="Texture2D" uid="uid://dvs0mpxyskb1i" path="res://Arts/forkliftparts2.png" id="1_3wm2m"]
+
+[node name="Crate" type="RigidBody2D"]
+collision_layer = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_3wm2m")
+hframes = 2
+vframes = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(0.5, -0.999996)
+scale = Vector2(0.95, 0.9)
+polygon = PackedVector2Array(-95.2632, 94.4444, -95.2632, -21.1111, -65.7895, -57.7778, 51.0526, -57.7778, 51.0526, 64.4444, 24.7368, 93.3333)
