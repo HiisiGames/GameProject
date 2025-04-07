@@ -13,6 +13,7 @@ namespace TruckGame
 
 		[Export] private string _level2ScenePath = "res://Levels/Level_2.tscn";
 		[Export] private string _level3ScenePath = "res://Levels/Level_3.tscn";
+		private string _nextScenePath;
 		private TextureButton _selectMainMenu;
 		private TextureButton _selectRestart;
 		private TextureButton _selectResume;
@@ -79,8 +80,21 @@ namespace TruckGame
 			}
 		}
 		private void OnContinuePressed()
-		{
-			PackedScene selectLevelButton = ResourceLoader.Load<PackedScene>(_level3ScenePath);
+		{	
+			Node CurrentScene = GetTree().CurrentScene;
+			if(CurrentScene.Name == "Level1")
+			{
+				_nextScenePath = _level2ScenePath;
+			}
+			else if(CurrentScene.Name == "Level2")
+			{
+				_nextScenePath = _level3ScenePath;
+			}
+			else
+			{
+				_nextScenePath = _mainMenuScenePath;
+			}
+			PackedScene selectLevelButton = ResourceLoader.Load<PackedScene>(_nextScenePath);
 			if (selectLevelButton != null)
 			{
 				GetTree().Paused = false;
