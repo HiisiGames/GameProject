@@ -3,6 +3,9 @@ using System;
 
 namespace TruckGame
 {
+	/// <summary>
+	/// This is so that other parts of the code can refer to TriggerZone class
+	/// </summary>
 	public partial class TriggerZone : Area2D
 	{
 		//private Beam _beam;
@@ -12,9 +15,9 @@ namespace TruckGame
 			GD.Print($"is beam null = {_beam == null}");
 			this.BodyEntered += OnTriggerZoneBodyEntered;*/
 		}
-		//public void 
-		/*public void OnTriggerZoneBodyEntered(Node node) 
-		{	
+		//public void
+		/*public void OnTriggerZoneBodyEntered(Node node)
+		{
 			GD.Print("Vehicle entered the trigger zone");
 			if(node is RigidBody2D vehicle)
 			{

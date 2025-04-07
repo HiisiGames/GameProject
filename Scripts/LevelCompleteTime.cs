@@ -3,6 +3,9 @@ using System;
 
 namespace TruckGame
 {
+	/// <summary>
+	///
+	/// </summary>
 	public partial class LevelCompleteTime : Node
 	{
 		private GameTime _gameTime;
@@ -24,6 +27,7 @@ namespace TruckGame
 			if (_gameTime != null)
 			{
 				GD.Print("gametime FOUND");
+
 				 _starsAtTheEnd = _gameTime.CountStars();
 
 				GD.Print($"Stars: {_starsAtTheEnd}");

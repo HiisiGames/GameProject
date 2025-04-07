@@ -3,10 +3,24 @@ using System;
 
 namespace TruckGame
 {
+	/// <summary>
+	///
+	/// </summary>
 	public partial class MainMenu : Node
 	{
+		/// <summary>
+		/// The path to where the level selection is located in the project directory
+		/// </summary>
 		[Export] private string _levelScenePath = "res://GUI/LevelSelection.tscn";
+
+		/// <summary>
+		/// The path to where the settings scene is located in the project directory
+		/// </summary>
 		[Export] private string _settingsScenePath = "res://GUI/Settings.tscn";
+
+		/// <summary>
+		/// The path to where the credits scene is located in the project directory
+		/// </summary>
 		[Export] private string _creditsScenePath = "res://GUI/Credits.tscn";
 		private TextureButton _selectPlay;
 		private TextureButton _selectSettings;
@@ -33,6 +47,10 @@ namespace TruckGame
 		public override void _Process(double delta)
 		{
 		}
+
+		/// <summary>
+		/// This method loads the level selection scene and changes the current scene to it
+		/// </summary>
 		private void OnPlayPressed() // This will let the user to the level selection scene
 		{
 			PackedScene selectLevelScene = ResourceLoader.Load<PackedScene>(_levelScenePath);
@@ -45,6 +63,11 @@ namespace TruckGame
 				GD.Print("Level selection scene not found");
 			}
 		}
+
+
+		/// <summary>
+		/// This method instantiates the settings scene and adds it as child to the current scene
+		/// </summary>
 		private void OnSettingsPressed() // This will bring settings to the user after pressing settings button
 		{
 			{
@@ -60,6 +83,10 @@ namespace TruckGame
 				}
 			}
 		}
+
+		/// <summary>
+		/// This method loads credits scene and changes the current scene to it
+		/// </summary>
 		private void OnCreditsPressed() // this brings player to the credits scene
 		{
 			PackedScene selectCreditsScene = ResourceLoader.Load<PackedScene>(_creditsScenePath);

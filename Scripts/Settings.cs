@@ -4,16 +4,19 @@ using System;
 
 namespace TruckGame
 {
+	/// <summary>
+	///
+	/// </summary>
 	public partial class Settings : Node
 	{
 		[Export] private string _mainMenuScenePath = "res://GUI/MainMenu.tscn";
 		[Export] private string _levelScenePath = "res://GUI/LevelSelection.tscn";
+		[Export] public Slider _musicVolumeSlider;
 		private TextureButton _selectBack;
 		private TextureButton _selectMainMenu;
 		private TextureButton _selectRestart;
 		private TextureButton _selectResume;
-		public MainMenu _mainMenuFile;
-		public bool _settingsOpen = false;
+
 
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
@@ -24,11 +27,13 @@ namespace TruckGame
 			_selectResume = GetNode<TextureButton>("ResumeButton");
 
 			CheckScene(); // Checks if current scene is main menu
+			// CheckMusicSlider();
 
 			_selectBack.Pressed += OnBackButtonPressed;
 			_selectMainMenu.Pressed += OnMainMenuPressed;
 			_selectRestart.Pressed += OnRestartPressed;
 			_selectResume.Pressed += OnResumePressed;
+
 
 		}
 
@@ -93,6 +98,21 @@ namespace TruckGame
 			this.QueueFree();
 		}
 
+		// private void CheckMusicSlider()
+		// {
+		// 	 if (_musicVolumeSlider != null)
+        // {
+		// 	AudioManager audioManager = (AudioManager) GetNode("/root/AudioManager");
+
+        // }
+		// }
+		// private void OnMusicVolumeSliderChanged(float value)
+		// {
+
+        // AudioManager audioManager = (AudioManager)GetNode("/root/AudioManager");
+
+        // audioManager.SetVolume(value);
+		// }
 
 	}
 }

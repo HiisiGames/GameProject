@@ -3,6 +3,9 @@ using System;
 
 namespace TruckGame
 {
+	/// <summary>
+	///
+	/// </summary>
 	public partial class Credits: Node
 	{
 		[Export] private string _mainMenuScenePath = "res://GUI/MainMenu.tscn";
@@ -13,6 +16,7 @@ namespace TruckGame
 			_selectBack = GetNode<Button>("BackButton");
 
 			_selectBack.Pressed += OnBackButtonPressed;
+			//
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,11 +24,13 @@ namespace TruckGame
 		{
 		}
 		private void OnBackButtonPressed()
+		// Takes the user back to main menu from the credits scene
 		{
 			PackedScene selectBackButton = ResourceLoader.Load<PackedScene>(_mainMenuScenePath);
 			if (selectBackButton != null)
 			{
 				GetTree().ChangeSceneToPacked(selectBackButton);
+				// Changes the current scene to main menu
 			}
 			else
 			{

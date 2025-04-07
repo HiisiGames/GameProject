@@ -1,8 +1,12 @@
 using Godot;
 using System;
 
+// This file checks if playervehicle is in contact with certain elements (in this case the obstacles)
 namespace TruckGame
 {
+	/// <summary>
+	///
+	/// </summary>
 	public partial class CollisionDetector : Area2D
 	{
 		// Called when the node enters the scene tree for the first time.
@@ -31,6 +35,7 @@ namespace TruckGame
 		}
 
 		public void OnCollisionDetected(Node node)
+		// This checks if the player vehicle touches a "triggerzone"
 		{
 			GD.Print("Node collided with collision detector");
 			if (node.IsInGroup("Obstacles"))
@@ -56,12 +61,13 @@ namespace TruckGame
 
 		}
 		public void InstantiateGameOverPanel()
+		// This will instantiate the game over panel
 		{
 			if (_selectGameOverScene != null)
 				{
 					Node gameOverPanel = _selectGameOverScene.Instantiate();
-					//gameOverPanel.Name = "GameOverPanel";
 					AddChild(gameOverPanel);
+					// Adds a child node to the scene tree
 
 					GD.Print("game over panel created");
 				}

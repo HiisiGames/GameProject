@@ -3,6 +3,9 @@ using System;
 
 namespace TruckGame
 {
+	/// <summary>
+	///
+	/// </summary>
 public partial class WheelMaker : Node2D
 {
 	// Called when the node enters the scene tree for the first time.
