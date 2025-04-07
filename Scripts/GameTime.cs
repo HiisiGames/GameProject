@@ -74,17 +74,17 @@ namespace TruckGame
 			if (_thirdStar >= _totalTime)
 			{
 				_starCount = 3;
-				GD.Print("Full star");
+				GD.Print("Full stars");
 			}
 			else if (_secondStar >= _totalTime)
 			{
 				_starCount = 2;
-				GD.Print("Full star");
+				GD.Print("Two stars");
 			}
 			else if (_firstStar >= _totalTime)
 			{
 				_starCount = 1;
-				GD.Print("Full star");
+				GD.Print("One star");
 			}
 			else
 			{
@@ -96,23 +96,23 @@ namespace TruckGame
 		{
 			Node currentLevel = GetTree().CurrentScene;
 
-			if (currentLevel.SceneFilePath == "res://Levels/level_1.tscn")
+			if (currentLevel.SceneFilePath == "res://Levels/Level_1.tscn")
 			{
-				_firstStar = 35;
+				_firstStar = 90;
 				_secondStar = 70;
-				_thirdStar = 110;
+				_thirdStar = 30;
 			}
 			else if (currentLevel.SceneFilePath == "res://Levels/Level_2.tscn")
 			{
-				_firstStar = 40;
+				_firstStar = 90;
 				_secondStar = 60;
-				_thirdStar = 80;
+				_thirdStar = 30;
 			}
 			else if (currentLevel.SceneFilePath == "res://Levels/Level_3.tscn")
 			{
-				_firstStar = 30;
-				_secondStar = 50;
-				_thirdStar = 100;
+				_firstStar = 90;
+				_secondStar = 60;
+				_thirdStar = 45;
 			}
 			GD.Print("Tämä on:");
 			GD.Print(currentLevel.SceneFilePath);
