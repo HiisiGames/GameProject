@@ -3,6 +3,9 @@ using System;
 
 namespace TruckGame
 {
+	/// <summary>
+	/// GameTime is used to calculate the time and how many stars at the end of the game the player gets
+	/// </summary>
 	public partial class GameTime : Node
 	{
 		// TIMER WORKS DONT TOUCH

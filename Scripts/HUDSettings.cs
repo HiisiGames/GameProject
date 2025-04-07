@@ -3,9 +3,14 @@ using System;
 
 namespace TruckGame
 {
+	/// <summary>
+	///
+	/// </summary>
 	public partial class HUDSettings : Node
 	{
-
+		/// <summary>
+		/// The path to where settings scene is located in the project directory
+		/// </summary>
 		[Export] private string _settingsScenePath = "res://GUI/Settings.tscn";
 		private TextureButton _selectSettings;
 		private PackedScene _selectSettingsScene;

@@ -4,6 +4,9 @@ using System;
 
 namespace TruckGame
 {
+	/// <summary>
+	///
+	/// </summary>
 	public partial class Settings : Node
 	{
 		[Export] private string _mainMenuScenePath = "res://GUI/MainMenu.tscn";
@@ -24,7 +27,7 @@ namespace TruckGame
 			_selectResume = GetNode<TextureButton>("ResumeButton");
 
 			CheckScene(); // Checks if current scene is main menu
-			CheckMusicSlider();
+			// CheckMusicSlider();
 
 			_selectBack.Pressed += OnBackButtonPressed;
 			_selectMainMenu.Pressed += OnMainMenuPressed;
@@ -95,21 +98,21 @@ namespace TruckGame
 			this.QueueFree();
 		}
 
-		private void CheckMusicSlider()
-		{
-			 if (_musicVolumeSlider != null)
-        {
-			AudioManager audioManager = (AudioManager) GetNode("/root/AudioManager");
+		// private void CheckMusicSlider()
+		// {
+		// 	 if (_musicVolumeSlider != null)
+        // {
+		// 	AudioManager audioManager = (AudioManager) GetNode("/root/AudioManager");
 
-        }
-		}
-		private void OnMusicVolumeSliderChanged(float value)
-		{
+        // }
+		// }
+		// private void OnMusicVolumeSliderChanged(float value)
+		// {
 
-        AudioManager audioManager = (AudioManager)GetNode("/root/AudioManager");
+        // AudioManager audioManager = (AudioManager)GetNode("/root/AudioManager");
 
-        audioManager.SetVolume(value);
-		}
+        // audioManager.SetVolume(value);
+		// }
 
 	}
 }

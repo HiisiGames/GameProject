@@ -3,6 +3,9 @@ using System;
 
 namespace TruckGame
 {
+	/// <summary>
+	///
+	/// </summary>
 	public partial class LevelCompleteTime : Node
 	{
 		private GameTime _gameTime;

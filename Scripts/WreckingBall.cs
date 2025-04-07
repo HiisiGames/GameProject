@@ -3,6 +3,9 @@ using System;
 
 namespace TruckGame
 {
+    /// <summary>
+    ///
+    /// </summary>
     public partial class WreckingBall : RigidBody2D
     {
         private Vector2 _globalBallPosition;
@@ -16,14 +19,14 @@ namespace TruckGame
         {
             GD.Print($"Wrecking Ball global position: {this.GlobalPosition}");
             _globalBallPosition = GetNode<CollisionShape2D>("CollisionShape2D2").GlobalPosition;
-            
+
             GD.Print($"Ball global position: {_globalBallPosition}");
             _forcePosition = new Vector2(0, 0);
             _directionVector = new Vector2(10, 0);
             _forceVector = _directionVector * _force;
             RotationDegrees = 90.0f;
             Freeze = true;
-            
+
         }
         public override void _PhysicsProcess(double delta)
         {

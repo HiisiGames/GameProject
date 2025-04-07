@@ -6,7 +6,9 @@ using System;
 // MAKE SURE "ALWAYS" IS SELECTED
 namespace TruckGame
 {
-
+	/// <summary>
+	///
+	/// </summary>
 	public partial class LevelComplete : Node
 	{
 		[Export] private string _mainMenuScenePath = "res://GUI/MainMenu.tscn";
