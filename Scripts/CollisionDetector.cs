@@ -38,9 +38,9 @@ namespace TruckGame
 		// This checks if the player vehicle touches a "triggerzone"
 		{
 			GD.Print("Node collided with collision detector");
-			if (node is Beam beam)
+			if (node.IsInGroup("Obstacles"))
 			{
-				GD.Print("Collided with beam");
+				GD.Print("Collided with obstacle");
 				GD.Print("Game over");
 
 				InstantiateGameOverPanel();
