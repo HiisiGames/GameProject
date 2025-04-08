@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://6f02xp037s2n" path="res://Arts/DemolishBallMachine.png" id="1_htyfw"]
 
 [node name="WreckingBallCrane" type="Sprite2D"]
+z_index = -20
 scale = Vector2(4, 4)
 texture = ExtResource("1_htyfw")

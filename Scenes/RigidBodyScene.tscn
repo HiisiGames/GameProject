@@ -23,6 +23,7 @@ length = 2.0
 initial_offset = 1.0
 
 [node name="Car" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(16, -227)
 scale = Vector2(5, 5)
 texture = ExtResource("1_7twat")
@@ -57,10 +58,10 @@ node_b = NodePath("../wheel1")
 softness = 2.0
 
 [node name="wheel" parent="." instance=ExtResource("1_k7eev")]
-z_index = -1
 position = Vector2(-106, -80)
 
 [node name="wheel1" parent="." instance=ExtResource("1_k7eev")]
+z_index = 1
 position = Vector2(167, -80)
 
 [node name="TerrainDetector" type="RayCast2D" parent="." groups=["TerrainDetectors"]]
