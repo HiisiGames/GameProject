@@ -4,7 +4,7 @@ using System;
 namespace TruckGame
 {
 	/// <summary>
-	///
+	/// This updates the star scene and the timer to LevelComplete.tscn
 	/// </summary>
 	public partial class LevelCompleteTime : Node
 	{
@@ -14,6 +14,7 @@ namespace TruckGame
 		private Sprite2D _starTwo;
 		private Sprite2D _starThree;
 		private int _starsAtTheEnd;
+		private float _fastestTime;
 
 		public override void _Ready()
 		{
@@ -49,6 +50,8 @@ namespace TruckGame
 			_starThree = GetNode<Sprite2D>("StarThree");
 
 			UpdateStars();
+			FastestTime();
+
 		}
 
 		public override void _Process(double delta)
@@ -72,6 +75,17 @@ namespace TruckGame
 				_starThree.Texture = (Texture2D)GD.Load("res://Arts/UI/Star.png");
 				GD.Print("Luotu kolmas tähti");
 			}
+			GD.Print("UpdateStars Methods works");
+		}
+		private string FastestTime()
+		{
+			_fastestTime = _gameTime._totalTime;
+			int minutes = Mathf.FloorToInt(_fastestTime / 60);
+    		int seconds = Mathf.FloorToInt(_fastestTime % 60);
+
+			string realTime = $"{minutes:D2}:{seconds:D2}";
+			GD.Print($"Time: {realTime}. USING FastestTime() method ");
+			return realTime;
 		}
 	}
 }

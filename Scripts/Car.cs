@@ -10,7 +10,6 @@ namespace TruckGame
 	public partial class Car : RigidBody2D
 	{
 		[Export] private float _speed = 60000f;
-
 		[Export] private float _maxSpeed = 100f;
 		[Export] private float _rotationTorque = 5000000f;
 		private float _editorMaxSpeed;
@@ -88,12 +87,12 @@ namespace TruckGame
 		{
 				if (Input.IsActionPressed("Accelerate"))
 				{
-					GD.Print("Applying torque");
+					// GD.Print("Applying torque");
 					ApplyTorque(-_rotationTorque * (float)delta);
 				}
 				if (Input.IsActionPressed("Break"))
 				{
-					GD.Print("Applying negative torque");
+					// GD.Print("Applying negative torque");
 					ApplyTorque(_rotationTorque * (float)delta);
 				}
 		}

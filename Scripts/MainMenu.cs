@@ -27,6 +27,7 @@ namespace TruckGame
 		private TextureButton _selectCredits;
 		private PackedScene _selectSettingsScene;
 		private Button _selectQuit;
+		public bool _isSettingsOpenFromMainMenu = false;
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
@@ -71,7 +72,7 @@ namespace TruckGame
 		private void OnSettingsPressed() // This will bring settings to the user after pressing settings button
 		{
 			{
-				if (_selectSettingsScene != null)
+				if (_selectSettingsScene != null && GetNodeOrNull<Node>("SettingsPanel") == null)
 				{
 					Node settingsPanel = _selectSettingsScene.Instantiate();
 					settingsPanel.Name = "SettingsPanel";

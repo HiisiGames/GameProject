@@ -1,22 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://dttsx40cfx2l3"]
+[gd_scene load_steps=8 format=3 uid="uid://dttsx40cfx2l3"]
 
 [ext_resource type="Script" path="res://Scripts/GameTime.cs" id="1_ahngx"]
 [ext_resource type="Script" path="res://Scripts/HUDSettings.cs" id="1_ltner"]
 [ext_resource type="Texture2D" uid="uid://djryqp32q84d3" path="res://Arts/UI/Pause_Bars.png" id="3_183qu"]
 [ext_resource type="Texture2D" uid="uid://bsrrmm8ctl75p" path="res://Arts/UI/Pedal_Up_Fixed.png" id="4_clkd2"]
 [ext_resource type="Texture2D" uid="uid://cvouvbmppqwqb" path="res://Arts/UI/Pedal_Down_Fixed.png" id="5_tjef6"]
+[ext_resource type="Texture2D" uid="uid://crqrhdk6tpjyo" path="res://Arts/UI/PlayV2.png" id="6_ba6gs"]
+[ext_resource type="Texture2D" uid="uid://dwqbi6vmmyrr0" path="res://Arts/UI/Play_PressedV2.png" id="7_g8r16"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_ahngx")
 
-[node name="Control" type="Control" parent="."]
+[node name="HUDSettings" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_ltner")
 
-[node name="SettingsButton" type="TextureButton" parent="Control"]
+[node name="SettingsButton" type="TextureButton" parent="HUDSettings"]
 layout_mode = 0
 offset_left = 1543.0
 offset_right = 1607.0
@@ -25,19 +28,47 @@ scale = Vector2(3, 3)
 texture_normal = ExtResource("3_183qu")
 stretch_mode = 3
 
-[node name="BrakeButton" type="TouchScreenButton" parent="Control"]
+[node name="BrakeButton" type="TouchScreenButton" parent="HUDSettings"]
 position = Vector2(144, 759)
 scale = Vector2(4, 4)
 texture_normal = ExtResource("4_clkd2")
 texture_pressed = ExtResource("5_tjef6")
 action = "Break"
 
-[node name="GasButton" type="TouchScreenButton" parent="Control"]
+[node name="GasButton" type="TouchScreenButton" parent="HUDSettings"]
 position = Vector2(1501, 759)
 scale = Vector2(4, 4)
 texture_normal = ExtResource("4_clkd2")
 texture_pressed = ExtResource("5_tjef6")
 action = "Accelerate"
+
+[node name="Gas" type="Label" parent="HUDSettings"]
+layout_mode = 0
+offset_left = 1543.0
+offset_top = 644.0
+offset_right = 1583.0
+offset_bottom = 667.0
+scale = Vector2(5, 5)
+text = "Gas"
+
+[node name="Brake" type="Label" parent="HUDSettings"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 644.0
+offset_right = 201.0
+offset_bottom = 667.0
+scale = Vector2(5, 5)
+text = "Brake"
+
+[node name="PauseTimer" type="Timer" parent="HUDSettings"]
+wait_time = 3.0
+
+[node name="StartGameButton" type="TouchScreenButton" parent="HUDSettings"]
+position = Vector2(729, 432)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("6_ba6gs")
+texture_pressed = ExtResource("7_g8r16")
+action = "StartGame"
 
 [node name="GameTime" type="Label" parent="."]
 offset_left = 845.0

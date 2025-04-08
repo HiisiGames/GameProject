@@ -17,7 +17,7 @@ namespace TruckGame
 		[Export] private float _firstStar = 0;
 		[Export] private float _secondStar = 0;
 		[Export] private float _thirdStar = 0;
-		private float _totalTime;
+		public float _totalTime;
 
 		public float TotalTime
 		{

@@ -14,10 +14,15 @@ namespace TruckGame
 		[Export] private string _mainMenuScenePath = "res://GUI/MainMenu.tscn";
 		[Export] private string _level2ScenePath = "res://Levels/Level_2.tscn";
 		[Export] private string _level3ScenePath = "res://Levels/Level_3.tscn";
+		[Export] private string _level1ScenePath = "res://Levels/Level_1.tscn";
 		private string _nextScenePath;
 		private TextureButton _selectMainMenu;
 		private TextureButton _selectRestart;
 		private TextureButton _selectResume;
+
+		public bool _isLevelComplete1 = false;
+		public bool _isLevelComplete2 = false;
+		public bool _isLevelComplete3 = false;
 
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
@@ -27,7 +32,8 @@ namespace TruckGame
 			_selectRestart = GetNode<TextureButton>("RestartButton");
 			_selectResume = GetNode<TextureButton>("ContinueButton");
 
-			CheckScene(); // Checks if current scene is main menu
+			IsLevelComplete();
+			CheckScene(); // Checks if current scene is main menu / used to pause the scene tree
 
 			_selectMainMenu.Pressed += OnMainMenuPressed;
 			_selectRestart.Pressed += OnRestartPressed;
@@ -67,7 +73,7 @@ namespace TruckGame
 			}
 		}
 
-		private void CheckScene() // This will hide the specific buttons from the main menu
+		private void CheckScene() // This pauses the scene tree
 		{
 			Node currentScene = GetTree().CurrentScene;
 
@@ -83,11 +89,11 @@ namespace TruckGame
 		private void OnContinuePressed()
 		{
 			Node CurrentScene = GetTree().CurrentScene;
-			if(CurrentScene.Name == "Level1")
+			if (CurrentScene.Name == "Level1")
 			{
 				_nextScenePath = _level2ScenePath;
 			}
-			else if(CurrentScene.Name == "Level2")
+			else if (CurrentScene.Name == "Level2")
 			{
 				_nextScenePath = _level3ScenePath;
 			}
@@ -106,6 +112,28 @@ namespace TruckGame
 				GD.Print("Main menu scene not found");
 			}
 
+		}
+
+		public void IsLevelComplete()
+		{
+			Node CurrentScene = GetTree().CurrentScene;
+			if (CurrentScene.Name == "Level1" && _isLevelComplete1 == false)
+			{
+				_isLevelComplete1 = true;
+				GD.Print("Level 1 is complete (IsLevelComplete method)");
+				// TO DO
+				// Add the way that this is saved, also see if you can check with if that it only does this if
+			}
+			else if (CurrentScene.Name == "Level2" && _isLevelComplete2 == false)
+			{
+				_isLevelComplete2 = true;
+				GD.Print("Level 2 is complete (IsLevelComplete method)");
+			}
+			else if (CurrentScene.Name == "Level3" && _isLevelComplete3 == false)
+			{
+				_isLevelComplete3 = true;
+				GD.Print("Level 3 is complete (IsLevelComplete method)");
+			}
 		}
 
 
