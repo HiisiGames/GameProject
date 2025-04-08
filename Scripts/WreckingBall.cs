@@ -12,6 +12,7 @@ namespace TruckGame
         private Vector2 _directionVector;
         [Export]
         private float _force = 100.0f;
+        [Export]
         private TriggerZone _triggerZone;
 	    private bool Triggered = false;
         
@@ -26,7 +27,7 @@ namespace TruckGame
             _forceVector = _directionVector * _force;
             RotationDegrees = -90.0f;
             Freeze = true;
-            _triggerZone = GetNode<TriggerZone>("/root/Level2/TriggerZone2");
+            //_triggerZone = GetNode<TriggerZone>("/root/Level2/TriggerZone2");
             _triggerZone.BodyEntered += OnTriggerZoneBodyEntered;
             
         }

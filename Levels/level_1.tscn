@@ -515,6 +515,7 @@ texture = ExtResource("4_7u5ku")
 position = Vector2(103, -282)
 collision_mask = 22
 script = ExtResource("6_7hkop")
+_wheelTorque = 65000.0
 _maxAngularVelocity = 85.0
 
 [node name="Camera2D" type="Camera2D" parent="PlayerVehicle"]
@@ -540,7 +541,8 @@ scale = Vector2(2, 2)
 texture = ExtResource("8_fgbb7")
 
 [node name="SpikeTrap" parent="." instance=ExtResource("9_ais5l")]
-position = Vector2(7234, 1629)
+position = Vector2(7281, 1883)
+scale = Vector2(9, 9)
 
 [node name="Terrain" type="StaticBody2D" parent="."]
 collision_layer = 2

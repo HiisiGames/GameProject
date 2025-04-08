@@ -1,24 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://duvdko2482c62"]
 
-[ext_resource type="Texture2D" uid="uid://cxq6pqylonicq" path="res://Arts/Cement_Spikes_Test.png" id="1_8cvqm"]
+[ext_resource type="Texture2D" uid="uid://bslwu6xtg61n" path="res://Arts/spiketrap1.png" id="1_qsi0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86ywt"]
-size = Vector2(79.8, 63)
+size = Vector2(101.273, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p84bw"]
-size = Vector2(69.375, 33.025)
+size = Vector2(97.8182, 44.1489)
 
 [node name="SpikeTrap" type="StaticBody2D" groups=["Obstacles"]]
 scale = Vector2(11, 11)
 collision_layer = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_8cvqm")
+texture = ExtResource("1_qsi0y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.975, 31.825)
+position = Vector2(-4.54545, 19.8182)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_86ywt")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(0.5875, -16.2875)
+position = Vector2(-4.54545, -33.5619)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_p84bw")
