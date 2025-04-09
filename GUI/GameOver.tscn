@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cfcnqxyvi88so"]
+[gd_scene load_steps=10 format=3 uid="uid://cfcnqxyvi88so"]
 
 [ext_resource type="Script" path="res://Scripts/GameOver.cs" id="1_5mdmg"]
 [ext_resource type="Texture2D" uid="uid://bsns3t0f7cj5v" path="res://Arts/UI/Restart_ButtonV2.png" id="1_gsnml"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dpob7ofs07jqh" path="res://Arts/UI/Home_PressedV2.png" id="4_vf0co"]
 [ext_resource type="Texture2D" uid="uid://d1i4sj4nwnamh" path="res://Arts/UI/Continue_ButtonV2.png" id="5_e4g4q"]
 [ext_resource type="Texture2D" uid="uid://c1q21dd6nkf7w" path="res://Arts/UI/Continue_PressedV2.png" id="6_0fqrv"]
+[ext_resource type="Texture2D" uid="uid://2jtdv6m7qmjh" path="res://Arts/UI/player_confused.png" id="9_sepyx"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -19,7 +20,7 @@ offset_right = 1593.0
 offset_bottom = 916.0
 script = ExtResource("1_5mdmg")
 
-[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+[node name="Background" type="Sprite2D" parent="Panel"]
 position = Vector2(633.5, 397.001)
 scale = Vector2(3.02148, 3.60938)
 texture = ExtResource("2_wqkfl")
@@ -27,9 +28,9 @@ texture = ExtResource("2_wqkfl")
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 2
 offset_left = 521.0
-offset_top = 239.0
+offset_top = 135.0
 offset_right = 608.0
-offset_bottom = 262.0
+offset_bottom = 158.0
 scale = Vector2(3, 3)
 text = "Game Over"
 
@@ -62,3 +63,8 @@ offset_bottom = 581.0
 scale = Vector2(3, 3)
 texture_normal = ExtResource("1_gsnml")
 texture_pressed = ExtResource("2_8bq5n")
+
+[node name="Elephant" type="Sprite2D" parent="Panel"]
+position = Vector2(654, 316)
+scale = Vector2(3, 3)
+texture = ExtResource("9_sepyx")

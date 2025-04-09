@@ -64,11 +64,22 @@ text = "Brake"
 wait_time = 3.0
 
 [node name="StartGameButton" type="TouchScreenButton" parent="HUDSettings"]
-position = Vector2(729, 432)
+position = Vector2(755, 456)
 scale = Vector2(3, 3)
 texture_normal = ExtResource("6_ba6gs")
 texture_pressed = ExtResource("7_g8r16")
 action = "StartGame"
+
+[node name="CountDown" type="Label" parent="HUDSettings"]
+layout_mode = 0
+offset_left = 734.0
+offset_top = 267.0
+offset_right = 830.0
+offset_bottom = 290.0
+scale = Vector2(4, 4)
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GameTime" type="Label" parent="."]
 offset_left = 845.0

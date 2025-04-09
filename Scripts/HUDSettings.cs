@@ -15,8 +15,9 @@ namespace TruckGame
 		private TextureButton _selectSettings;
 		private PackedScene _selectSettingsScene;
 		private TouchScreenButton _startGameButton;
-		public Label _gasLabel;
-		public Label _brakeLabel;
+		private Label _gasLabel;
+		private Label _brakeLabel;
+		private Label _countDown;
 		private Timer _gamePaused;
 		private bool _isGamePaused = true;
 		private bool _hasStarted = false;
@@ -28,8 +29,10 @@ namespace TruckGame
 
 			_selectSettings = GetNode<TextureButton>("SettingsButton");
 			_startGameButton = GetNode<TouchScreenButton>("StartGameButton");
+
 			_gasLabel = GetNode<Label>("Gas");
 			_brakeLabel = GetNode<Label>("Brake");
+			_countDown = GetNode<Label>("CountDown");
 
 			_selectSettings.Pressed += OnSettingsPressed;
 
@@ -86,6 +89,7 @@ namespace TruckGame
 			_gasLabel.Visible = false;
 			_brakeLabel.Visible = false;
 			_selectSettings.Visible = true;
+			_countDown.Visible = false;
 
 			GetTree().Paused = false;
 			GD.Print("Unpaused, PauseIsOver method");
@@ -99,12 +103,33 @@ namespace TruckGame
 				{
 					_gamePaused.Start();
 
+					CountDown();
+
 					_gamePaused.Timeout += PauseIsOver;
 
 					GD.Print("Game is going to unpause)");
 
 					_hasStarted = true;
 				}
+			}
+		}
+		private async void CountDown()
+		{
+			int time = 3;
+
+			for (time = 3; time >= 0; time--)
+			{
+				_countDown.Text = $"{time}";
+				Timer timer = new Timer();
+				AddChild(timer);
+				timer.WaitTime = 1.0f;
+				timer.OneShot = true;
+				timer.Start();
+
+
+				await ToSignal(timer, "timeout");
+
+				timer.QueueFree();
 			}
 		}
 
