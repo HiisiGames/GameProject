@@ -43,7 +43,7 @@ collision_mask = 6
 script = ExtResource("3_jt5f1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionDetector"]
-polygon = PackedVector2Array(-128, -99, -141, -355, 71, -354, 198, -279, 227, -160, 226, -99)
+polygon = PackedVector2Array(-128, -99, -141, -355, 72, -352, 198, -271, 225, -144, 226, -99)
 
 [node name="WheelAxle" type="PinJoint2D" parent="."]
 position = Vector2(-106, -80)
