@@ -82,3 +82,6 @@ offset_right = 1632.0
 offset_bottom = 31.0
 scale = Vector2(4, 4)
 text = "Exit Game"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true

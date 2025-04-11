@@ -3,6 +3,9 @@ using System;
 
 namespace TruckGame
 {
+    /// <summary>
+    ///
+    /// </summary>
     public partial class WreckingBall : RigidBody2D
     {
         private Vector2 _globalBallPosition;
@@ -15,12 +18,12 @@ namespace TruckGame
         [Export]
         private TriggerZone _triggerZone;
 	    private bool Triggered = false;
-        
+
         public override void _Ready()
         {
             GD.Print($"Wrecking Ball global position: {this.GlobalPosition}");
             _globalBallPosition = GetNode<CollisionShape2D>("CollisionShape2D2").GlobalPosition;
-            
+
             GD.Print($"Ball global position: {_globalBallPosition}");
             _forcePosition = new Vector2(0, 0);
             _directionVector = new Vector2(10, 0);
@@ -29,7 +32,7 @@ namespace TruckGame
             Freeze = true;
             //_triggerZone = GetNode<TriggerZone>("/root/Level2/TriggerZone2");
             _triggerZone.BodyEntered += OnTriggerZoneBodyEntered;
-            
+
         }
         public override void _PhysicsProcess(double delta)
         {
@@ -64,8 +67,8 @@ namespace TruckGame
             }
         }
         //Listens to TriggerZone's BodyEntered signal and sets the boolean Triggered to true, which causes the Freeze property to be set to false.
-	    public void OnTriggerZoneBodyEntered(Node node) 
-		{	
+	    public void OnTriggerZoneBodyEntered(Node node)
+		{
 			GD.Print("Vehicle entered the trigger zone");
 			if(node is RigidBody2D vehicle)
 			{

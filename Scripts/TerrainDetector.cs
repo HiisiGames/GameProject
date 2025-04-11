@@ -3,6 +3,9 @@ using System;
 
 namespace TruckGame
 {
+	/// <summary>
+	///
+	/// </summary>
 	public partial class TerrainDetector : RayCast2D
 	{
 		private bool _isOnTerrain = true;

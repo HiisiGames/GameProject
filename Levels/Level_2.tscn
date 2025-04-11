@@ -17,9 +17,9 @@
 [ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="9_0du10"]
 [ext_resource type="Texture2D" uid="uid://cynl40r8xjmm8" path="res://Arts/GroundPixel_02.png" id="9_uuxa8"]
 [ext_resource type="Texture2D" uid="uid://cpdjpxdgndkdn" path="res://Arts/protocrane256.png" id="14_0dpjl"]
-[ext_resource type="PackedScene" path="res://GUI/HUD.tscn" id="14_3pfnb"]
+[ext_resource type="PackedScene" uid="uid://dttsx40cfx2l3" path="res://GUI/HUD.tscn" id="14_3pfnb"]
 [ext_resource type="PackedScene" uid="uid://bkb7xw2ayq7nu" path="res://Scenes/beam.tscn" id="15_81ej1"]
-[ext_resource type="PackedScene" uid="uid://ck8lye1f51dta" path="res://Scenes/Container.tscn" id="16_3ik52"]
+[ext_resource type="PackedScene" uid="uid://bexnplbeixsdc" path="res://Scenes/Container.tscn" id="16_3ik52"]
 [ext_resource type="Script" path="res://Scripts/TriggerZone.cs" id="16_q3g2s"]
 [ext_resource type="Script" path="res://Scripts/Beam.cs" id="17_j8cda"]
 [ext_resource type="PackedScene" uid="uid://jvhxcrn4e54s" path="res://Scenes/Character.tscn" id="17_y8agg"]
@@ -541,8 +541,13 @@ position = Vector2(16406, -1074)
 
 [node name="WreckingBallHolder" parent="." instance=ExtResource("27_vqub0")]
 
+
+
+
 [node name="WreckingBall" parent="WreckingBallHolder" index="2" node_paths=PackedStringArray("_triggerZone")]
 _triggerZone = NodePath("../../TriggerZone2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [editable path="Parallax"]
 [editable path="Parallax2"]

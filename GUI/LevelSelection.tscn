@@ -40,7 +40,11 @@ offset_top = 495.0
 offset_right = 535.0
 offset_bottom = 536.0
 scale = Vector2(3, 3)
-text = "Level 1"
+text = "Level 1: 
+
+Fastest time:
+"
+alignment = 0
 
 [node name="Level2" type="Button" parent="."]
 layout_mode = 0

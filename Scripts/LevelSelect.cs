@@ -3,7 +3,9 @@ using System;
 
 namespace TruckGame
 {
-
+	/// <summary>
+	///
+	/// </summary>
 	public partial class LevelSelect : Node
 	{
 		[Export] private string _mainMenuScenePath = "res://GUI/MainMenu.tscn";
