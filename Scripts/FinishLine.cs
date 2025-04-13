@@ -8,26 +8,15 @@ namespace TruckGame
 	/// </summary>
 	public partial class FinishLine : Area2D
 	{
-		// Called when the node enters the scene tree for the first time.
-		//Level2 _level2;
-		// private bool _isPaused = false;
-
 		/// <summary>
 		/// The path to where the level complete is located in the project directory
 		/// </summary>
 		[Export] private string _levelCompletePath = "res://GUI/LevelComplete.tscn";
 		private PackedScene _selectLevelCompleteScene;
 
-		// public bool IsPaused
-		// {
-		// 	get { return _isPaused; }
-		// 	set { _isPaused = value; }
-		// }
-
 		public override void _Ready()
 		{
 			_selectLevelCompleteScene = ResourceLoader.Load<PackedScene>(_levelCompletePath);
-			// Loads up the level complete scene to be used
 
 			this.BodyEntered += OnCollisionDetected;
 			//_level2 = GetNode<Level2>("Level2");
@@ -55,6 +44,7 @@ namespace TruckGame
 				GD.Print("Game won");
 
 				InstantiateLevelComplete();
+
 
 				// if (_selectLevelCompleteScene != null) // This brings up the level complete scene
 				// {

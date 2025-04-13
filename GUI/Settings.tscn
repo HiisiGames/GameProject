@@ -25,9 +25,9 @@ texture = ExtResource("2_robg1")
 
 [node name="SFXLabel" type="Label" parent="."]
 layout_mode = 2
-offset_left = 573.0
+offset_left = 570.0
 offset_top = 116.0
-offset_right = 679.0
+offset_right = 676.0
 offset_bottom = 139.0
 scale = Vector2(3, 3)
 text = "Sound effects"

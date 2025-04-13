@@ -75,7 +75,7 @@ namespace TruckGame
 				if (_selectSettingsScene != null && GetNodeOrNull<Node>("SettingsPanel") == null)
 				{
 					Node settingsPanel = _selectSettingsScene.Instantiate();
-					settingsPanel.Name = "SettingsPanel";
+					settingsPanel.Name = "SettingsPanel"; // IMPORTANT DONT DELETE
 					AddChild(settingsPanel);
 				}
 				else

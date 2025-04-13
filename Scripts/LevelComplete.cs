@@ -1,6 +1,8 @@
 using Godot;
+using Godot.Collections;
 using GodotPlugins.Game;
 using System;
+using System.Collections.Generic;
 // FOR THIS TO WORK MAKE SURE THAT THE NODE WITH THE SCRIPT HAS "ALWAYS" ON IN THE PROCESS
 // IT CAN BE CHECKED IN THE GODOT EDITOR FROM NODE ---->>> PROCESS
 // MAKE SURE "ALWAYS" IS SELECTED
@@ -15,18 +17,32 @@ namespace TruckGame
 		[Export] private string _level2ScenePath = "res://Levels/Level_2.tscn";
 		[Export] private string _level3ScenePath = "res://Levels/Level_3.tscn";
 		[Export] private string _level1ScenePath = "res://Levels/Level_1.tscn";
+		[Export] private string _gameSaveScenePath = "res://Scenes/GameSave.tscn";
 		private string _nextScenePath;
+		PackedScene _gameSave;
 		private TextureButton _selectMainMenu;
 		private TextureButton _selectRestart;
 		private TextureButton _selectResume;
-
 		public bool _isLevelComplete1 = false;
 		public bool _isLevelComplete2 = false;
 		public bool _isLevelComplete3 = false;
 
+		public bool IsLevelComplete1
+		{
+			get { return _isLevelComplete1; }
+		}
+		public bool IsLevelComplete2
+		{
+			get { return _isLevelComplete2; }
+		}
+		public bool IsLevelComplete3
+		{
+			get { return _isLevelComplete3; }
+		}
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
+			_gameSave = ResourceLoader.Load<PackedScene>(_gameSaveScenePath);
 
 			_selectMainMenu = GetNode<TextureButton>("MainMenuButton");
 			_selectRestart = GetNode<TextureButton>("RestartButton");
@@ -34,11 +50,11 @@ namespace TruckGame
 
 			IsLevelComplete();
 			CheckScene(); // Checks if current scene is main menu / used to pause the scene tree
+			GameSave();
 
 			_selectMainMenu.Pressed += OnMainMenuPressed;
 			_selectRestart.Pressed += OnRestartPressed;
 			_selectResume.Pressed += OnContinuePressed;
-
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -135,7 +151,24 @@ namespace TruckGame
 				GD.Print("Level 3 is complete (IsLevelComplete method)");
 			}
 		}
-
-
+		private void GameSave()
+		{
+			{
+				if (_gameSave != null)
+				{
+					if (GetNode<Node>("GameSave") == null)
+					{
+						GD.Print("GameSave node found, LevelComplete Method");
+						Node gameSave = _gameSave.Instantiate();
+						gameSave.Name = "GameSave"; // THIS IS IMPORTANT DONT DELETE
+						AddChild(gameSave);
+					}
+				}
+				else
+				{
+					GD.Print("Gamesave node not found, LevelComplete Method");
+				}
+			}
+		}
 	}
 }
