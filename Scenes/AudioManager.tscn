@@ -1,18 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbonta60gsp7s"]
+[gd_scene load_steps=5 format=3 uid="uid://cbonta60gsp7s"]
 
 [ext_resource type="Script" path="res://Scripts/AudioManager.cs" id="1_0478f"]
 [ext_resource type="AudioStream" uid="uid://b1bcpwvnfx5fo" path="res://Sound/bgMusic.mp3" id="2_berio"]
+[ext_resource type="AudioStream" uid="uid://bingw0ok36v6q" path="res://Sound/345335__willybilly1984__rfx_car-engine-acelerator-and-switch-off.wav" id="3_ntmb1"]
+[ext_resource type="AudioStream" uid="uid://b2a4c7rtkysla" path="res://Sound/435845__dersuperanton__flashlight-click.wav" id="3_ya2lm"]
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_0478f")
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
+[node name="SFX" type="Node" parent="."]
+
+[node name="ClickButtonSound" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_ya2lm")
+bus = &"Sound effects"
+
+[node name="EngineSound" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_ntmb1")
+bus = &"Sound effects"
+
+[node name="CollideSound" type="AudioStreamPlayer" parent="SFX"]
+bus = &"Sound effects"
+
+[node name="Music" type="Node" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Music"]
 process_mode = 3
 stream = ExtResource("2_berio")
 autoplay = true
 mix_target = 1
 bus = &"Music"
 parameters/looping = true
-
-[node name="SFX" type="AudioStreamPlayer" parent="."]
-bus = &"Sound effects"

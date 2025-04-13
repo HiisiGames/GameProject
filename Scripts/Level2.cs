@@ -8,6 +8,7 @@ namespace TruckGame
         CollisionDetector _collisionDetector;
         public override void _Ready()
         {
+            AudioManager.Instance.bgMusic.StreamPaused = true;
 
             _collisionDetector = GetNode<CollisionDetector>("/root/Level2/PlayerVehicle/CollisionDetector");
             if(_collisionDetector == null)

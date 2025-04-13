@@ -14,6 +14,8 @@ namespace TruckGame
 		[Export] private float _rotationTorque = 5000000f;
 		private float _editorMaxSpeed;
 
+		private bool _engineSoundOn = false;
+
 
 
 		// Called when the node enters the scene tree for the first time.
@@ -48,6 +50,7 @@ namespace TruckGame
 			//D
 			if (Input.IsActionPressed("Accelerate"))
 			{
+
 				foreach (Node wheelNode in _wheelArray)
 				{
 					//GD.Print("Accel 1 ");
@@ -85,24 +88,28 @@ namespace TruckGame
 		}
 		public void MovementWhileInAir(float delta)
 		{
-				if (Input.IsActionPressed("Accelerate"))
-				{
-					// GD.Print("Applying torque");
-					ApplyTorque(-_rotationTorque * (float)delta);
-				}
-				if (Input.IsActionPressed("Break"))
-				{
-					// GD.Print("Applying negative torque");
-					ApplyTorque(_rotationTorque * (float)delta);
-				}
+			if (Input.IsActionPressed("Accelerate"))
+			{
+				// GD.Print("Applying torque");
+				ApplyTorque(-_rotationTorque * (float)delta);
+			}
+			if (Input.IsActionPressed("Break"))
+			{
+				// GD.Print("Applying negative torque");
+				ApplyTorque(_rotationTorque * (float)delta);
+			}
 		}
 		public void MovePlayerVehicle(float delta)
 		{
-			if(!IsInAir())
+			if (!IsInAir())
 			{
 				_maxSpeed = _editorMaxSpeed;
 				MovementForward((float)delta);
 				MovementBackward((float)delta);
+				if (!AudioManager.Instance.engineSound.Playing)
+				{
+					AudioManager.Instance.engineSound.Play();
+				}
 			}
 			else
 			{
@@ -110,18 +117,21 @@ namespace TruckGame
 				MovementWhileInAir((float)delta);
 				MovementForward((float)delta);
 				MovementBackward((float)delta);
+
+				AudioManager.Instance.engineSound.Stop();
 			}
 		}
 		public bool IsInAir()
 		{
 
-			foreach(TerrainDetector detector in _terrainDetectorArray)
-				if(detector.IsOnTerrain)
+			foreach (TerrainDetector detector in _terrainDetectorArray)
+				if (detector.IsOnTerrain)
 				{
 					return false;
 				}
 			return true;
 		}
+
 	}
 }
 
