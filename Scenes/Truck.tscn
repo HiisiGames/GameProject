@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://1ttnxt5lmled" path="res://Arts/truck.png" id="1_vybko"]
 
 [node name="Truck" type="Sprite2D"]
+z_index = -1
 scale = Vector2(7, 7)
 texture = ExtResource("1_vybko")
 flip_h = true

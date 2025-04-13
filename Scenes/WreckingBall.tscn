@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://iv2n5sivxseg"]
+
+[ext_resource type="Script" path="res://Scripts/WreckingBall.cs" id="1_p2uo5"]
+[ext_resource type="Texture2D" uid="uid://cgy0pgsekdwjf" path="res://Arts/DemolishBall_v2.png" id="2_0xnol"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_njrus"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sd03x"]
+radius = 62.0322
+
+[node name="WreckingBallHolder" type="StaticBody2D"]
+position = Vector2(16000, -1527)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_njrus")
+
+[node name="WreckingBallJoint" type="PinJoint2D" parent="."]
+node_a = NodePath("..")
+node_b = NodePath("../WreckingBall")
+
+[node name="WreckingBall" type="RigidBody2D" parent="." groups=["Obstacles"]]
+collision_layer = 4
+collision_mask = 64
+script = ExtResource("1_p2uo5")
+
+[node name="Sprite2D" type="Sprite2D" parent="WreckingBall"]
+position = Vector2(0, 400)
+scale = Vector2(2, 2)
+texture = ExtResource("2_0xnol")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WreckingBall"]
+position = Vector2(0, 737)
+shape = SubResource("CircleShape2D_sd03x")

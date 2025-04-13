@@ -9,6 +9,9 @@ namespace TruckGame
 	public partial class TerrainDetector : RayCast2D
 	{
 		private bool _isOnTerrain = true;
+		[Export] 
+		private string _gameOverScenePath = "res://GUI/GameOver.tscn";
+		private PackedScene _gameOverScene;
 
 		public bool IsOnTerrain
 		{
@@ -19,6 +22,7 @@ namespace TruckGame
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
+			_gameOverScene = ResourceLoader.Load<PackedScene>(_gameOverScenePath);
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,12 +36,31 @@ namespace TruckGame
 					//GD.Print("Collided with terrain");
 					_isOnTerrain = true;
 				}
+				else if(Collider.IsInGroup("Obstacles"))
+				{
+					InstantiateGameOverPanel();
+				}
 			}
 			else
 			{
 				_isOnTerrain = false;
 				//GD.Print("Not colliding with terrain");
 			}
+		}
+		public void InstantiateGameOverPanel()
+		{
+			if (_gameOverScene != null)
+				{
+					Node gameOverPanel = _gameOverScene.Instantiate();
+					//gameOverPanel.Name = "GameOverPanel";
+					AddChild(gameOverPanel);
+
+					GD.Print("game over panel created");
+				}
+				else
+				{
+					GD.Print("Game over scene not found");
+				}
 		}
 	}
 }

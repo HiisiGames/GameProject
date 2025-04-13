@@ -10,61 +10,47 @@ namespace TruckGame
     {
         private Vector2 _globalBallPosition;
         private Vector2 _currentBallPosition;
-        private Vector2 _forcePosition;
-        private Vector2 _forceVector;
-        private Vector2 _directionVector;
         [Export]
         private float _force = 100.0f;
+        [Export]
         private TriggerZone _triggerZone;
 	    private bool Triggered = false;
+        private StaticBody2D _wreckingBallParent;
+        private PinJoint2D _wreckingBallJoint;
+        private Timer _timer;
+        private bool _hasTimerBeenStarted = false;
+        [Export] private float _timeOutSeconds = 6.0f;
 
         public override void _Ready()
         {
+            _wreckingBallParent = GetParent<StaticBody2D>();
+            _wreckingBallJoint = _wreckingBallParent.GetNode<PinJoint2D>("WreckingBallJoint");
             GD.Print($"Wrecking Ball global position: {this.GlobalPosition}");
             _globalBallPosition = GetNode<CollisionShape2D>("CollisionShape2D2").GlobalPosition;
 
             GD.Print($"Ball global position: {_globalBallPosition}");
-            _forcePosition = new Vector2(0, 0);
-            _directionVector = new Vector2(10, 0);
-            _forceVector = _directionVector * _force;
             RotationDegrees = -90.0f;
             Freeze = true;
-            _triggerZone = GetNode<TriggerZone>("/root/Level2/TriggerZone2");
+            CreateTimer();
+            _timer.Timeout += OnTimeOut;
             _triggerZone.BodyEntered += OnTriggerZoneBodyEntered;
 
         }
         public override void _PhysicsProcess(double delta)
         {
-            //MoveWreckingBall((float)delta);
             if(Triggered)
             {
                 Freeze = false;
-                GD.Print($"Setting beam freeze state");
-                GD.Print($"Beam freeze state: {this.Freeze}");
+                GD.Print($"Setting wrecking ball freeze state");
+                GD.Print($"Wrecking ball freeze state: {this.Freeze}");
+                if(!_hasTimerBeenStarted)
+                {
+                    StartTimer();
+                }
                 Triggered = false;
             }
         }
-        public void MoveWreckingBall(float delta)
-        {
-            GD.Print(_globalBallPosition);
-            //bool MovingRight = false;
-            if(this.Position.X > 200)
-            {
-                //MovingRight = true;
-                _directionVector = new Vector2(10, 0);
-                _forceVector = _directionVector * _force;
-                this.ApplyTorqueImpulse(_force);
-                GD.Print("Moving right");
-            }
-            else if(this.Position.X < 200)
-            {
-                //MovingRight = false;
-                _directionVector = new Vector2(-10, 0);
-                _forceVector = _directionVector * _force;
-                this.ApplyTorqueImpulse(_force);
-                GD.Print("Moving left");
-            }
-        }
+        
         //Listens to TriggerZone's BodyEntered signal and sets the boolean Triggered to true, which causes the Freeze property to be set to false.
 	    public void OnTriggerZoneBodyEntered(Node node)
 		{
@@ -77,6 +63,39 @@ namespace TruckGame
 				GD.Print($"Trigger activated");
 			}
 	    }
+        public void OnTimeOut()
+        {
+            GD.Print("OnTimeOut() was called");
+            if(_wreckingBallJoint != null)
+            {
+                _wreckingBallJoint.NodeA = new NodePath();
+                _wreckingBallJoint.NodeB = new NodePath();
+            }
+            else
+            {
+                GD.Print("_wreckingBallJoint not found!");
+            }
+            GD.Print("Deleted wrecking ball joint");
+            if(this.GlobalPosition.Y > 5000)
+            {
+                GD.Print("Deleting wrecking ball");
+                this.QueueFree();
+            }
+        }
+        public void CreateTimer()
+        {
+            _timer = new Timer();
+            _timer.WaitTime = _timeOutSeconds;
+            _timer.OneShot = true;
+            AddChild(_timer);
+            GD.Print("Wrecking ball timer created");
+        }
+        public void StartTimer()
+        {
+            _hasTimerBeenStarted = true;
+            _timer.Start();
+            GD.Print("Wrecking ball timer started");
+        }
     }
 }
 

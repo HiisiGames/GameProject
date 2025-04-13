@@ -47,10 +47,6 @@ namespace TruckGame
 			_selectQuit.Pressed += OnQuitButtonPressed;
 		}
 
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
-		{
-		}
 
 		/// <summary>
 		/// This method loads the level selection scene and changes the current scene to it

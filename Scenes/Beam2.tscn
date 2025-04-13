@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu2wg0y2kc015"]
+
+[ext_resource type="Texture2D" uid="uid://dx83d47qthiqu" path="res://Arts/beam.png" id="1_du5pu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17r7q"]
+size = Vector2(726, 66)
+
+[node name="Beam2" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 64
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_du5pu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -61)
+shape = SubResource("RectangleShape2D_17r7q")

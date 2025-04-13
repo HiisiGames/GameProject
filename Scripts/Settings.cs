@@ -39,10 +39,6 @@ namespace TruckGame
 
 		}
 
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
-		{
-		}
 		private void OnBackButtonPressed() // deletes settings instance. In user eyes it just closes it
 		{
 			this.QueueFree();
