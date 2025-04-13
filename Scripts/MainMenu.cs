@@ -27,9 +27,13 @@ namespace TruckGame
 		private TextureButton _selectCredits;
 		private PackedScene _selectSettingsScene;
 		private Button _selectQuit;
+		public bool _isSettingsOpenFromMainMenu = false;
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
+			AudioManager.Instantiate.bgMusic.StreamPaused = false;
+			// AudioManager.Instantiate.engineSound.StreamPaused = true;
+
 			_selectSettingsScene = ResourceLoader.Load<PackedScene>(_settingsScenePath);
 
 			_selectPlay = GetNode<TextureButton>("PlayButton");
@@ -52,6 +56,7 @@ namespace TruckGame
 			PackedScene selectLevelScene = ResourceLoader.Load<PackedScene>(_levelScenePath);
 			if (selectLevelScene != null)
 			{
+				PlayClickSound();
 				GetTree().ChangeSceneToPacked(selectLevelScene);
 			}
 			else
@@ -67,10 +72,11 @@ namespace TruckGame
 		private void OnSettingsPressed() // This will bring settings to the user after pressing settings button
 		{
 			{
-				if (_selectSettingsScene != null)
+				if (_selectSettingsScene != null && GetNodeOrNull<Node>("SettingsPanel") == null)
 				{
+					PlayClickSound();
 					Node settingsPanel = _selectSettingsScene.Instantiate();
-					settingsPanel.Name = "SettingsPanel";
+					settingsPanel.Name = "SettingsPanel"; // IMPORTANT DONT DELETE
 					AddChild(settingsPanel);
 				}
 				else
@@ -88,6 +94,7 @@ namespace TruckGame
 			PackedScene selectCreditsScene = ResourceLoader.Load<PackedScene>(_creditsScenePath);
 			if (selectCreditsScene != null)
 			{
+				PlayClickSound();
 				GetTree().ChangeSceneToPacked(selectCreditsScene);
 			}
 			else
@@ -98,7 +105,13 @@ namespace TruckGame
 
 		private void OnQuitButtonPressed() // this will quit the game
 		{
+			PlayClickSound();
 			GetTree().Quit(); // Exits the game with the press of a button
+		}
+
+		private void PlayClickSound()
+		{
+			AudioManager.Instantiate.clickButtonSound.Play();
 		}
 	}
 }

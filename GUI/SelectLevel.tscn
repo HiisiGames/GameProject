@@ -22,7 +22,7 @@ offset_right = 1631.0
 offset_bottom = 910.0
 script = ExtResource("2_6lurk")
 
-[node name="Sprite2D" type="Sprite2D" parent="LevelComplete"]
+[node name="Background" type="Sprite2D" parent="LevelComplete"]
 position = Vector2(613, 380)
 scale = Vector2(2.79297, 3.59375)
 texture = ExtResource("3_lr0em")

@@ -1,32 +1,34 @@
-// using Godot;
-// using System;
+using Godot;
+using System;
 
-// namespace TruckGame
-// {
-// 	public partial class AudioManager : Node
-// 	{
-// 		[Export] public AudioStreamPlayer _musicPlayer;
-// 		[Export] private string _busName = "Music";
-// 		private Slider _volumeSlider;
-// 		private int _busIndex = 0;
+namespace TruckGame
 
-// 		public override void _Ready()
-// 		{
-// 			_volumeSlider.Connect(Slider.SignalName.ValueChanged,
-// 				new Callable(this, nameof(SetVolume)));
-// 		}
-
-// 		public override void _Process(double delta)
-// 		{
-
-// 		}
-// 		public void SetVolume(float volume)
-// 		{
-// 			if (data == null)
+{
+    public partial class AudioManager : Node
+    {
+        public static AudioManager Instantiate;
+        public Node SFX;
+        public Node Music;
+        public AudioStreamPlayer bgMusic;
+        public AudioStreamPlayer clickButtonSound;
+        public AudioStreamPlayer engineSound;
+        public AudioStreamPlayer collideSound;
+        public AudioStreamPlayer victorySound;
+        public bool isEngineOn = false;
 
 
-// 			// Set volume for the Music bus
-// 			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex(_busName), volumeDb);
-// 		}
-// 	}
-// }
+        public override void _Ready()
+        {
+            Instantiate = this;
+
+            bgMusic = GetNode<AudioStreamPlayer>("Music/BackgroundMusic");
+            clickButtonSound = GetNode<AudioStreamPlayer>("SFX/ClickButtonSound");
+            engineSound = GetNode<AudioStreamPlayer>("SFX/EngineSound");
+            collideSound = GetNode<AudioStreamPlayer>("SFX/CollideSound");
+            victorySound = GetNode<AudioStreamPlayer>("SFX/VictorySound");
+        }
+
+    }
+
+
+}
