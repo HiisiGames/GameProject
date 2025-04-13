@@ -51,10 +51,6 @@ namespace TruckGame
 			UpdateStars();
 		}
 
-		public override void _Process(double delta)
-		{
-
-		}
 		private void UpdateStars()
 		{
 			if (_starsAtTheEnd >= 1)

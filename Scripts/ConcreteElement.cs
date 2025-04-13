@@ -2,9 +2,9 @@ using Godot;
 using System;
 using TruckGame;
 
-public partial class Beam : RigidBody2D
+public partial class ConcreteElement : RigidBody2D
 {
-	[Export] private TriggerZone _triggerZone;
+	private TriggerZone _triggerZone;
 	private bool Triggered = false;
 	public override void _Ready()
 	{
@@ -13,7 +13,7 @@ public partial class Beam : RigidBody2D
 		GD.Print($"freeze state: {this.Freeze}");
 		GD.Print($"freeze mode: {this.FreezeMode}");
 		GD.Print($"sleep state: {this.Sleeping}");
-		//_triggerZone = GetNode<TriggerZone>("/root/Level2/TriggerZone");
+		_triggerZone = GetNode<TriggerZone>("/root/Level3/TriggerZone3");
 		GD.Print($"is triggerzone null = {_triggerZone == null}");
 		_triggerZone.BodyEntered += OnTriggerZoneBodyEntered;
 

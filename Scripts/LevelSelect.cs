@@ -38,10 +38,7 @@ namespace TruckGame
 			_selectLevel3.Pressed += OnLevel3ButtonPressed;
 		}
 
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
-		{
-		}
+
 		private void OnBackButtonPressed()
 		{
 			PackedScene selectBackButton = ResourceLoader.Load<PackedScene>(_mainMenuScenePath);
