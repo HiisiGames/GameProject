@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbonta60gsp7s"]
+[gd_scene load_steps=3 format=3 uid="uid://cbonta60gsp7s"]
 
+[ext_resource type="Script" path="res://Scripts/AudioManager.cs" id="1_0478f"]
 [ext_resource type="AudioStream" uid="uid://b1bcpwvnfx5fo" path="res://Sound/bgMusic.mp3" id="2_berio"]
 
 [node name="AudioManager" type="Node"]
+script = ExtResource("1_0478f")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -12,5 +14,5 @@ mix_target = 1
 bus = &"Music"
 parameters/looping = true
 
-[node name="Sfx" type="AudioStreamPlayer" parent="."]
+[node name="SFX" type="AudioStreamPlayer" parent="."]
 bus = &"Sound effects"

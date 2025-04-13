@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d10kjx1tcxsxq"
-path="res://.godot/imported/cityinprogress.png-89bd9091ecd49112c6c7529f08b2979f.ctex"
+uid="uid://bah6groek4oci"
+path="res://.godot/imported/Options_PressedV3.png-e37deaa6e2bfa5658d41d048350784a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arts/cityinprogress.png"
-dest_files=["res://.godot/imported/cityinprogress.png-89bd9091ecd49112c6c7529f08b2979f.ctex"]
+source_file="res://Arts/UI/Options_PressedV3.png"
+dest_files=["res://.godot/imported/Options_PressedV3.png-e37deaa6e2bfa5658d41d048350784a0.ctex"]
 
 [params]
 

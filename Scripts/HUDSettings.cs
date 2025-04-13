@@ -38,7 +38,16 @@ namespace TruckGame
 
 			// StartGame();
 
-			PauseBeforeStart();
+			if (!GameState.InstanceGameState.isTheGameOn)
+			{
+				PauseBeforeStart();
+				GameState.InstanceGameState.isTheGameOn = true;
+				GD.Print("Game has started / isTheGameOn = true ");
+			}
+			else
+			{
+				PauseIsOver();
+			}
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.

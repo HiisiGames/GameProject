@@ -31,6 +31,8 @@ namespace TruckGame
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
+			AudioManager.InstanceAudioManager.Music.StreamPaused = false;
+
 			_selectSettingsScene = ResourceLoader.Load<PackedScene>(_settingsScenePath);
 
 			_selectPlay = GetNode<TextureButton>("PlayButton");

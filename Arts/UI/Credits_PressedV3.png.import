@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ne7yym77i8c1"
-path="res://.godot/imported/City_Black.png-16e51b397afb46bb0a6ba8015b5bb1b6.ctex"
+uid="uid://dl0ojg25cawrx"
+path="res://.godot/imported/Credits_PressedV3.png-3ec42b23e3087b545e4f7d6c0ba6600a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arts/City_Black.png"
-dest_files=["res://.godot/imported/City_Black.png-16e51b397afb46bb0a6ba8015b5bb1b6.ctex"]
+source_file="res://Arts/UI/Credits_PressedV3.png"
+dest_files=["res://.godot/imported/Credits_PressedV3.png-3ec42b23e3087b545e4f7d6c0ba6600a.ctex"]
 
 [params]
 
