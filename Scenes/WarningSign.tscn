@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://tl511h5keiey" path="res://Arts/WarningSign.png" id="1_36quo"]
 
 [node name="WarningSign" type="Sprite2D"]
+z_index = -1
 scale = Vector2(3, 3)
 texture = ExtResource("1_36quo")
