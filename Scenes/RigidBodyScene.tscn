@@ -12,7 +12,7 @@ center_of_mass = Vector2(0, -125)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["PlayerVehicle"]]
 position = Vector2(-14, -119)
-polygon = PackedVector2Array(-124, -234, -116, -66, -109, 53, 236, 55, 238, -22, 208, -151, 83, -232)
+polygon = PackedVector2Array(-124, -234, -116, -66, -109, 53, 226, 52, 208, -151, 83, -232)
 
 [node name="GrooveJoint2D" type="GrooveJoint2D" parent="."]
 position = Vector2(-106, -80)
@@ -43,7 +43,7 @@ collision_mask = 6
 script = ExtResource("3_jt5f1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CollisionDetector"]
-polygon = PackedVector2Array(-128, -99, -141, -355, 72, -352, 198, -271, 225, -144, 226, -99)
+polygon = PackedVector2Array(-128, -99, -141, -355, 72, -352, 198, -271, 216, -100)
 
 [node name="WheelAxle" type="PinJoint2D" parent="."]
 position = Vector2(-106, -80)

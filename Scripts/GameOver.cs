@@ -40,11 +40,6 @@ namespace TruckGame
 
 		}
 
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
-		{
-		}
-
 		/// <summary>
 		/// This method loads up the _mainMenuScenePath and changes the current scene to it. <br/>
 		/// "GetTree().Paused = false, This method unfreezes the scene tree when the value is set to false

@@ -29,10 +29,6 @@ namespace TruckGame
 			//_level2 = GetNode<Level2>("Level2");
 		}
 
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
-		{
-		}
 
 		public void OnCollisionDetected(Node node)
 		// This checks if the player vehicle touches a "triggerzone"

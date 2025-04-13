@@ -33,10 +33,6 @@ namespace TruckGame
 			//_level2 = GetNode<Level2>("Level2");
 		}
 
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
-		{
-		}
 
 		/// <summary>
 		/// This method checks if the area (finish line) is in touch with the playerVehicle

@@ -19,10 +19,6 @@ namespace TruckGame
 			//
 		}
 
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
-		{
-		}
 		private void OnBackButtonPressed()
 		// Takes the user back to main menu from the credits scene
 		{

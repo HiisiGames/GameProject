@@ -35,10 +35,6 @@ namespace TruckGame
 			GD.Print($"Car center of mass: {ToGlobal(CenterOfMass)}");
 		}
 
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
-		{
-		}
 		public override void _PhysicsProcess(double delta)
 		{
 			MovePlayerVehicle((float)delta);
