@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b0xbwlhy2tm70"
+path="res://.godot/imported/435845_dersuperanton_flashlight-click (mp3cut.net).wav-690b9fee7cba2e79fbad731e4ec05c50.sample"
+
+[deps]
+
+source_file="res://Sound/435845_dersuperanton_flashlight-click (mp3cut.net).wav"
+dest_files=["res://.godot/imported/435845_dersuperanton_flashlight-click (mp3cut.net).wav-690b9fee7cba2e79fbad731e4ec05c50.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

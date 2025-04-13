@@ -70,6 +70,7 @@ namespace TruckGame
 			{
 				_starThree.Texture = (Texture2D)GD.Load("res://Arts/UI/Star.png");
 				GD.Print("Luotu kolmas tähti");
+				AudioManager.Instantiate.victorySound.Play();
 			}
 			GD.Print("UpdateStars Methods works");
 		}

@@ -92,12 +92,12 @@ namespace TruckGame
 		{
 				if (Input.IsActionPressed("Accelerate"))
 				{
-					GD.Print("Applying torque");
+					// GD.Print("Applying torque");
 					ApplyTorque(-_bodyTorque * (float)delta);
 				}
 				if (Input.IsActionPressed("Break"))
 				{
-					GD.Print("Applying negative torque");
+					// GD.Print("Applying negative torque");
 					ApplyTorque(_bodyTorque * (float)delta);
 				}
 		}
@@ -108,10 +108,6 @@ namespace TruckGame
 				_maxAngularVelocity = _editorMaxSpeed;
 				MovementForward((float)delta);
 				MovementBackward((float)delta);
-				if (!AudioManager.Instance.engineSound.Playing)
-				{
-					AudioManager.Instance.engineSound.Play();
-				}
 			}
 			else
 			{
@@ -120,7 +116,7 @@ namespace TruckGame
 				MovementForward((float)delta);
 				MovementBackward((float)delta);
 
-				AudioManager.Instance.engineSound.Stop();
+
 			}
 		}
 		public bool IsInAir()

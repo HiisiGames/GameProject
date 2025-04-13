@@ -38,10 +38,10 @@ namespace TruckGame
 
 			// StartGame();
 
-			if (!GameState.InstanceGameState.isTheGameOn)
+			if (!GameState.Instantiate.isTheGameOn)
 			{
 				PauseBeforeStart();
-				GameState.InstanceGameState.isTheGameOn = true;
+				GameState.Instantiate.isTheGameOn = true;
 				GD.Print("Game has started / isTheGameOn = true ");
 			}
 			else
@@ -65,6 +65,8 @@ namespace TruckGame
 						Node settingsPanel = _selectSettingsScene.Instantiate();
 						settingsPanel.Name = "SettingsPanel"; // THIS IS IMPORTANT DONT DELETE
 						AddChild(settingsPanel);
+
+						AudioManager.Instantiate.engineSound.StreamPaused = true;
 					}
 				}
 				else
@@ -99,6 +101,10 @@ namespace TruckGame
 			_brakeLabel.Visible = false;
 			_selectSettings.Visible = true;
 			_countDown.Visible = false;
+
+			AudioManager.Instantiate.bgMusic.StreamPaused = true;
+			AudioManager.Instantiate.engineSound.Play();
+			// AudioManager.Instantiate.engineSound.StreamPaused = false;
 
 			GetTree().Paused = false;
 			GD.Print("Unpaused, PauseIsOver method");

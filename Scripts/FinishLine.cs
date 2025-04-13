@@ -44,20 +44,7 @@ namespace TruckGame
 				GD.Print("Game won");
 
 				InstantiateLevelComplete();
-
-
-				// if (_selectLevelCompleteScene != null) // This brings up the level complete scene
-				// {
-				// 	Node LevelCompletePanel = _selectLevelCompleteScene.Instantiate();
-				// 	//LevelCompletePanel.Name = "LevelCompletePanel";
-				// 	AddChild(LevelCompletePanel);
-
-				// 	GD.Print("Level complete panel created");
-				// }
-				// else
-				// {
-				// 	GD.Print("Level complete scene not found");
-				// }
+				AudioManager.Instantiate.engineSound.StreamPaused = true;
 			}
 		}
 

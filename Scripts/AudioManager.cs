@@ -6,33 +6,28 @@ namespace TruckGame
 {
     public partial class AudioManager : Node
     {
-        public static AudioManager Instance;
+        public static AudioManager Instantiate;
         public Node SFX;
         public Node Music;
         public AudioStreamPlayer bgMusic;
         public AudioStreamPlayer clickButtonSound;
         public AudioStreamPlayer engineSound;
         public AudioStreamPlayer collideSound;
+        public AudioStreamPlayer victorySound;
         public bool isEngineOn = false;
 
 
         public override void _Ready()
         {
-            Instance = this;
+            Instantiate = this;
 
             bgMusic = GetNode<AudioStreamPlayer>("Music/BackgroundMusic");
             clickButtonSound = GetNode<AudioStreamPlayer>("SFX/ClickButtonSound");
             engineSound = GetNode<AudioStreamPlayer>("SFX/EngineSound");
-            // Engine();
+            collideSound = GetNode<AudioStreamPlayer>("SFX/CollideSound");
+            victorySound = GetNode<AudioStreamPlayer>("SFX/VictorySound");
         }
-        // public void Engine()
-        // {
-        //     if (isEngineOn == true)
-        //     {
-        //         engineSound = GetNode<AudioStreamPlayer>("SFX/EngineSound");
-        //         engineSound.Play();
-        //     }
-        // }
+
     }
 
 
