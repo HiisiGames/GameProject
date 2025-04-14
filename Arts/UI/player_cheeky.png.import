@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ne7yym77i8c1"
-path="res://.godot/imported/City_Black.png-16e51b397afb46bb0a6ba8015b5bb1b6.ctex"
+uid="uid://cuybkxekpw3qs"
+path="res://.godot/imported/player_cheeky.png-e303c7e8536781915112de3bb380bb70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arts/City_Black.png"
-dest_files=["res://.godot/imported/City_Black.png-16e51b397afb46bb0a6ba8015b5bb1b6.ctex"]
+source_file="res://Arts/UI/player_cheeky.png"
+dest_files=["res://.godot/imported/player_cheeky.png-e303c7e8536781915112de3bb380bb70.ctex"]
 
 [params]
 

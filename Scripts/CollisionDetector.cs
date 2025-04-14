@@ -39,7 +39,9 @@ namespace TruckGame
 				GD.Print("Collided with obstacle");
 				GD.Print("Game over");
 
+				ChangeMusic();
 				InstantiateGameOverPanel();
+
 
 			}
 			if (node is StaticBody2D staticBody2D)
@@ -51,6 +53,7 @@ namespace TruckGame
 				}
 				else if (staticBody2D.Name == "Terrain")
 				{
+					ChangeMusic();
 					InstantiateGameOverPanel();
 				}
 			}
@@ -71,6 +74,11 @@ namespace TruckGame
 				{
 					GD.Print("Game over scene not found");
 				}
+		}
+		public void ChangeMusic()
+		{
+			AudioManager.Instantiate.engineSound.StreamPaused = true;
+			AudioManager.Instantiate.collideSound.Play();
 		}
 	}
 }

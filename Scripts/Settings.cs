@@ -11,7 +11,7 @@ namespace TruckGame
 	{
 		[Export] private string _mainMenuScenePath = "res://GUI/MainMenu.tscn";
 		[Export] private string _levelScenePath = "res://GUI/LevelSelection.tscn";
-		[Export] public Slider _musicVolumeSlider;
+		[Export] private Slider _musicVolumeSlider = null;
 		private TextureButton _selectBack;
 		private TextureButton _selectMainMenu;
 		private TextureButton _selectRestart;
@@ -21,19 +21,21 @@ namespace TruckGame
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
+
 			_selectBack = GetNode<TextureButton>("BackButton");
 			_selectMainMenu = GetNode<TextureButton>("MainMenuButton");
 			_selectRestart = GetNode<TextureButton>("RestartButton");
 			_selectResume = GetNode<TextureButton>("ResumeButton");
 
 			CheckScene(); // Checks if current scene is main menu
-			// CheckMusicSlider();
+						  // CheckMusicSlider();
 
 			_selectBack.Pressed += OnBackButtonPressed;
 			_selectMainMenu.Pressed += OnMainMenuPressed;
 			_selectRestart.Pressed += OnRestartPressed;
 			_selectResume.Pressed += OnResumePressed;
 
+			// _musicVolumeSlider.Connect(Slider.SignalName.ValueChanged, new Callable(this, nameof(OnMusicVolumeSliderChanged)));
 
 		}
 
@@ -94,21 +96,19 @@ namespace TruckGame
 			this.QueueFree();
 		}
 
-		// private void CheckMusicSlider()
-		// {
-		// 	 if (_musicVolumeSlider != null)
-        // {
-		// 	AudioManager audioManager = (AudioManager) GetNode("/root/AudioManager");
+		private void UpdateVolume()
+		{
+			if (_musicVolumeSlider != null)
+			{
+				float linearVolume = (float)_musicVolumeSlider.Value;
 
-        // }
-		// }
-		// private void OnMusicVolumeSliderChanged(float value)
-		// {
-
-        // AudioManager audioManager = (AudioManager)GetNode("/root/AudioManager");
-
-        // audioManager.SetVolume(value);
-		// }
+				float decibelVolume = Mathf.LinearToDb(linearVolume);
+			}
+		}
+		private void OnMusicVolumeSliderChanged(float value)
+		{
+			UpdateVolume();
+		}
 
 	}
 }

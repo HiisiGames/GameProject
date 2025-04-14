@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 using System.IO;
 
@@ -9,50 +10,87 @@ namespace TruckGame
 	/// </summary>
 	public partial class GameSave : Node2D
 	{
-		[Export] public int[] CurrentLevelComplete { get; set; }
-		[Export] public int CurrentLevelOn { get; set; }
-		[Export] public float AudioVolume { get; set; }
-		[Export] public int FastestTime { get; set; }
+        private LevelComplete levelComplete;
+		// [Export] public int[] CurrentLevelComplete { get; set; }
+		// [Export] public int CurrentLevelOn { get; set; }
+		// [Export] public float AudioVolume { get; set; }
+		// [Export] public int FastestTime { get; set; }
 
 		// [Export] public bool ReverseControls { get; set; }
 		public override void _Ready()
 		{
-			Godot.Collections.Dictionary data = new Godot.Collections.Dictionary();
-			data.Add("name","Tim");
-			data.Add("job", "Programmer");
-
-			string json = Json.Stringify(data);
-			GD.Print(json);
-
-			string path = ProjectSettings.GlobalizePath("user://");
-
-			SaveTextToFile(path, "SaveGame1.json", json);
+            levelComplete = GetNode<LevelComplete>("res://GUI/LevelComplete.tscn");
+            Save();
 		}
 
-		private void SaveTextToFile(string path, string fileName, string data)
+		public void Load()
+		{
+			string savePath = ProjectSettings.GlobalizePath("user://");
+			savePath = Path.Combine(savePath, Config.SaveFolder);
+
+			string loadedData = LoadFromFile(savePath, Config.AutoSaveFile);
+
+			Json jsonLoader = new Json();
+			Error loadError = jsonLoader.Parse(loadedData);
+			if (loadError!= Error.Ok)
+			{
+				GD.PrintErr($"Virhe ladattaessa peliä: {loadError}");
+			}
+
+			Dictionary saveData = (Dictionary)jsonLoader.Data;
+
+		}
+		public string Save()
+		{
+			Godot.Collections.Dictionary saveData = new Godot.Collections.Dictionary();
+			saveData.Add("IsLevelComplete1", levelComplete.IsLevelComplete1);
+            saveData.Add("IsLevelComplete2", levelComplete.IsLevelComplete2);
+            saveData.Add("IsLevelComplete3", levelComplete.IsLevelComplete3);
+			// saveData.Add("Music", Music);
+			// saveData.Add("SFX", SFX);
+
+			string json = Json.Stringify(saveData);
+			GD.Print(json);
+
+			string savePath = ProjectSettings.GlobalizePath("user://");
+			savePath = Path.Combine(savePath, Config.SaveFolder);
+
+			if (SaveToFile(savePath, Config.AutoSaveFile, json))
+			{
+				GD.Print("Peli tallentui.");
+			}
+			else
+			{
+				GD.Print("Peli ei tallentunut.");
+			}
+            return savePath;
+		}
+		private bool SaveToFile(string path, string fileName, string json)
 		{
 			if (!Directory.Exists(path))
 			{
 				Directory.CreateDirectory(path);
 			}
-			path = Path.Join(path, fileName);
+			path = Path.Combine(path, fileName);
 			GD.Print(path);
 
 			try
 			{
-				File.WriteAllText(path, data);
+				File.WriteAllText(path, json);
 			}
 			catch (System.Exception e)
 			{
 				GD.Print(e);
+				return false;
 			}
+			return true;
 		}
 
-		private string LoadTextFromFile(string path, string fileName)
+		private string LoadFromFile(string path, string fileName)
 		{
 			string data = null;
 
-			path = Path.Join(path, fileName);
+			path = Path.Combine(path, fileName);
 
 			if (!File.Exists(path)) return null;
 
@@ -68,10 +106,8 @@ namespace TruckGame
 		}
 		// public GameSave()
 		// {
-		// 	CurrentLevelComplete = new int[3];
-		// 	AudioVolume = 1.0f;
-		// 	// ReverseControls = false;
-
+		// 	IsLevelComplete = new int[3];
+		// 	AudioVolume = -8.0f;
 		// }
 	}
 }

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2mobulw8fxsw"]
 
 [ext_resource type="Script" path="res://Scripts/LevelSelect.cs" id="1_fcwep"]
-[ext_resource type="Texture2D" uid="uid://d10kjx1tcxsxq" path="res://Arts/cityinprogress.png" id="2_nakci"]
+[ext_resource type="Texture2D" uid="uid://xxkudc1xsk4e" path="res://Arts/background4X.png" id="2_xlb0u"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -12,10 +12,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fcwep")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-scale = Vector2(4, 6)
-texture = ExtResource("2_nakci")
+scale = Vector2(1, 1.5)
+texture = ExtResource("2_xlb0u")
 
 [node name="Level3" type="Button" parent="."]
 layout_mode = 0

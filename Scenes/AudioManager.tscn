@@ -1,16 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbonta60gsp7s"]
+[gd_scene load_steps=7 format=3 uid="uid://cbonta60gsp7s"]
 
+[ext_resource type="Script" path="res://Scripts/AudioManager.cs" id="1_0478f"]
 [ext_resource type="AudioStream" uid="uid://b1bcpwvnfx5fo" path="res://Sound/bgMusic.mp3" id="2_berio"]
+[ext_resource type="AudioStream" uid="uid://b0xbwlhy2tm70" path="res://Sound/435845_dersuperanton_flashlight-click (mp3cut.net).wav" id="2_d1fy4"]
+[ext_resource type="AudioStream" uid="uid://dcv2ptkbbg5xv" path="res://Sound/345335_willybilly1984_rfx_car-engine-acelerator-and-switch-off (mp3cut.net).mp3" id="3_5kvy0"]
+[ext_resource type="AudioStream" uid="uid://c6a51lcpfhe64" path="res://Sound/237375_squareal_car-crash (mp3cut.net)(1).wav" id="4_i63nw"]
+[ext_resource type="AudioStream" uid="uid://dbt4oe1yuvx01" path="res://Sound/466133__humanoide9000__victory-fanfare.wav" id="5_vc28e"]
 
 [node name="AudioManager" type="Node"]
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
 process_mode = 3
+script = ExtResource("1_0478f")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="ClickButtonSound" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_d1fy4")
+bus = &"Sound effects"
+
+[node name="EngineSound" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_5kvy0")
+bus = &"Sound effects"
+parameters/looping = true
+
+[node name="CollideSound" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_i63nw")
+bus = &"Sound effects"
+
+[node name="VictorySound" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_vc28e")
+
+[node name="Music" type="Node" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("2_berio")
 autoplay = true
 mix_target = 1
 bus = &"Music"
 parameters/looping = true
-
-[node name="Sfx" type="AudioStreamPlayer" parent="."]
-bus = &"Sound effects"
