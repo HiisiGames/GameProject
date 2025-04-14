@@ -8,9 +8,6 @@ namespace TruckGame
 	/// </summary>
 	public partial class FinishLine : Area2D
 	{
-		// Called when the node enters the scene tree for the first time.
-		//Level2 _level2;
-		// private bool _isPaused = false;
 
 		/// <summary>
 		/// The path to where the level complete is located in the project directory

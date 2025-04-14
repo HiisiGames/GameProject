@@ -10,15 +10,20 @@ namespace TruckGame
     {
         private Vector2 _globalBallPosition;
         private Vector2 _currentBallPosition;
-        [Export]
-        private float _force = 100.0f;
+        //Reference to the TriggerZone node, the BodyEntered signal of which is used to trigger OnTriggerZoneBodyEntered - method.
         [Export]
         private TriggerZone _triggerZone;
+        //The boolean which is checked in _PhysicsProcess(). If true, causes this to start moving.
 	    private bool Triggered = false;
+        //Reference to the parent StaticBody2D node.
         private StaticBody2D _wreckingBallParent;
+        //Reference to the sibling PinJoint2D node.
         private PinJoint2D _wreckingBallJoint;
+        //An instance of Timer, the Timeout signal of which is used to detach this from _wreckingBallJoint.
         private Timer _timer;
+        //A boolean which is used to make sure that _timer isn't started every frame in _PhysicsProcess().
         private bool _hasTimerBeenStarted = false;
+        //The time in seconds it takes for _timer to send the Timeoutsignal.
         [Export] private float _timeOutSeconds = 6.0f;
 
         public override void _Ready()
@@ -36,6 +41,7 @@ namespace TruckGame
             _triggerZone.BodyEntered += OnTriggerZoneBodyEntered;
 
         }
+        //Checks Triggered every physics frame
         public override void _PhysicsProcess(double delta)
         {
             if(Triggered)
@@ -51,7 +57,7 @@ namespace TruckGame
             }
         }
         
-        //Listens to TriggerZone's BodyEntered signal and sets the boolean Triggered to true, which causes the Freeze property to be set to false.
+        //Listens to TriggerZone's BodyEntered signal and sets the boolean Triggered to true, which causes the Freeze property to be set to false in _PhysicsProcess().
 	    public void OnTriggerZoneBodyEntered(Node node)
 		{
 			GD.Print("Vehicle entered the trigger zone");
@@ -82,6 +88,7 @@ namespace TruckGame
                 this.QueueFree();
             }
         }
+        //Creates an instance of class Timer and sets its properties WaitTime and OneShot, which means the timer doesn't restart after Timeout.
         public void CreateTimer()
         {
             _timer = new Timer();
@@ -90,6 +97,7 @@ namespace TruckGame
             AddChild(_timer);
             GD.Print("Wrecking ball timer created");
         }
+        //Sets the boolean _hasTimerBeenStarted to true and starts _timer via its Start() method.
         public void StartTimer()
         {
             _hasTimerBeenStarted = true;
