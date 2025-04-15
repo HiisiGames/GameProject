@@ -98,21 +98,21 @@ namespace TruckGame
 
 			if (currentLevel.SceneFilePath == "res://Levels/Level_1.tscn")
 			{
-				_firstStar = 90;
-				_secondStar = 70;
+				_firstStar = 70;
+				_secondStar = 45;
 				_thirdStar = 30;
 			}
 			else if (currentLevel.SceneFilePath == "res://Levels/Level_2.tscn")
 			{
-				_firstStar = 90;
-				_secondStar = 60;
+				_firstStar = 70;
+				_secondStar = 45;
 				_thirdStar = 30;
 			}
 			else if (currentLevel.SceneFilePath == "res://Levels/Level_3.tscn")
 			{
 				_firstStar = 90;
-				_secondStar = 60;
-				_thirdStar = 45;
+				_secondStar = 75;
+				_thirdStar = 60;
 			}
 			GD.Print("Tämä on:");
 			GD.Print(currentLevel.SceneFilePath);
