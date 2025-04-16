@@ -8,6 +8,7 @@ namespace TruckGame
     /// </summary>
     public partial class WreckingBall : RigidBody2D
     {
+        //The wrecking ball's position in global coordinates at the center of the ball
         private Vector2 _globalBallPosition;
         private Vector2 _currentBallPosition;
         //Reference to the TriggerZone node, the BodyEntered signal of which is used to trigger OnTriggerZoneBodyEntered - method.
@@ -26,6 +27,7 @@ namespace TruckGame
         //The time in seconds it takes for _timer to send the Timeoutsignal.
         [Export] private float _timeOutSeconds = 6.0f;
 
+        //Get references to the parent and sibling nodes and set the starting properties RotationDegrees and Freeze, create an instance of Timer and connect signals
         public override void _Ready()
         {
             _wreckingBallParent = GetParent<StaticBody2D>();
@@ -69,6 +71,7 @@ namespace TruckGame
 				GD.Print($"Trigger activated");
 			}
 	    }
+        //On receiving _timer Timeout signal, detach _wreckingBallJoint from both anchor nodes.
         public void OnTimeOut()
         {
             GD.Print("OnTimeOut() was called");

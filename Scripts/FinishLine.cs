@@ -46,7 +46,7 @@ namespace TruckGame
 		}
 
 		/// <summary>
-		/// This method instantiates the level complete scene and adds it as child node to the current scene
+		/// This method instantiates the level complete scene and adds it as a child node to the scene tree
 		/// </summary>
 		private void InstantiateLevelComplete()
 		{
