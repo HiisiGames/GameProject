@@ -32,7 +32,6 @@ namespace TruckGame
 		// Similar to "CollisionDetector.cs", checks if certain element, in this case the finish line is touching the player vehicle
 		{
 			GD.Print("Node collided with Finish Line");
-			// GD.Print("Node type: ", node.GetType());
 
 			if (node is RigidBody2D Car)
 			// If the node is rigidbody2D Car, execute the code

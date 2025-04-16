@@ -2,20 +2,21 @@ using Godot;
 using System;
 using TruckGame;
 
-public partial class ConcreteElement : RigidBody2D
+public partial class ConcreteElement : Droppable
 {
-	private TriggerZone _triggerZone;
-	private bool Triggered = false;
+	//[Export] private TriggerZone _triggerZone;
+	//private bool Triggered = false;
 	public override void _Ready()
 	{
-		this.Freeze = true;
+		OnReady();
+		/*this.Freeze = true;
 		GD.Print($"triggered = {Triggered}");
 		GD.Print($"freeze state: {this.Freeze}");
 		GD.Print($"freeze mode: {this.FreezeMode}");
 		GD.Print($"sleep state: {this.Sleeping}");
-		_triggerZone = GetNode<TriggerZone>("/root/Level3/TriggerZone3");
+		//_triggerZone = GetNode<TriggerZone>("/root/Level2/TriggerZone");
 		GD.Print($"is triggerzone null = {_triggerZone == null}");
-		_triggerZone.BodyEntered += OnTriggerZoneBodyEntered;
+		_triggerZone.BodyEntered += OnTriggerZoneBodyEntered;*/
 
 
 	}
@@ -25,15 +26,16 @@ public partial class ConcreteElement : RigidBody2D
 	{
 		if(Triggered)
 		{
-			Freeze = false;
-			GD.Print($"Setting beam freeze state");
-			GD.Print($"Beam freeze state: {this.Freeze}");
-			Triggered = false;
+			Drop();
+			/*Freeze = false;
+			GD.Print($"Setting {this.Name} freeze state");
+            GD.Print($"Crate {this.Name} state: {this.Freeze}");
+			Triggered = false;*/
 		}
 	}
 	
 	//Listens to TriggerZone's BodyEntered signal and sets the boolean Triggered to true, which causes the Freeze property to be set to false.
-	public void OnTriggerZoneBodyEntered(Node node) 
+	/*public void OnTriggerZoneBodyEntered(Node node) 
 	{	
 		GD.Print("Vehicle entered the trigger zone");
 		if(node is RigidBody2D vehicle)
@@ -43,5 +45,5 @@ public partial class ConcreteElement : RigidBody2D
 			Triggered = true;
 			GD.Print($"Trigger activated");
 		}
-	}
+	}*/
 }

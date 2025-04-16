@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=3 uid="uid://cjveskaua8q0k"]
+[gd_scene load_steps=140 format=3 uid="uid://cjveskaua8q0k"]
 
 [ext_resource type="PackedScene" uid="uid://bisp2fp0w4eew" path="res://Scenes/parallax.tscn" id="1_v8wl1"]
 [ext_resource type="Texture2D" uid="uid://b3rdykf6cj1jj" path="res://Arts/buildings.png" id="2_qnmd7"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://cu2wg0y2kc015" path="res://Scenes/Beam2.tscn" id="24_uad8t"]
 [ext_resource type="Script" path="res://Scripts/Beam.cs" id="25_6s3cl"]
 [ext_resource type="PackedScene" uid="uid://rw4c6lr872eb" path="res://Scenes/ConcreteElement.tscn" id="26_l71o1"]
+[ext_resource type="Script" path="res://Scripts/ConcreteElement.cs" id="27_jcv3q"]
 [ext_resource type="PackedScene" uid="uid://cdj7bkdj2n6ql" path="res://Scenes/WreckingBallCrane.tscn" id="27_mkane"]
 [ext_resource type="Script" path="res://Scripts/WreckingBall.cs" id="28_jn18a"]
 [ext_resource type="Texture2D" uid="uid://cgy0pgsekdwjf" path="res://Arts/DemolishBall_v2.png" id="29_d1mx2"]
@@ -786,7 +787,7 @@ size = Vector2(173, 500)
 radius = 62.0322
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ll515"]
-size = Vector2(114, 106)
+size = Vector2(114, 414)
 
 [node name="Level3" type="Node2D"]
 
@@ -919,7 +920,7 @@ flip_h = true
 [node name="ConcreteElement" parent="." node_paths=PackedStringArray("_triggerZone") groups=["Obstacles"] instance=ExtResource("26_l71o1")]
 position = Vector2(43410, -3020)
 rotation = 1.5708
-script = ExtResource("25_6s3cl")
+script = ExtResource("27_jcv3q")
 _triggerZone = NodePath("../TriggerZone3")
 
 [node name="WreckingBallCrane" parent="." instance=ExtResource("27_mkane")]
@@ -1029,7 +1030,7 @@ collision_layer = 16
 script = ExtResource("31_ketu2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone3"]
-position = Vector2(47, -43)
+position = Vector2(47, -197)
 shape = SubResource("RectangleShape2D_ll515")
 
 [node name="TriggerZone4" type="Area2D" parent="."]

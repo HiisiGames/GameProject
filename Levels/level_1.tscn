@@ -619,9 +619,10 @@ position = Vector2(21456, 3023)
 scale = Vector2(6, 6)
 texture = ExtResource("27_1emf2")
 
-[node name="Crate" parent="." groups=["Obstacles"] instance=ExtResource("28_7k1og")]
+[node name="Crate" parent="." node_paths=PackedStringArray("_triggerZone") groups=["Obstacles"] instance=ExtResource("28_7k1og")]
 position = Vector2(21843, 2839)
 script = ExtResource("29_vfyn1")
+_triggerZone = NodePath("../TriggerZone")
 
 [editable path="Parallax"]
 [editable path="Parallax2"]
