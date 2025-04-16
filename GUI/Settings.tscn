@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://bp86dwsi2po36"]
 
 [ext_resource type="Script" path="res://Scripts/Settings.cs" id="1_18u8v"]
-[ext_resource type="Texture2D" uid="uid://cm3x25vhpoi12" path="res://Arts/UI/Home_ButtonV2.png" id="2_7fq7o"]
 [ext_resource type="Texture2D" uid="uid://db3wruogyq6wk" path="res://Arts/UI/options_background.png" id="2_robg1"]
-[ext_resource type="Texture2D" uid="uid://dpob7ofs07jqh" path="res://Arts/UI/Home_PressedV2.png" id="3_40m3x"]
-[ext_resource type="Texture2D" uid="uid://bsns3t0f7cj5v" path="res://Arts/UI/Restart_ButtonV2.png" id="4_qoij7"]
-[ext_resource type="Texture2D" uid="uid://c7o5lhpqtvnrj" path="res://Arts/UI/Restart_PressedV2.png" id="5_y78ie"]
+[ext_resource type="Texture2D" uid="uid://prhtpj20075k" path="res://Arts/UI/Home_ButtonV3.png" id="3_7tmou"]
+[ext_resource type="Texture2D" uid="uid://bxc06fjuys3yv" path="res://Arts/UI/Home_PressedV3.png" id="4_uygxu"]
+[ext_resource type="Texture2D" uid="uid://cke72cjw0w61l" path="res://Arts/UI/Restart_ButtonV3.png" id="5_5h5up"]
 [ext_resource type="Texture2D" uid="uid://d4di648qls1n3" path="res://Arts/UI/Return_Arrow.png" id="6_dfdss"]
-[ext_resource type="Texture2D" uid="uid://d1i4sj4nwnamh" path="res://Arts/UI/Continue_ButtonV2.png" id="6_ir05n"]
-[ext_resource type="Texture2D" uid="uid://c1q21dd6nkf7w" path="res://Arts/UI/Continue_PressedV2.png" id="7_iahol"]
+[ext_resource type="Texture2D" uid="uid://dk2ai28o3o2la" path="res://Arts/UI/Restart_PressedV3.png" id="6_jkdo5"]
+[ext_resource type="Texture2D" uid="uid://cjtaq038c6tuw" path="res://Arts/UI/Continue_ButtonV3.png" id="8_dkdwy"]
+[ext_resource type="Texture2D" uid="uid://c6f2rv15bbkk5" path="res://Arts/UI/Continue_PressedV3.png" id="9_luhd3"]
 
 [node name="Panel" type="Panel"]
 process_mode = 3
@@ -49,8 +49,8 @@ offset_top = 511.0
 offset_right = 234.0
 offset_bottom = 575.0
 scale = Vector2(4, 4)
-texture_normal = ExtResource("2_7fq7o")
-texture_pressed = ExtResource("3_40m3x")
+texture_normal = ExtResource("3_7tmou")
+texture_pressed = ExtResource("4_uygxu")
 stretch_mode = 3
 
 [node name="RestartButton" type="TextureButton" parent="."]
@@ -60,8 +60,8 @@ offset_top = 511.0
 offset_right = 1211.0
 offset_bottom = 575.0
 scale = Vector2(4, 4)
-texture_normal = ExtResource("4_qoij7")
-texture_pressed = ExtResource("5_y78ie")
+texture_normal = ExtResource("5_5h5up")
+texture_pressed = ExtResource("6_jkdo5")
 stretch_mode = 3
 
 [node name="BackButton" type="TextureButton" parent="."]
@@ -82,8 +82,8 @@ offset_top = 509.0
 offset_right = 701.0
 offset_bottom = 573.0
 scale = Vector2(4, 4)
-texture_normal = ExtResource("6_ir05n")
-texture_pressed = ExtResource("7_iahol")
+texture_normal = ExtResource("8_dkdwy")
+texture_pressed = ExtResource("9_luhd3")
 stretch_mode = 3
 
 [node name="MusicSlider" type="HSlider" parent="."]

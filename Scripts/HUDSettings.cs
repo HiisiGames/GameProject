@@ -79,6 +79,8 @@ namespace TruckGame
 		{
 			GetTree().Paused = true;
 
+			_countDown.Visible = false;
+
 			_gamePaused = GetNode<Timer>("PauseTimer");
 
 			if (_gamePaused != null)
@@ -96,11 +98,14 @@ namespace TruckGame
 		}
 		private void PauseIsOver()
 		{
-			_startGameButton.Visible = false;
 			_gasLabel.Visible = false;
 			_brakeLabel.Visible = false;
 			_selectSettings.Visible = true;
 			_countDown.Visible = false;
+			if (_startGameButton.Visible == true)
+			{
+				_startGameButton.Visible = false;
+			}
 
 			AudioManager.Instantiate.bgMusic.StreamPaused = true;
 			AudioManager.Instantiate.engineSound.Play();
@@ -117,6 +122,10 @@ namespace TruckGame
 				if (_hasStarted == false)
 				{
 					_gamePaused.Start();
+
+					_startGameButton.Visible = false;
+
+					_countDown.Visible = true;
 
 					CountDown();
 

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 AudioManager="*res://Scenes/AudioManager.tscn"
 GameState="*res://Scenes/GameState.tscn"
+GameSave="*res://Scripts/GameSave.cs"
 
 [display]
 

@@ -1,4 +1,5 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 namespace TruckGame
@@ -8,6 +9,7 @@ namespace TruckGame
 	/// </summary>
 	public partial class LevelCompleteTime : Node
 	{
+		public static LevelCompleteTime Instantiate;
 		private GameTime _gameTime;
 		private Label _levelCompleteTimer;
 		private Sprite2D _starOne;
@@ -15,13 +17,17 @@ namespace TruckGame
 		private Sprite2D _starThree;
 		private int _starsAtTheEnd;
 		private float _fastestTime;
+		private string _level1Time;
+		private string _level2Time;
+		private string _level3Time;
 
 		public override void _Ready()
 		{
+			Instantiate = this;
 			// GD.Print(GetTree().CurrentScene.Name);
 			Node currentScene = GetTree().CurrentScene;
 
-			_gameTime =  currentScene.GetNode<GameTime>("PlayerVehicle/Camera2D/CanvasLayer"); //Finds the node with the script
+			_gameTime = currentScene.GetNode<GameTime>("PlayerVehicle/Camera2D/CanvasLayer"); //Finds the node with the script
 
 			_levelCompleteTimer = GetNode<Label>("TimeInTheEnd");
 
@@ -29,7 +35,7 @@ namespace TruckGame
 			{
 				GD.Print("gametime FOUND");
 
-				 _starsAtTheEnd = _gameTime.CountStars();
+				_starsAtTheEnd = _gameTime.CountStars();
 
 				GD.Print($"Stars: {_starsAtTheEnd}");
 
@@ -78,11 +84,51 @@ namespace TruckGame
 		{
 			_fastestTime = _gameTime._totalTime;
 			int minutes = Mathf.FloorToInt(_fastestTime / 60);
-    		int seconds = Mathf.FloorToInt(_fastestTime % 60);
+			int seconds = Mathf.FloorToInt(_fastestTime % 60);
 
 			string realTime = $"{minutes:D2}:{seconds:D2}";
 			GD.Print($"Time: {realTime}. USING FastestTime() method ");
 			return realTime;
+		}
+		public string Level1Time()
+		{
+			Node currentScene = GetTree().CurrentScene;
+			if (currentScene.Name == "Level1")
+			{
+				_level1Time = FastestTime();
+				return _level1Time;
+			}
+			else
+			{
+				return "Couldn't get level 1 time";
+			}
+
+		}
+		public string Level2Time()
+		{
+			Node currentScene = GetTree().CurrentScene;
+			if (currentScene.Name == "Level2")
+			{
+				_level2Time = FastestTime();
+				return _level2Time;
+			}
+			else
+			{
+				return "Couldn't get level 2 time";
+			}
+		}
+		public string Level3Time()
+		{
+			Node currentScene = GetTree().CurrentScene;
+			if (currentScene.Name == "Level1")
+			{
+				_level3Time = FastestTime();
+				return _level3Time;
+			}
+			else
+			{
+				return "Couldn't get level 3 time";
+			}
 		}
 	}
 }

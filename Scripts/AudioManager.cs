@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Godot.Collections;
 
 namespace TruckGame
 
@@ -26,6 +27,26 @@ namespace TruckGame
             engineSound = GetNode<AudioStreamPlayer>("SFX/EngineSound");
             collideSound = GetNode<AudioStreamPlayer>("SFX/CollideSound");
             victorySound = GetNode<AudioStreamPlayer>("SFX/VictorySound");
+        }
+        public void setVolume()
+        {
+            bgMusic.VolumeDb = 0f;
+            engineSound.VolumeDb = 0f;
+        }
+        public Dictionary SFXData()
+		{
+			Dictionary data = new Dictionary();
+			data.Add("CollideSound", collideSound.VolumeDb);
+			data.Add("EngineSound", engineSound.VolumeDb);
+			data.Add("VictorySound", victorySound.VolumeDb);
+            data.Add("ClickSound", clickButtonSound.VolumeDb);
+			return data;
+		}
+        public Dictionary MusicData()
+        {
+            Dictionary data = new Dictionary();
+            data.Add("bgMusic", bgMusic.VolumeDb);
+            return data;
         }
 
     }

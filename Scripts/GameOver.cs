@@ -36,7 +36,7 @@ namespace TruckGame
 			//Listens to the methods listed
 			_selectMainMenu.Pressed += OnMainMenuPressed;
 			_selectRestart.Pressed += OnRestartPressed;
-			_selectResume.Pressed += OnContinuePressed;
+			// _selectResume.Pressed += OnContinuePressed;
 
 		}
 
@@ -103,20 +103,20 @@ namespace TruckGame
 		/// This method loads the _levelscenepath and changes the current scene to it.
 		/// It also unpauses the scene tree.
 		/// </summary>
-		private void OnContinuePressed()
-		{
-			PackedScene selectLevelButton = ResourceLoader.Load<PackedScene>(_levelScenePath);
-			if (selectLevelButton != null)
-			{
-				GetTree().Paused = false;
-				GetTree().ChangeSceneToPacked(selectLevelButton);
-			}
-			else
-			{
-				GD.Print("Level selection scene not found");
-			}
+		// private void OnContinuePressed()
+		// {
+		// 	PackedScene selectLevelButton = ResourceLoader.Load<PackedScene>(_levelScenePath);
+		// 	if (selectLevelButton != null)
+		// 	{
+		// 		GetTree().Paused = false;
+		// 		GetTree().ChangeSceneToPacked(selectLevelButton);
+		// 	}
+		// 	else
+		// 	{
+		// 		GD.Print("Level selection scene not found");
+		// 	}
 
-		}
+		// }
 
 
 	}
