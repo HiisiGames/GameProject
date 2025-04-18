@@ -27,16 +27,35 @@ offset_bottom = 72.0
 scale = Vector2(3, 3)
 texture_normal = ExtResource("3_3mk02")
 
-[node name="Level1Time" type="Button" parent="."]
+[node name="Level1Time" type="Label" parent="."]
 layout_mode = 0
-offset_left = 326.0
-offset_top = 383.0
-offset_right = 434.0
-offset_bottom = 424.0
+offset_left = 427.0
+offset_top = 88.0
+offset_right = 536.0
+offset_bottom = 129.0
 scale = Vector2(3, 3)
-text = "Fastest time:
+text = "Level 1 Time:
 "
-alignment = 0
+
+[node name="Level2Time" type="Label" parent="."]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 216.0
+offset_right = 536.0
+offset_bottom = 257.0
+scale = Vector2(3, 3)
+text = "Level 2 Time:
+"
+
+[node name="Level3Time" type="Label" parent="."]
+layout_mode = 0
+offset_left = 427.0
+offset_top = 339.0
+offset_right = 536.0
+offset_bottom = 380.0
+scale = Vector2(3, 3)
+text = "Level 3 Time:
+"
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 1

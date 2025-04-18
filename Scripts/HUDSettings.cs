@@ -109,7 +109,6 @@ namespace TruckGame
 
 			AudioManager.Instantiate.bgMusic.StreamPaused = true;
 			AudioManager.Instantiate.engineSound.Play();
-			// AudioManager.Instantiate.engineSound.StreamPaused = false;
 
 			GetTree().Paused = false;
 			GD.Print("Unpaused, PauseIsOver method");

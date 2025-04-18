@@ -31,6 +31,8 @@ namespace TruckGame
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
+			GameSave.Instantiate.LoadAudio();
+
 			AudioManager.Instantiate.bgMusic.StreamPaused = false;
 			// AudioManager.Instantiate.engineSound.StreamPaused = true;
 

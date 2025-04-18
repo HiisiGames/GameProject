@@ -17,14 +17,17 @@ namespace TruckGame
 		private Sprite2D _starThree;
 		private int _starsAtTheEnd;
 		private float _fastestTime;
-		private string _level1Time;
-		private string _level2Time;
-		private string _level3Time;
+		public float _newLevel1Time;
+		public float _newLevel2Time;
+		public float _newLevel3Time;
+		public float _currentLevel1Time;
+		public float _currentLevel2Time;
+		public float _currentLevel3Time;
 
 		public override void _Ready()
 		{
 			Instantiate = this;
-			// GD.Print(GetTree().CurrentScene.Name);
+
 			Node currentScene = GetTree().CurrentScene;
 
 			_gameTime = currentScene.GetNode<GameTime>("PlayerVehicle/Camera2D/CanvasLayer"); //Finds the node with the script
@@ -55,9 +58,14 @@ namespace TruckGame
 			_starTwo = GetNode<Sprite2D>("StarTwo");
 			_starThree = GetNode<Sprite2D>("StarThree");
 
+			GameSave.Instantiate.Load();
+
 			UpdateStars();
 			FastestTime();
 
+			UpdateTimes();
+
+			GameSave.Instantiate.Save();
 		}
 
 		private void UpdateStars()
@@ -78,57 +86,103 @@ namespace TruckGame
 				GD.Print("Luotu kolmas tähti");
 				AudioManager.Instantiate.victorySound.Play();
 			}
-			GD.Print("UpdateStars Methods works");
+			GD.Print("UpdateStars Method works");
 		}
-		private string FastestTime()
-		{
-			_fastestTime = _gameTime._totalTime;
-			int minutes = Mathf.FloorToInt(_fastestTime / 60);
-			int seconds = Mathf.FloorToInt(_fastestTime % 60);
-
-			string realTime = $"{minutes:D2}:{seconds:D2}";
-			GD.Print($"Time: {realTime}. USING FastestTime() method ");
-			return realTime;
-		}
-		public string Level1Time()
+		private string GetCurrentLevel()
 		{
 			Node currentScene = GetTree().CurrentScene;
+
 			if (currentScene.Name == "Level1")
-			{
-				_level1Time = FastestTime();
-				return _level1Time;
-			}
-			else
-			{
-				return "Couldn't get level 1 time";
-			}
+				return currentScene.Name;
 
-		}
-		public string Level2Time()
-		{
-			Node currentScene = GetTree().CurrentScene;
 			if (currentScene.Name == "Level2")
-			{
-				_level2Time = FastestTime();
-				return _level2Time;
-			}
-			else
-			{
-				return "Couldn't get level 2 time";
-			}
+				return currentScene.Name;
+
+			if (currentScene.Name == "Level3")
+				return currentScene.Name;
+
+			return null;
 		}
-		public string Level3Time()
+		// private string FastestTimeToText()
+		// {
+		// 	_fastestTime = _gameTime._totalTime;
+		// 	int minutes = Mathf.FloorToInt(_fastestTime / 60);
+		// 	int seconds = Mathf.FloorToInt(_fastestTime % 60);
+
+		// 	string realTime = $"Fastest Time: {minutes:D2}:{seconds:D2}";
+		// 	GD.Print($"Time: {realTime}. USING FastestTime() method ");
+		// 	return realTime;
+		// }
+		private float FastestTime()
 		{
-			Node currentScene = GetTree().CurrentScene;
-			if (currentScene.Name == "Level1")
+			return _gameTime._totalTime;
+		}
+
+		private void UpdateTimes()
+		{
+			UpdateLevel1Time();
+			UpdateLevel2Time();
+			UpdateLevel3Time();
+		}
+		private float UpdateLevel1Time()
+		{
+			if (GetCurrentLevel() == "Level1")
 			{
-				_level3Time = FastestTime();
-				return _level3Time;
+				if (_currentLevel1Time > FastestTime() || _currentLevel1Time == 0)
+				{
+					_currentLevel1Time = FastestTime(); // Store the fastest time for Level 1
+					GD.Print($"Level 1 Time: {_currentLevel1Time}, UPDATELEVEL1TIME METHOD");
+					return _currentLevel1Time;
+				}
 			}
-			else
+			GD.Print("UpdateTime Method works");
+			return _currentLevel1Time;
+
+		}
+		private float UpdateLevel2Time()
+		{
+			if (GetCurrentLevel() == "Level2")
 			{
-				return "Couldn't get level 3 time";
+				if (_currentLevel2Time > FastestTime() || _currentLevel2Time == 0)
+				{
+					_currentLevel2Time = FastestTime(); // Store the fastest time for Level 1
+					GD.Print($"Level 2 Time: {_currentLevel2Time}");
+				}
 			}
+			return _currentLevel2Time;
+		}
+		private float UpdateLevel3Time()
+		{
+			if (GetCurrentLevel() == "Level3")
+			{
+				if (_currentLevel3Time > FastestTime() || _currentLevel3Time == 0)
+				{
+					_currentLevel3Time = FastestTime(); // Store the fastest time for Level 1
+					GD.Print($"Level 3 Time: {_currentLevel3Time}");
+				}
+			}
+			return _currentLevel3Time;
+		}
+		public Dictionary TimeData()
+		{
+			Dictionary data = new Dictionary();
+
+			if (_currentLevel1Time >= 0)
+			{
+				data.Add("FastestTimeLevel1", _currentLevel1Time);
+				GD.Print("Level 1 data added");
+			}
+			if (_currentLevel2Time >= 0)
+			{
+				data.Add("FastestTimeLevel2", _currentLevel2Time);
+				GD.Print("Level 2 data added");
+			}
+			if (_currentLevel3Time >= 0)
+			{
+				data.Add("FastestTimeLevel3", _currentLevel3Time);
+				GD.Print("Level 3 data added");
+			}
+			return data;
 		}
 	}
 }

@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dttsx40cfx2l3"]
+[gd_scene load_steps=7 format=3 uid="uid://dttsx40cfx2l3"]
 
 [ext_resource type="Script" path="res://Scripts/GameTime.cs" id="1_ahngx"]
 [ext_resource type="Script" path="res://Scripts/HUDSettings.cs" id="1_ltner"]
 [ext_resource type="Texture2D" uid="uid://djryqp32q84d3" path="res://Arts/UI/Pause_Bars.png" id="3_183qu"]
 [ext_resource type="Texture2D" uid="uid://bsrrmm8ctl75p" path="res://Arts/UI/Pedal_Up_Fixed.png" id="4_clkd2"]
 [ext_resource type="Texture2D" uid="uid://cvouvbmppqwqb" path="res://Arts/UI/Pedal_Down_Fixed.png" id="5_tjef6"]
-[ext_resource type="Texture2D" uid="uid://d1i4sj4nwnamh" path="res://Arts/UI/Continue_ButtonV2.png" id="6_o8m3t"]
-[ext_resource type="Texture2D" uid="uid://c1q21dd6nkf7w" path="res://Arts/UI/Continue_PressedV2.png" id="7_hae7y"]
+[ext_resource type="Texture2D" uid="uid://d07fqikco3dkd" path="res://Arts/UI/Start_Icon_Plain.png" id="6_wbn0v"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_ahngx")
@@ -64,10 +63,9 @@ text = "Brake"
 wait_time = 3.0
 
 [node name="StartGameButton" type="TouchScreenButton" parent="HUDSettings"]
-position = Vector2(824, 354)
+position = Vector2(872, 337)
 scale = Vector2(3, 3)
-texture_normal = ExtResource("6_o8m3t")
-texture_pressed = ExtResource("7_hae7y")
+texture_normal = ExtResource("6_wbn0v")
 action = "StartGame"
 
 [node name="CountDown" type="Label" parent="HUDSettings"]

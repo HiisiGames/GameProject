@@ -28,11 +28,6 @@ namespace TruckGame
             collideSound = GetNode<AudioStreamPlayer>("SFX/CollideSound");
             victorySound = GetNode<AudioStreamPlayer>("SFX/VictorySound");
         }
-        public void setVolume()
-        {
-            bgMusic.VolumeDb = 0f;
-            engineSound.VolumeDb = 0f;
-        }
         public Dictionary SFXData()
 		{
 			Dictionary data = new Dictionary();

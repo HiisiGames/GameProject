@@ -3,6 +3,8 @@ using Godot.Collections;
 using System;
 using System.IO;
 
+using Dictionary = Godot.Collections.Dictionary;
+
 namespace TruckGame
 {
 	/// <summary>
@@ -12,12 +14,6 @@ namespace TruckGame
 	{
 		private LevelComplete levelComplete;
 		public static GameSave Instantiate;
-		// [Export] public int[] CurrentLevelComplete { get; set; }
-		// [Export] public int CurrentLevelOn { get; set; }
-		// [Export] public float AudioVolume { get; set; }
-		// [Export] public int FastestTime { get; set; }
-
-		// [Export] public bool ReverseControls { get; set; }
 		public override void _Ready()
 		{
 			Instantiate = this;
@@ -42,57 +38,93 @@ namespace TruckGame
 
 			GD.Print(saveData);
 
-			if (saveData.ContainsKey("LevelComplete") && LevelComplete.Instantiate != null)
+			if (LevelCompleteTime.Instantiate != null)
 			{
-				Dictionary levelData = (Dictionary)saveData["LevelComplete"];
+				if (saveData.ContainsKey("TimeData"))
+				{
+					Dictionary timeData = (Dictionary)saveData["TimeData"];
 
-				LevelComplete.Instantiate._isLevelComplete1 = (bool)levelData["Level-1"];
-				LevelComplete.Instantiate._isLevelComplete2 = (bool)levelData["Level-2"];
-				LevelComplete.Instantiate._isLevelComplete3 = (bool)levelData["Level-3"];
+					LevelCompleteTime.Instantiate._currentLevel1Time = (float)timeData["FastestTimeLevel1"];
+					LevelCompleteTime.Instantiate._currentLevel2Time = (float)timeData["FastestTimeLevel2"];
+					LevelCompleteTime.Instantiate._currentLevel3Time = (float)timeData["FastestTimeLevel3"];
 
-				GD.Print("Level data loaded");
-			}
-			if (saveData.ContainsKey("SFX"))
-			{
-				Dictionary sfxData = (Dictionary)saveData["SFX"];
-
-				AudioManager.Instantiate.collideSound.VolumeDb = (float)sfxData["CollideSound"];
-				AudioManager.Instantiate.engineSound.VolumeDb = (float)sfxData["EngineSound"];
-				AudioManager.Instantiate.victorySound.VolumeDb = (float)sfxData["VictorySound"];
-				AudioManager.Instantiate.clickButtonSound.VolumeDb = (float)sfxData["ClickSound"];
-
-				GD.Print("SFX volumes restored");
-			}
-			if (saveData.ContainsKey("Music"))
-			{
-				Dictionary musicData = (Dictionary)saveData["Music"];
-
-				AudioManager.Instantiate.bgMusic.VolumeDb = (float)musicData["bgMusic"];
-
-				GD.Print("music volumes restored");
-			}
-			if (saveData.ContainsKey("TimeData"))
-			{
-				Dictionary timeData = (Dictionary)saveData["TimeData"];
-
-				LevelSelect.Instantiate._level1TimeLabel.Text = (string)timeData["FastestTimeLevel1"];
-				LevelSelect.Instantiate._level2TimeLabel.Text = (string)timeData["FastestTimeLevel2"];
-				LevelSelect.Instantiate._level3TimeLabel.Text = (string)timeData["FastestTimeLevel3"];
-
-				GD.Print("Fastest time recovered");
+					GD.Print("Fastest time recovered, GameSave.cs");
+				}
 			}
 
+			if (LevelSelect.Instantiate != null)
+			{
+				if (saveData.ContainsKey("TimeData"))
+				{
+					Dictionary timeData = (Dictionary)saveData["TimeData"];
+
+					LevelSelect.Instantiate._level1Time = (float)timeData["FastestTimeLevel1"];
+					LevelSelect.Instantiate._level2Time = (float)timeData["FastestTimeLevel2"];
+					LevelSelect.Instantiate._level3Time = (float)timeData["FastestTimeLevel3"];
+
+					GD.Print("Labels updated, GameSave.cs");
+				}
+			}
+
+			GD.Print("Load works, GameSave");
+		}
+		public void LoadAudio()
+		{
+			string savePath = ProjectSettings.GlobalizePath("user://");
+			savePath = Path.Combine(savePath, Config.SaveFolder);
+
+			string loadedData = LoadFromFile(savePath, Config.AudioSaveFile);
+
+			Json jsonLoader = new Json();
+			Error loadError = jsonLoader.Parse(loadedData);
+			if (loadError != Error.Ok)
+			{
+				GD.PrintErr($"Virhe ladattaessa peliä: {loadError}");
+				return;
+			}
+
+			Dictionary saveData = (Dictionary)jsonLoader.Data;
+
+			GD.Print(saveData);
+
+			if (AudioManager.Instantiate != null)
+			{
+				if (saveData.ContainsKey("SFX"))
+				{
+					Dictionary sfxData = (Dictionary)saveData["SFX"];
+
+					AudioManager.Instantiate.collideSound.VolumeDb = (float)sfxData["CollideSound"];
+					AudioManager.Instantiate.engineSound.VolumeDb = (float)sfxData["EngineSound"];
+					AudioManager.Instantiate.victorySound.VolumeDb = (float)sfxData["VictorySound"];
+					AudioManager.Instantiate.clickButtonSound.VolumeDb = (float)sfxData["ClickSound"];
+
+					GD.Print("SFX volumes restored");
+				}
+			}
+
+			if (AudioManager.Instantiate != null)
+			{
+				if (saveData.ContainsKey("Music"))
+				{
+					Dictionary musicData = (Dictionary)saveData["Music"];
+
+					AudioManager.Instantiate.bgMusic.VolumeDb = (float)musicData["bgMusic"];
+
+					GD.Print("music volumes restored");
+				}
+			}
 
 			GD.Print("Load works, GameSave");
 		}
 
 		public string Save()
 		{
-			Godot.Collections.Dictionary saveData = new Godot.Collections.Dictionary();
-			saveData.Add("LevelComplete", LevelComplete.Instantiate.LevelData());
-			saveData.Add("SFX", AudioManager.Instantiate.SFXData());
-			saveData.Add("Music", AudioManager.Instantiate.MusicData());
-			saveData.Add("TimeData",LevelSelect.Instantiate.TimeData());
+			Dictionary saveData = new Dictionary();
+
+			if (LevelCompleteTime.Instantiate != null)
+			{
+				saveData.Add("TimeData", LevelCompleteTime.Instantiate.TimeData());
+			}
 
 			string json = Json.Stringify(saveData);
 			GD.Print(json);
@@ -102,11 +134,38 @@ namespace TruckGame
 
 			if (SaveToFile(savePath, Config.AutoSaveFile, json))
 			{
-				GD.Print("Peli tallentui.");
+				GD.Print("Game saved, GameSave.cs");
 			}
 			else
 			{
-				GD.Print("Peli ei tallentunut.");
+				GD.Print("Game did not save, GameSave.cs");
+			}
+			return savePath;
+		}
+
+		public string SaveAudio()
+		{
+			Dictionary saveData = new Dictionary();
+
+			if (AudioManager.Instantiate != null)
+			{
+				saveData.Add("SFX", AudioManager.Instantiate.SFXData());
+				saveData.Add("Music", AudioManager.Instantiate.MusicData());
+			}
+
+			string json = Json.Stringify(saveData);
+			GD.Print(json);
+
+			string savePath = ProjectSettings.GlobalizePath("user://");
+			savePath = Path.Combine(savePath, Config.SaveFolder);
+
+			if (SaveToFile(savePath, Config.AudioSaveFile, json))
+			{
+				GD.Print("Audio saved, GameSave.cs");
+			}
+			else
+			{
+				GD.Print("Audio did not save, GameSave.cs");
 			}
 			return savePath;
 		}
@@ -149,6 +208,60 @@ namespace TruckGame
 			}
 			return data;
 		}
+		// public Dictionary CreateDefaultSaveValues()
+		// {
+		// 	Dictionary defaultSave = new Dictionary();
+
+		// 	Dictionary sfxData = new Dictionary
+		// 	{
+		// 		{ "CollideSound", 0f },
+		// 		{ "EngineSound", 0f },
+		// 		{ "VictorySound", 0f },
+		// 		{ "ClickSound", 0f }
+		// 	};
+
+		// 	defaultSave.Add("SFX", sfxData);
+
+
+		// 	Dictionary musicData = new Dictionary
+		// 	{
+		// 		{ "bgMusic", 0f }
+		// 	};
+
+		// 	defaultSave.Add("Music", musicData);
+
+
+		// 	Dictionary timeData = new Dictionary
+		// 	{
+		// 		{ "FastestTimeLevel1", 0f },
+		// 		{ "FastestTimeLevel2", 0f },
+		// 		{ "FastestTimeLevel3", 0f }
+		// 	};
+
+		// 	defaultSave.Add("TimeData", timeData);
+
+		// 	return defaultSave;
+		// }
+		// public string CreateDefaultSave()
+		// {
+		// 	Dictionary defaultSave = CreateDefaultSaveValues();
+
+		// 	string json = Json.Stringify(defaultSave);
+		// 	GD.Print(json);
+
+		// 	string savePath = ProjectSettings.GlobalizePath("user://");
+		// 	savePath = Path.Combine(savePath, Config.SaveFolder);
+
+		// 	if (SaveToFile(savePath, Config.AutoSaveFile, json))
+		// 	{
+		// 		GD.Print("Default save created, GameSave.cs");
+		// 	}
+		// 	else
+		// 	{
+		// 		GD.Print("Default save not created, GameSave.cs");
+		// 	}
+		// 	return savePath;
+		// }
 	}
 }
 
