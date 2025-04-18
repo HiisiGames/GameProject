@@ -1,10 +1,12 @@
-[gd_scene load_steps=140 format=3 uid="uid://cjveskaua8q0k"]
+[gd_scene load_steps=142 format=3 uid="uid://cjveskaua8q0k"]
 
 [ext_resource type="PackedScene" uid="uid://bisp2fp0w4eew" path="res://Scenes/parallax.tscn" id="1_v8wl1"]
 [ext_resource type="Texture2D" uid="uid://b3rdykf6cj1jj" path="res://Arts/buildings.png" id="2_qnmd7"]
-[ext_resource type="Texture2D" uid="uid://8q8yt6aso1cd" path="res://Arts/sky.png" id="3_cr7f2"]
+[ext_resource type="Texture2D" uid="uid://cfd1v8lc7a2dx" path="res://Arts/skyv3.png" id="3_1yldj"]
+[ext_resource type="Texture2D" uid="uid://djffvib7o1tbv" path="res://Arts/stars.png" id="4_aj3m4"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape_closed.gd" id="4_ryxqr"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/vertex_properties.gd" id="5_jcmjh"]
+[ext_resource type="Texture2D" uid="uid://dkcly5h4taw7m" path="res://Arts/moon.png" id="5_ycu2c"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point.gd" id="6_2nd8n"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="7_t3ekk"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="8_yo4f0"]
@@ -802,16 +804,54 @@ position = Vector2(0, -600)
 scale = Vector2(3, 3)
 texture = ExtResource("2_qnmd7")
 
-[node name="Parallax2" parent="." instance=ExtResource("1_v8wl1")]
+[node name="Parallax3" parent="." instance=ExtResource("1_v8wl1")]
 z_index = -21
 scroll_scale = Vector2(0.2, 1)
 repeat_size = Vector2(11520, 0)
 repeat_times = 2
 
-[node name="Sprite2D" parent="Parallax2" index="0"]
+[node name="Sprite2D" parent="Parallax3" index="0"]
 position = Vector2(0, -2400)
 scale = Vector2(12, 12)
-texture = ExtResource("3_cr7f2")
+texture = ExtResource("3_1yldj")
+
+[node name="Parallax5" parent="." instance=ExtResource("1_v8wl1")]
+z_index = -21
+scroll_scale = Vector2(0.05, 1)
+repeat_size = Vector2(2880, 0)
+repeat_times = 2
+
+[node name="Sprite2D" parent="Parallax5" index="0"]
+position = Vector2(0, -1900)
+scale = Vector2(3, 3)
+texture = ExtResource("4_aj3m4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax5"]
+position = Vector2(0, -2400)
+scale = Vector2(3, 3)
+texture = ExtResource("4_aj3m4")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="Parallax5"]
+position = Vector2(0, -2900)
+scale = Vector2(3, 3)
+texture = ExtResource("4_aj3m4")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="Parallax5"]
+position = Vector2(0, -3400)
+scale = Vector2(3, 3)
+texture = ExtResource("4_aj3m4")
+centered = false
+
+[node name="Parallax4" parent="." instance=ExtResource("1_v8wl1")]
+z_index = -21
+scroll_scale = Vector2(0.05, 1)
+
+[node name="Sprite2D" parent="Parallax4" index="0"]
+position = Vector2(1400, -2400)
+scale = Vector2(6, 6)
+texture = ExtResource("5_ycu2c")
 
 [node name="Terrain" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -1043,4 +1083,6 @@ position = Vector2(47, -43)
 shape = SubResource("RectangleShape2D_ll515")
 
 [editable path="Parallax"]
-[editable path="Parallax2"]
+[editable path="Parallax3"]
+[editable path="Parallax5"]
+[editable path="Parallax4"]

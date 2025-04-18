@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dmu4lc48porvv" path="res://Scenes/StreetLight.tscn" id="2_x2mkn"]
 [ext_resource type="PackedScene" uid="uid://c6s6tucaeoqey" path="res://Scenes/WarningSign.tscn" id="3_p2b4w"]
 [ext_resource type="PackedScene" uid="uid://bisp2fp0w4eew" path="res://Scenes/parallax.tscn" id="4_bucjh"]
-[ext_resource type="Texture2D" uid="uid://b3rdykf6cj1jj" path="res://Arts/buildings.png" id="5_t65pr"]
+[ext_resource type="Texture2D" uid="uid://dty3j803pb2is" path="res://Arts/buildingloop2.png" id="5_gqu4f"]
 [ext_resource type="Texture2D" uid="uid://8q8yt6aso1cd" path="res://Arts/sky.png" id="6_hvpc6"]
 [ext_resource type="PackedScene" uid="uid://bll2isp8qp7uv" path="res://Scenes/RigidBodyScene.tscn" id="7_chny2"]
 [ext_resource type="Script" path="res://Scripts/Car.cs" id="8_6rg6j"]
@@ -503,7 +503,7 @@ repeat_times = 2
 [node name="Sprite2D" parent="Parallax" index="0"]
 position = Vector2(0, 1800)
 scale = Vector2(3, 3)
-texture = ExtResource("5_t65pr")
+texture = ExtResource("5_gqu4f")
 
 [node name="Parallax2" parent="." instance=ExtResource("4_bucjh")]
 z_index = -21
