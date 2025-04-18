@@ -109,14 +109,13 @@ namespace TruckGame
 			UpdateLevel1();
 			UpdateLevel2();
 			UpdateLevel3();
-			GameSave.Instantiate.Save();
 		}
 		private string UpdateLevel1()
 		{
 			int level1Minutes = Mathf.FloorToInt(_level1Time / 60);
 			int level1Seconds = Mathf.FloorToInt(_level1Time % 60);
 
-			string level1Time = $"Fastest Time: {level1Minutes:D2}:{level1Seconds:D2}";
+			string level1Time = $"Time: {level1Minutes:D2}:{level1Seconds:D2}";
 
 
 			_level1TimeLabel.Text = level1Time;
@@ -129,7 +128,7 @@ namespace TruckGame
 			int level2Minutes = Mathf.FloorToInt(_level2Time / 60);
 			int level2Seconds = Mathf.FloorToInt(_level2Time % 60);
 
-			string level2Time = $"Fastest Time: {level2Minutes:D2}:{level2Seconds:D2}";
+			string level2Time = $"Time: {level2Minutes:D2}:{level2Seconds:D2}";
 
 			_level2TimeLabel.Text = level2Time;
 
@@ -143,7 +142,7 @@ namespace TruckGame
 			int level3Seconds = Mathf.FloorToInt(_level3Time % 60);
 
 
-			string level3Time = $"Fastest Time: {level3Minutes:D2}:{level3Seconds:D2}";
+			string level3Time = $"Time: {level3Minutes:D2}:{level3Seconds:D2}";
 
 			_level3TimeLabel.Text = level3Time;
 

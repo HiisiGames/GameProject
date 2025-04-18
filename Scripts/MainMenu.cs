@@ -32,6 +32,7 @@ namespace TruckGame
 		public override void _Ready()
 		{
 			GameSave.Instantiate.LoadAudio();
+			GameSave.Instantiate.Load();
 
 			AudioManager.Instantiate.bgMusic.StreamPaused = false;
 			// AudioManager.Instantiate.engineSound.StreamPaused = true;
