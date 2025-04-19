@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c6s6tucaeoqey" path="res://Scenes/WarningSign.tscn" id="3_p2b4w"]
 [ext_resource type="PackedScene" uid="uid://bisp2fp0w4eew" path="res://Scenes/parallax.tscn" id="4_bucjh"]
 [ext_resource type="Texture2D" uid="uid://dty3j803pb2is" path="res://Arts/buildingloop2.png" id="5_gqu4f"]
-[ext_resource type="Texture2D" uid="uid://cfd1v8lc7a2dx" path="res://Arts/skyv3.png" id="6_14pgn"]
+[ext_resource type="Texture2D" uid="uid://bwxmk1pcqeq80" path="res://Arts/skyv5.png" id="6_4i1ta"]
 [ext_resource type="PackedScene" uid="uid://bll2isp8qp7uv" path="res://Scenes/RigidBodyScene.tscn" id="7_chny2"]
 [ext_resource type="Script" path="res://Scripts/Car.cs" id="8_6rg6j"]
 [ext_resource type="PackedScene" uid="uid://dttsx40cfx2l3" path="res://GUI/HUD.tscn" id="9_qmj47"]
@@ -500,7 +500,7 @@ repeat_times = 2
 [node name="Sprite2D" parent="Parallax2" index="0"]
 position = Vector2(0, -2400)
 scale = Vector2(20, 20)
-texture = ExtResource("6_14pgn")
+texture = ExtResource("6_4i1ta")
 
 [node name="PlayerVehicle" parent="." instance=ExtResource("7_chny2")]
 position = Vector2(103, -282)

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bisp2fp0w4eew" path="res://Scenes/parallax.tscn" id="1_v8wl1"]
 [ext_resource type="Texture2D" uid="uid://dty3j803pb2is" path="res://Arts/buildingloop2.png" id="2_io4n3"]
-[ext_resource type="Texture2D" uid="uid://cfd1v8lc7a2dx" path="res://Arts/skyv3.png" id="3_1yldj"]
+[ext_resource type="Texture2D" uid="uid://bwxmk1pcqeq80" path="res://Arts/skyv5.png" id="3_u77ys"]
 [ext_resource type="Texture2D" uid="uid://djffvib7o1tbv" path="res://Arts/stars.png" id="4_aj3m4"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape_closed.gd" id="4_ryxqr"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/vertex_properties.gd" id="5_jcmjh"]
@@ -813,7 +813,7 @@ repeat_times = 2
 [node name="Sprite2D" parent="Parallax3" index="0"]
 position = Vector2(0, -2400)
 scale = Vector2(12, 12)
-texture = ExtResource("3_1yldj")
+texture = ExtResource("3_u77ys")
 
 [node name="Parallax5" parent="." instance=ExtResource("1_v8wl1")]
 z_index = -21
