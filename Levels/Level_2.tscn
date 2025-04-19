@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape_closed.gd" id="1_gsjns"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/vertex_properties.gd" id="2_40myg"]
 [ext_resource type="Script" path="res://Scripts/Car.cs" id="2_42ddi"]
-[ext_resource type="Texture2D" uid="uid://8q8yt6aso1cd" path="res://Arts/sky.png" id="2_fn0cm"]
 [ext_resource type="Texture2D" uid="uid://dty3j803pb2is" path="res://Arts/buildingloop2.png" id="3_7w3bj"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point.gd" id="3_squgh"]
+[ext_resource type="Texture2D" uid="uid://cfd1v8lc7a2dx" path="res://Arts/skyv3.png" id="4_0l2xg"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="4_mebif"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="5_y48ty"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="6_bks42"]
@@ -428,7 +428,7 @@ repeat_times = 2
 [node name="Sprite2D" parent="Parallax2" index="0"]
 position = Vector2(0, -2800)
 scale = Vector2(12, 12)
-texture = ExtResource("2_fn0cm")
+texture = ExtResource("4_0l2xg")
 
 [node name="Terrain" type="StaticBody2D" parent="."]
 position = Vector2(212, -247)
