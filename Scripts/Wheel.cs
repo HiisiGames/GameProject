@@ -5,7 +5,7 @@ using System;
 namespace TruckGame
 {
 	/// <summary>
-	/// This is to refer the wheel class in different parts of the code
+	/// This is to refer to the wheel class in different parts of the code, especially in car.cs, where the wheels are added into a list.
 	/// </summary>
 	public partial class Wheel : RigidBody2D
 	{

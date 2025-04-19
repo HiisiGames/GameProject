@@ -26,6 +26,8 @@ namespace TruckGame
             engineSound = GetNode<AudioStreamPlayer>("SFX/EngineSound");
             collideSound = GetNode<AudioStreamPlayer>("SFX/CollideSound");
             victorySound = GetNode<AudioStreamPlayer>("SFX/VictorySound");
+            engineSound.VolumeDb = -10.0f;
+            bgMusic.VolumeDb = 20.0f;
         }
 
     }

@@ -8,6 +8,7 @@ namespace TruckGame
 	/// </summary>
 	public partial class FinishLine : Area2D
 	{
+
 		/// <summary>
 		/// The path to where the level complete is located in the project directory
 		/// </summary>
@@ -22,10 +23,6 @@ namespace TruckGame
 			//_level2 = GetNode<Level2>("Level2");
 		}
 
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
-		{
-		}
 
 		/// <summary>
 		/// This method checks if the area (finish line) is in touch with the playerVehicle
@@ -35,7 +32,6 @@ namespace TruckGame
 		// Similar to "CollisionDetector.cs", checks if certain element, in this case the finish line is touching the player vehicle
 		{
 			GD.Print("Node collided with Finish Line");
-			// GD.Print("Node type: ", node.GetType());
 
 			if (node is RigidBody2D Car)
 			// If the node is rigidbody2D Car, execute the code
@@ -49,7 +45,7 @@ namespace TruckGame
 		}
 
 		/// <summary>
-		/// This method instantiates the level complete scene and adds it as child node to the current scene
+		/// This method instantiates the level complete scene and adds it as a child node to the scene tree
 		/// </summary>
 		private void InstantiateLevelComplete()
 		{

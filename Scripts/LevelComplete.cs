@@ -57,11 +57,6 @@ namespace TruckGame
 			_selectResume.Pressed += OnContinuePressed;
 		}
 
-		// Called every frame. 'delta' is the elapsed time since the previous frame.
-		public override void _Process(double delta)
-		{
-		}
-
 		private void OnMainMenuPressed() // Goes back to main menu
 		{
 			PackedScene selectMainMenuButton = ResourceLoader.Load<PackedScene>(_mainMenuScenePath);

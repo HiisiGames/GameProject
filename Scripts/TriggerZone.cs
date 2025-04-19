@@ -4,7 +4,7 @@ using System;
 namespace TruckGame
 {
 	/// <summary>
-	/// This is so that other parts of the code can refer to TriggerZone class
+	/// This class is used in scripts to refer to its signals, while distinguishing it from other partial classes of Area2D.
 	/// </summary>
 	public partial class TriggerZone : Area2D
 	{
