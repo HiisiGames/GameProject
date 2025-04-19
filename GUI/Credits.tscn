@@ -34,6 +34,40 @@ text = "Programmers:
 Henri 
 Juuso"
 
+[node name="Sounds" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 695.0
+offset_top = 716.0
+offset_right = 1043.0
+offset_bottom = 978.0
+
+[node name="Label" type="Label" parent="Sounds"]
+layout_mode = 0
+offset_left = -217.0
+offset_top = 14.0
+offset_right = -37.0
+offset_bottom = 147.0
+scale = Vector2(2, 2)
+text = "Sound Effects: 
+
+"
+
+[node name="Music" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 1287.0
+offset_top = 723.0
+offset_right = 1635.0
+offset_bottom = 985.0
+
+[node name="Label" type="Label" parent="Music"]
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 133.0
+scale = Vector2(2, 2)
+text = "Music: 
+
+Juuso Porentola"
+
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 0
 offset_right = 50.0

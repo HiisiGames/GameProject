@@ -5,29 +5,30 @@ namespace TruckGame
 {
     public partial class Crate : Droppable
     {
-        private TriggerZone _triggerZone;
-        private bool Triggered = false;
+        //private TriggerZone _triggerZone;
+        //private bool Triggered = false;
         public override void _Ready()
         {
-            Freeze = true;
+            OnReady();
+            /*Freeze = true;
             GD.Print($"triggered = {Triggered}");
 		    GD.Print($"freeze state: {this.Freeze}");
 		    GD.Print($"freeze mode: {this.FreezeMode}");
 		    GD.Print($"sleep state: {this.Sleeping}");
-            _triggerZone = GetNode<TriggerZone>("/root/Level1/TriggerZone");
-            _triggerZone.BodyEntered += OnTriggerZoneBodyEntered;
+            //_triggerZone = GetNode<TriggerZone>("/root/Level1/TriggerZone");
+            _triggerZone.BodyEntered += OnTriggerZoneBodyEntered;*/
         }
         public override void _PhysicsProcess(double delta)
         {
             if(Triggered)
             {
                 Drop();
-                GD.Print($"Setting crate freeze state");
-                GD.Print($"Crate freeze state: {this.Freeze}");
-                Triggered = false;
+                /*GD.Print($"Setting {this.Name} freeze state");
+                GD.Print($"Crate {this.Name} state: {this.Freeze}");
+                Triggered = false;*/
             }
         }
-        public void OnTriggerZoneBodyEntered(Node node) 
+        /*public void OnTriggerZoneBodyEntered(Node node) 
 		{	
 			GD.Print("Vehicle entered the trigger zone");
 			if(node is RigidBody2D vehicle)
@@ -37,7 +38,7 @@ namespace TruckGame
 				Triggered = true;
 				GD.Print($"Trigger activated");
 			}
-	    }
+	    }*/
     }
 }
 
