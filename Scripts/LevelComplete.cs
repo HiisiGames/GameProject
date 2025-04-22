@@ -13,52 +13,42 @@ namespace TruckGame
 	/// </summary>
 	public partial class LevelComplete : Node
 	{
+		public static LevelComplete Instantiate;
 		[Export] private string _mainMenuScenePath = "res://GUI/MainMenu.tscn";
-		[Export] private string _level2ScenePath = "res://Levels/Level_2.tscn";
-		[Export] private string _level3ScenePath = "res://Levels/Level_3.tscn";
-		[Export] private string _level1ScenePath = "res://Levels/Level_1.tscn";
-		[Export] private string _gameSaveScenePath = "res://Scenes/GameSave.tscn";
+		[Export] private string _level2ScenePath = "res://Levels/Level2.tscn";
+		[Export] private string _level3ScenePath = "res://Levels/Level3.tscn";
+		[Export] private string _level1ScenePath = "res://Levels/Level1.tscn";
 		private string _nextScenePath;
-		PackedScene _gameSave;
 		private TextureButton _selectMainMenu;
 		private TextureButton _selectRestart;
 		private TextureButton _selectResume;
-		public bool _isLevelComplete1 = false;
-		public bool _isLevelComplete2 = false;
-		public bool _isLevelComplete3 = false;
-
-		public bool IsLevelComplete1
-		{
-			get { return _isLevelComplete1; }
-		}
-		public bool IsLevelComplete2
-		{
-			get { return _isLevelComplete2; }
-		}
-		public bool IsLevelComplete3
-		{
-			get { return _isLevelComplete3; }
-		}
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
-			_gameSave = ResourceLoader.Load<PackedScene>(_gameSaveScenePath);
+			Instantiate = this;
 
+			GD.Print("LEVELCOMPLETE.CS STARTS");
 			_selectMainMenu = GetNode<TextureButton>("MainMenuButton");
 			_selectRestart = GetNode<TextureButton>("RestartButton");
 			_selectResume = GetNode<TextureButton>("ContinueButton");
 
-			IsLevelComplete();
+			// LoadLevelData();
+			// IsLevelComplete();
 			CheckScene(); // Checks if current scene is main menu / used to pause the scene tree
-			GameSave();
+			// AutoLoad();
+			// AutoSave();
 
 			_selectMainMenu.Pressed += OnMainMenuPressed;
 			_selectRestart.Pressed += OnRestartPressed;
 			_selectResume.Pressed += OnContinuePressed;
+
+			GD.Print("LEVELCOMPLETE.CS ENDS");
 		}
 
 		private void OnMainMenuPressed() // Goes back to main menu
 		{
+			VictorySoundStop();
+
 			PackedScene selectMainMenuButton = ResourceLoader.Load<PackedScene>(_mainMenuScenePath);
 			if (selectMainMenuButton != null)
 			{
@@ -72,6 +62,8 @@ namespace TruckGame
 		}
 		private void OnRestartPressed()
 		{
+			VictorySoundStop();
+
 			Node currentScene = GetTree().CurrentScene;
 			if (currentScene != null)
 			{
@@ -99,7 +91,10 @@ namespace TruckGame
 		}
 		private void OnContinuePressed()
 		{
+			VictorySoundStop();
+
 			Node CurrentScene = GetTree().CurrentScene;
+
 			if (CurrentScene.Name == "Level1")
 			{
 				_nextScenePath = _level2ScenePath;
@@ -124,46 +119,10 @@ namespace TruckGame
 			}
 
 		}
+		private void VictorySoundStop()
+		{
+			AudioManager.Instantiate.victorySound.Stop();
+		}
 
-		public void IsLevelComplete()
-		{
-			Node CurrentScene = GetTree().CurrentScene;
-			if (CurrentScene.Name == "Level1" && _isLevelComplete1 == false)
-			{
-				_isLevelComplete1 = true;
-				GD.Print("Level 1 is complete (IsLevelComplete method)");
-				// TO DO
-				// Add the way that this is saved, also see if you can check with if that it only does this if
-			}
-			else if (CurrentScene.Name == "Level2" && _isLevelComplete2 == false)
-			{
-				_isLevelComplete2 = true;
-				GD.Print("Level 2 is complete (IsLevelComplete method)");
-			}
-			else if (CurrentScene.Name == "Level3" && _isLevelComplete3 == false)
-			{
-				_isLevelComplete3 = true;
-				GD.Print("Level 3 is complete (IsLevelComplete method)");
-			}
-		}
-		private void GameSave()
-		{
-			{
-				if (_gameSave != null)
-				{
-					if (GetNode<Node>("GameSave") == null)
-					{
-						GD.Print("GameSave node found, LevelComplete Method");
-						Node gameSave = _gameSave.Instantiate();
-						gameSave.Name = "GameSave"; // THIS IS IMPORTANT DONT DELETE
-						AddChild(gameSave);
-					}
-				}
-				else
-				{
-					GD.Print("Gamesave node not found, LevelComplete Method");
-				}
-			}
-		}
 	}
 }

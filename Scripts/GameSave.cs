@@ -3,6 +3,8 @@ using Godot.Collections;
 using System;
 using System.IO;
 
+using Dictionary = Godot.Collections.Dictionary;
+
 namespace TruckGame
 {
 	/// <summary>
@@ -10,17 +12,11 @@ namespace TruckGame
 	/// </summary>
 	public partial class GameSave : Node2D
 	{
-        private LevelComplete levelComplete;
-		// [Export] public int[] CurrentLevelComplete { get; set; }
-		// [Export] public int CurrentLevelOn { get; set; }
-		// [Export] public float AudioVolume { get; set; }
-		// [Export] public int FastestTime { get; set; }
-
-		// [Export] public bool ReverseControls { get; set; }
+		private LevelComplete levelComplete;
+		public static GameSave Instantiate;
 		public override void _Ready()
 		{
-            levelComplete = GetNode<LevelComplete>("res://GUI/LevelComplete.tscn");
-            Save();
+			Instantiate = this;
 		}
 
 		public void Load()
@@ -32,22 +28,103 @@ namespace TruckGame
 
 			Json jsonLoader = new Json();
 			Error loadError = jsonLoader.Parse(loadedData);
-			if (loadError!= Error.Ok)
+			if (loadError != Error.Ok)
 			{
 				GD.PrintErr($"Virhe ladattaessa peliä: {loadError}");
+				return;
 			}
 
 			Dictionary saveData = (Dictionary)jsonLoader.Data;
 
+			GD.Print(saveData);
+
+			if (LevelCompleteTime.Instantiate != null)
+			{
+				if (saveData.ContainsKey("TimeData"))
+				{
+					Dictionary timeData = (Dictionary)saveData["TimeData"];
+
+					LevelCompleteTime.Instantiate._currentLevel1Time = (float)timeData["BestTimeLevel1"];
+					LevelCompleteTime.Instantiate._currentLevel2Time = (float)timeData["BestTimeLevel2"];
+					LevelCompleteTime.Instantiate._currentLevel3Time = (float)timeData["BestTimeLevel3"];
+
+					GD.Print("Fastest time recovered, GameSave.cs");
+				}
+			}
+
+			if (LevelSelect.Instantiate != null)
+			{
+				if (saveData.ContainsKey("TimeData"))
+				{
+					Dictionary timeData = (Dictionary)saveData["TimeData"];
+
+					LevelSelect.Instantiate._level1Time = (float)timeData["BestTimeLevel1"];
+					LevelSelect.Instantiate._level2Time = (float)timeData["BestTimeLevel2"];
+					LevelSelect.Instantiate._level3Time = (float)timeData["BestTimeLevel3"];
+
+					GD.Print("Labels updated, GameSave.cs");
+				}
+			}
+
+			GD.Print("Load works, GameSave");
 		}
+		public void LoadAudio()
+		{
+			string savePath = ProjectSettings.GlobalizePath("user://");
+			savePath = Path.Combine(savePath, Config.SaveFolder);
+
+			string loadedData = LoadFromFile(savePath, Config.AudioSaveFile);
+
+			Json jsonLoader = new Json();
+			Error loadError = jsonLoader.Parse(loadedData);
+			if (loadError != Error.Ok)
+			{
+				GD.PrintErr($"Virhe ladattaessa peliä: {loadError}");
+				return;
+			}
+
+			Dictionary saveData = (Dictionary)jsonLoader.Data;
+
+			GD.Print(saveData);
+
+			if (AudioManager.Instantiate != null)
+			{
+				if (saveData.ContainsKey("SFX"))
+				{
+					Dictionary sfxData = (Dictionary)saveData["SFX"];
+
+					AudioManager.Instantiate.collideSound.VolumeDb = (float)sfxData["CollideSound"];
+					AudioManager.Instantiate.engineSound.VolumeDb = (float)sfxData["EngineSound"];
+					AudioManager.Instantiate.victorySound.VolumeDb = (float)sfxData["VictorySound"];
+					AudioManager.Instantiate.clickButtonSound.VolumeDb = (float)sfxData["ClickSound"];
+
+					GD.Print("SFX volumes restored");
+				}
+			}
+
+			if (AudioManager.Instantiate != null)
+			{
+				if (saveData.ContainsKey("Music"))
+				{
+					Dictionary musicData = (Dictionary)saveData["Music"];
+
+					AudioManager.Instantiate.bgMusic.VolumeDb = (float)musicData["bgMusic"];
+
+					GD.Print("music volumes restored");
+				}
+			}
+
+			GD.Print("Load works, GameSave");
+		}
+
 		public string Save()
 		{
-			Godot.Collections.Dictionary saveData = new Godot.Collections.Dictionary();
-			saveData.Add("IsLevelComplete1", levelComplete.IsLevelComplete1);
-            saveData.Add("IsLevelComplete2", levelComplete.IsLevelComplete2);
-            saveData.Add("IsLevelComplete3", levelComplete.IsLevelComplete3);
-			// saveData.Add("Music", Music);
-			// saveData.Add("SFX", SFX);
+			Dictionary saveData = new Dictionary();
+
+			if (LevelCompleteTime.Instantiate != null)
+			{
+				saveData.Add("TimeData", LevelCompleteTime.Instantiate.TimeData());
+			}
 
 			string json = Json.Stringify(saveData);
 			GD.Print(json);
@@ -57,13 +134,40 @@ namespace TruckGame
 
 			if (SaveToFile(savePath, Config.AutoSaveFile, json))
 			{
-				GD.Print("Peli tallentui.");
+				GD.Print("Game saved, GameSave.cs");
 			}
 			else
 			{
-				GD.Print("Peli ei tallentunut.");
+				GD.Print("Game did not save, GameSave.cs");
 			}
-            return savePath;
+			return savePath;
+		}
+
+		public string SaveAudio()
+		{
+			Dictionary saveData = new Dictionary();
+
+			if (AudioManager.Instantiate != null)
+			{
+				saveData.Add("SFX", AudioManager.Instantiate.SFXData());
+				saveData.Add("Music", AudioManager.Instantiate.MusicData());
+			}
+
+			string json = Json.Stringify(saveData);
+			GD.Print(json);
+
+			string savePath = ProjectSettings.GlobalizePath("user://");
+			savePath = Path.Combine(savePath, Config.SaveFolder);
+
+			if (SaveToFile(savePath, Config.AudioSaveFile, json))
+			{
+				GD.Print("Audio saved, GameSave.cs");
+			}
+			else
+			{
+				GD.Print("Audio did not save, GameSave.cs");
+			}
+			return savePath;
 		}
 		private bool SaveToFile(string path, string fileName, string json)
 		{
@@ -104,10 +208,59 @@ namespace TruckGame
 			}
 			return data;
 		}
-		// public GameSave()
+		// public Dictionary CreateDefaultSaveValues()
 		// {
-		// 	IsLevelComplete = new int[3];
-		// 	AudioVolume = -8.0f;
+		// 	Dictionary defaultSave = new Dictionary();
+
+		// 	Dictionary sfxData = new Dictionary
+		// 	{
+		// 		{ "CollideSound", 0f },
+		// 		{ "EngineSound", 0f },
+		// 		{ "VictorySound", 0f },
+		// 		{ "ClickSound", 0f }
+		// 	};
+
+		// 	defaultSave.Add("SFX", sfxData);
+
+
+		// 	Dictionary musicData = new Dictionary
+		// 	{
+		// 		{ "bgMusic", 0f }
+		// 	};
+
+		// 	defaultSave.Add("Music", musicData);
+
+
+		// 	Dictionary timeData = new Dictionary
+		// 	{
+		// 		{ "FastestTimeLevel1", 0f },
+		// 		{ "FastestTimeLevel2", 0f },
+		// 		{ "FastestTimeLevel3", 0f }
+		// 	};
+
+		// 	defaultSave.Add("TimeData", timeData);
+
+		// 	return defaultSave;
+		// }
+		// public string CreateDefaultSave()
+		// {
+		// 	Dictionary defaultSave = CreateDefaultSaveValues();
+
+		// 	string json = Json.Stringify(defaultSave);
+		// 	GD.Print(json);
+
+		// 	string savePath = ProjectSettings.GlobalizePath("user://");
+		// 	savePath = Path.Combine(savePath, Config.SaveFolder);
+
+		// 	if (SaveToFile(savePath, Config.AutoSaveFile, json))
+		// 	{
+		// 		GD.Print("Default save created, GameSave.cs");
+		// 	}
+		// 	else
+		// 	{
+		// 		GD.Print("Default save not created, GameSave.cs");
+		// 	}
+		// 	return savePath;
 		// }
 	}
 }

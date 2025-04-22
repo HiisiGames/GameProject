@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b11125vw6ovt3"
-path="res://.godot/imported/Home_ButtonV2.png-1d6b7bbde5f03da2fcd3f7bb4993384e.ctex"
+uid="uid://cufqnq753dwrt"
+path="res://.godot/imported/Level_Selectl.png-36b08df566c2001ddad5a41645b86001.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Arts/UI/Home_ButtonV2.png"
-dest_files=["res://.godot/imported/Home_ButtonV2.png-1d6b7bbde5f03da2fcd3f7bb4993384e.ctex"]
+source_file="res://Arts/UI/Level_Selectl.png"
+dest_files=["res://.godot/imported/Level_Selectl.png-36b08df566c2001ddad5a41645b86001.ctex"]
 
 [params]
 

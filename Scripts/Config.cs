@@ -5,9 +5,9 @@ namespace TruckGame
 {
 	public static class Config
 	{
-		public const string HighScoreFile = "user://highscore.csv";
 		public const string SaveFolder = "Save";
-		public const string AutoSaveFile = "autosave.json";
-		public const string SettingsFile = "user://settings.cfg";
+		public const string AudioSaveFile = "saveAudio.json";
+		public const string AutoSaveFile = "autoSave.json";
+
 	}
 }

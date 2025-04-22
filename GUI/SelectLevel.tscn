@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://Scripts/LevelCompleteTime.cs" id="1_wf7jc"]
 [ext_resource type="Script" path="res://Scripts/LevelComplete.cs" id="2_6lurk"]
 [ext_resource type="Texture2D" uid="uid://db3wruogyq6wk" path="res://Arts/UI/options_background.png" id="3_lr0em"]
-[ext_resource type="Texture2D" uid="uid://bsns3t0f7cj5v" path="res://Arts/UI/Restart_ButtonV2.png" id="4_xmrxm"]
-[ext_resource type="Texture2D" uid="uid://c7o5lhpqtvnrj" path="res://Arts/UI/Restart_PressedV2.png" id="5_ucovp"]
-[ext_resource type="Texture2D" uid="uid://d1i4sj4nwnamh" path="res://Arts/UI/Continue_ButtonV2.png" id="6_le7yp"]
-[ext_resource type="Texture2D" uid="uid://c1q21dd6nkf7w" path="res://Arts/UI/Continue_PressedV2.png" id="7_6ecb1"]
-[ext_resource type="Texture2D" uid="uid://cm3x25vhpoi12" path="res://Arts/UI/Home_ButtonV2.png" id="8_u8ctk"]
-[ext_resource type="Texture2D" uid="uid://dpob7ofs07jqh" path="res://Arts/UI/Home_PressedV2.png" id="9_r18o6"]
+[ext_resource type="Texture2D" uid="uid://cke72cjw0w61l" path="res://Arts/UI/Restart_ButtonV3.png" id="4_ru01q"]
+[ext_resource type="Texture2D" uid="uid://dk2ai28o3o2la" path="res://Arts/UI/Restart_PressedV3.png" id="5_oony4"]
+[ext_resource type="Texture2D" uid="uid://cjtaq038c6tuw" path="res://Arts/UI/Continue_ButtonV3.png" id="6_ko6tj"]
+[ext_resource type="Texture2D" uid="uid://c6f2rv15bbkk5" path="res://Arts/UI/Continue_PressedV3.png" id="7_wc8ed"]
+[ext_resource type="Texture2D" uid="uid://prhtpj20075k" path="res://Arts/UI/Home_ButtonV3.png" id="8_moc0h"]
+[ext_resource type="Texture2D" uid="uid://bxc06fjuys3yv" path="res://Arts/UI/Home_PressedV3.png" id="9_m55b7"]
 [ext_resource type="Texture2D" uid="uid://cvyvywumom4mr" path="res://Arts/UI/Star_Empty.png" id="10_q42l0"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -33,19 +33,19 @@ offset_left = 887.0
 offset_top = 451.0
 offset_right = 951.0
 offset_bottom = 515.0
-scale = Vector2(4, 4)
-texture_normal = ExtResource("4_xmrxm")
-texture_pressed = ExtResource("5_ucovp")
+scale = Vector2(3.5, 3.5)
+texture_normal = ExtResource("4_ru01q")
+texture_pressed = ExtResource("5_oony4")
 
 [node name="ContinueButton" type="TextureButton" parent="LevelComplete"]
 layout_mode = 0
 offset_left = 509.0
-offset_top = 450.0
+offset_top = 458.0
 offset_right = 573.0
-offset_bottom = 514.0
-scale = Vector2(4, 4)
-texture_normal = ExtResource("6_le7yp")
-texture_pressed = ExtResource("7_6ecb1")
+offset_bottom = 522.0
+scale = Vector2(3.5, 3.5)
+texture_normal = ExtResource("6_ko6tj")
+texture_pressed = ExtResource("7_wc8ed")
 
 [node name="RichTextLabel" type="Label" parent="LevelComplete"]
 layout_mode = 0
@@ -65,9 +65,9 @@ offset_left = 118.0
 offset_top = 450.0
 offset_right = 182.0
 offset_bottom = 514.0
-scale = Vector2(4, 4)
-texture_normal = ExtResource("8_u8ctk")
-texture_pressed = ExtResource("9_r18o6")
+scale = Vector2(3.5, 3.5)
+texture_normal = ExtResource("8_moc0h")
+texture_pressed = ExtResource("9_m55b7")
 
 [node name="TimeInTheEnd" type="Label" parent="."]
 offset_left = 1424.0
