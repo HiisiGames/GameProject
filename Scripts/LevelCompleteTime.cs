@@ -12,6 +12,7 @@ namespace TruckGame
 		public static LevelCompleteTime Instantiate;
 		private GameTime _gameTime;
 		private Label _levelCompleteTimer;
+		private Label _newHighScore;
 		private Sprite2D _starOne;
 		private Sprite2D _starTwo;
 		private Sprite2D _starThree;
@@ -28,11 +29,15 @@ namespace TruckGame
 		{
 			Instantiate = this;
 
+			GD.Print("LEVELCOMPLETETIMER.CS STARTS");
+			GD.Print();
+
 			Node currentScene = GetTree().CurrentScene;
 
 			_gameTime = currentScene.GetNode<GameTime>("PlayerVehicle/Camera2D/CanvasLayer"); //Finds the node with the script
 
 			_levelCompleteTimer = GetNode<Label>("TimeInTheEnd");
+			_newHighScore = GetNode<Label>("HighScore");
 
 			if (_gameTime != null)
 			{
@@ -54,18 +59,28 @@ namespace TruckGame
 				GD.Print("Gametime NOT FOUND");
 			}
 
+			if (_newHighScore != null)
+			{
+				_newHighScore.Visible = false;
+			}
+
 			_starOne = GetNode<Sprite2D>("StarOne");
 			_starTwo = GetNode<Sprite2D>("StarTwo");
 			_starThree = GetNode<Sprite2D>("StarThree");
 
+			NewTime();
+
 			GameSave.Instantiate.Load();
 
 			UpdateStars();
-			FastestTime();
+
+			GD.Print($"CurrentScene Name: {GetTree().CurrentScene.Name}");
+			GD.Print($"GetCurrentLevel() returns: {GetCurrentLevel()}");
 
 			UpdateTimes();
 
-			GameSave.Instantiate.Save();
+			GD.Print();
+			GD.Print("LEVELCOMPLETETIMER.CS ENDS");
 		}
 
 		private void UpdateStars()
@@ -103,19 +118,13 @@ namespace TruckGame
 
 			return null;
 		}
-		// private string FastestTimeToText()
-		// {
-		// 	_fastestTime = _gameTime._totalTime;
-		// 	int minutes = Mathf.FloorToInt(_fastestTime / 60);
-		// 	int seconds = Mathf.FloorToInt(_fastestTime % 60);
-
-		// 	string realTime = $"Fastest Time: {minutes:D2}:{seconds:D2}";
-		// 	GD.Print($"Time: {realTime}. USING FastestTime() method ");
-		// 	return realTime;
-		// }
-		private float FastestTime()
+		private float NewTime()
 		{
 			return _gameTime._totalTime;
+		}
+		private void UpdateHighScore()
+		{
+			_newHighScore.Visible = true;
 		}
 
 		private void UpdateTimes()
@@ -123,42 +132,56 @@ namespace TruckGame
 			UpdateLevel1Time();
 			UpdateLevel2Time();
 			UpdateLevel3Time();
+			GameSave.Instantiate.Save();
 		}
 		private float UpdateLevel1Time()
 		{
+			float newTime = NewTime();
+			GD.Print($"_currentLevel1Time: {_currentLevel1Time}, NewTime(): {newTime}");
 			if (GetCurrentLevel() == "Level1")
 			{
-				if (_currentLevel1Time > FastestTime() || _currentLevel1Time == 0)
+				if (_currentLevel1Time > newTime || _currentLevel1Time == 0)
 				{
-					_currentLevel1Time = FastestTime(); // Store the fastest time for Level 1
+					UpdateHighScore();
+					_currentLevel1Time = newTime; // Store the fastest time for Level 1
 					GD.Print($"Level 1 Time: {_currentLevel1Time}, UPDATELEVEL1TIME METHOD");
-					return _currentLevel1Time;
+					GD.Print("Current Level: " + GetCurrentLevel());
+					GD.Print("UpdateTime Method works, Level 1");
 				}
 			}
-			GD.Print("UpdateTime Method works");
 			return _currentLevel1Time;
 
 		}
 		private float UpdateLevel2Time()
 		{
+			float newTime = NewTime();
+			GD.Print($"_currentLevel2Time: {_currentLevel2Time}, NewTime(): {newTime}");
 			if (GetCurrentLevel() == "Level2")
 			{
-				if (_currentLevel2Time > FastestTime() || _currentLevel2Time == 0)
+				if (_currentLevel2Time > newTime || _currentLevel2Time == 0)
 				{
-					_currentLevel2Time = FastestTime(); // Store the fastest time for Level 1
+					UpdateHighScore();
+					_currentLevel2Time = newTime; // Store the fastest time for Level 1
 					GD.Print($"Level 2 Time: {_currentLevel2Time}");
+					GD.Print("Current Level: " + GetCurrentLevel());
+					GD.Print("UpdateTime Method works, Level 2");
 				}
 			}
 			return _currentLevel2Time;
 		}
 		private float UpdateLevel3Time()
 		{
+			float newTime = NewTime();
+			GD.Print($"_currentLevel3Time: {_currentLevel3Time}, NewTime(): {newTime}");
 			if (GetCurrentLevel() == "Level3")
 			{
-				if (_currentLevel3Time > FastestTime() || _currentLevel3Time == 0)
+				if (_currentLevel3Time > newTime || _currentLevel3Time == 0)
 				{
-					_currentLevel3Time = FastestTime(); // Store the fastest time for Level 1
+					UpdateHighScore();
+					_currentLevel3Time = newTime; // Store the fastest time for Level 1
 					GD.Print($"Level 3 Time: {_currentLevel3Time}");
+					GD.Print("Current Level: " + GetCurrentLevel());
+					GD.Print("UpdateTime Method works, Level 3");
 				}
 			}
 			return _currentLevel3Time;
@@ -169,17 +192,17 @@ namespace TruckGame
 
 			if (_currentLevel1Time >= 0)
 			{
-				data.Add("FastestTimeLevel1", _currentLevel1Time);
+				data.Add("BestTimeLevel1", _currentLevel1Time);
 				GD.Print("Level 1 data added");
 			}
 			if (_currentLevel2Time >= 0)
 			{
-				data.Add("FastestTimeLevel2", _currentLevel2Time);
+				data.Add("BestTimeLevel2", _currentLevel2Time);
 				GD.Print("Level 2 data added");
 			}
 			if (_currentLevel3Time >= 0)
 			{
-				data.Add("FastestTimeLevel3", _currentLevel3Time);
+				data.Add("BestTimeLevel3", _currentLevel3Time);
 				GD.Print("Level 3 data added");
 			}
 			return data;

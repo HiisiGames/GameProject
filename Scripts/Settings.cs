@@ -25,13 +25,13 @@ namespace TruckGame
 		{
 			Instantiate = this;
 
-			_selectBack = GetNode<TextureButton>("BackButton");
-			_selectMainMenu = GetNode<TextureButton>("MainMenuButton");
-			_selectRestart = GetNode<TextureButton>("RestartButton");
-			_selectResume = GetNode<TextureButton>("ResumeButton");
+			_selectBack = GetNode<TextureButton>("Panel/BackButton");
+			_selectMainMenu = GetNode<TextureButton>("Panel/MainMenuButton");
+			_selectRestart = GetNode<TextureButton>("Panel/RestartButton");
+			_selectResume = GetNode<TextureButton>("Panel/ResumeButton");
 
-			_musicVolumeSlider = GetNode<Slider>("MusicSlider");
-			_sfxVolumeSlider = GetNode<Slider>("SFXSlider");
+			_musicVolumeSlider = GetNode<Slider>("Panel/MusicSlider");
+			_sfxVolumeSlider = GetNode<Slider>("Panel/SFXSlider");
 
 			CheckScene(); // Checks if current scene is main menu
 						  // CheckMusicSlider();
@@ -102,12 +102,14 @@ namespace TruckGame
 			{
 				_selectMainMenu.Visible = true;
 				_selectBack.Visible = false;
+				AudioManager.Instantiate.bgMusic.StreamPaused = false;
 				GetTree().Paused = true;
 			}
 		}
 		private void OnResumePressed()
 		{
 			AudioManager.Instantiate.engineSound.StreamPaused = false;
+			AudioManager.Instantiate.bgMusic.StreamPaused = true;
 			GetTree().Paused = false;
 			this.QueueFree();
 		}

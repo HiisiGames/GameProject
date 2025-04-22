@@ -11,9 +11,9 @@ namespace TruckGame
 	{
 		public static LevelSelect Instantiate;
 		[Export] private string _mainMenuScenePath = "res://GUI/MainMenu.tscn";
-		[Export] private string _level1ScenePath = "res://Levels/Level_1.tscn";
-		[Export] private string _level2ScenePath = "res://Levels/Level_2.tscn";
-		[Export] private string _level3ScenePath = "res://Levels/Level_3.tscn";
+		[Export] private string _level1ScenePath = "res://Levels/Level1.tscn";
+		[Export] private string _level2ScenePath = "res://Levels/Level2.tscn";
+		[Export] private string _level3ScenePath = "res://Levels/Level3.tscn";
 		private TextureButton _selectBack;
 		private Button _selectLevel1;
 		private Button _selectLevel2;

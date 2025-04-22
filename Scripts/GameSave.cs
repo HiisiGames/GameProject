@@ -44,9 +44,9 @@ namespace TruckGame
 				{
 					Dictionary timeData = (Dictionary)saveData["TimeData"];
 
-					LevelCompleteTime.Instantiate._currentLevel1Time = (float)timeData["FastestTimeLevel1"];
-					LevelCompleteTime.Instantiate._currentLevel2Time = (float)timeData["FastestTimeLevel2"];
-					LevelCompleteTime.Instantiate._currentLevel3Time = (float)timeData["FastestTimeLevel3"];
+					LevelCompleteTime.Instantiate._currentLevel1Time = (float)timeData["BestTimeLevel1"];
+					LevelCompleteTime.Instantiate._currentLevel2Time = (float)timeData["BestTimeLevel2"];
+					LevelCompleteTime.Instantiate._currentLevel3Time = (float)timeData["BestTimeLevel3"];
 
 					GD.Print("Fastest time recovered, GameSave.cs");
 				}
@@ -58,9 +58,9 @@ namespace TruckGame
 				{
 					Dictionary timeData = (Dictionary)saveData["TimeData"];
 
-					LevelSelect.Instantiate._level1Time = (float)timeData["FastestTimeLevel1"];
-					LevelSelect.Instantiate._level2Time = (float)timeData["FastestTimeLevel2"];
-					LevelSelect.Instantiate._level3Time = (float)timeData["FastestTimeLevel3"];
+					LevelSelect.Instantiate._level1Time = (float)timeData["BestTimeLevel1"];
+					LevelSelect.Instantiate._level2Time = (float)timeData["BestTimeLevel2"];
+					LevelSelect.Instantiate._level3Time = (float)timeData["BestTimeLevel3"];
 
 					GD.Print("Labels updated, GameSave.cs");
 				}

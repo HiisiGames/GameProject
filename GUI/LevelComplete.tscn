@@ -17,10 +17,17 @@ script = ExtResource("1_mv11h")
 
 [node name="LevelComplete" type="Panel" parent="."]
 process_mode = 3
-offset_left = 342.0
-offset_top = 173.0
-offset_right = 1631.0
-offset_bottom = 910.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -644.5
+offset_top = -368.5
+offset_right = 644.5
+offset_bottom = 368.5
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_qvlmb")
 
 [node name="Background" type="Sprite2D" parent="LevelComplete"]
@@ -73,20 +80,20 @@ position = Vector2(849, 51)
 texture = ExtResource("10_vw662")
 
 [node name="TimeInTheEnd" type="Label" parent="."]
-offset_left = 747.0
-offset_top = 341.0
-offset_right = 797.0
-offset_bottom = 364.0
+offset_left = 721.0
+offset_top = 330.0
+offset_right = 771.0
+offset_bottom = 353.0
 scale = Vector2(3, 3)
 text = "Timer:"
 
 [node name="StarOne" type="Sprite2D" parent="."]
-position = Vector2(639, 449)
+position = Vector2(533, 437)
 scale = Vector2(3, 3)
 texture = ExtResource("10_4m0v7")
 
 [node name="StarTwo" type="Sprite2D" parent="."]
-position = Vector2(979, 535)
+position = Vector2(959, 533)
 scale = Vector2(3, 3)
 texture = ExtResource("10_4m0v7")
 
@@ -94,3 +101,11 @@ texture = ExtResource("10_4m0v7")
 position = Vector2(1352, 437)
 scale = Vector2(3, 3)
 texture = ExtResource("10_4m0v7")
+
+[node name="HighScore" type="Label" parent="."]
+offset_left = 721.0
+offset_top = 261.0
+offset_right = 854.0
+offset_bottom = 284.0
+scale = Vector2(3, 3)
+text = "New highscore!"

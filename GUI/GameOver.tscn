@@ -12,10 +12,17 @@
 
 [node name="Panel" type="Panel" parent="."]
 process_mode = 3
-offset_left = 251.0
-offset_top = 162.0
-offset_right = 1593.0
-offset_bottom = 916.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -671.0
+offset_top = -377.0
+offset_right = 671.0
+offset_bottom = 377.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_5mdmg")
 
 [node name="Background" type="Sprite2D" parent="Panel"]
@@ -30,7 +37,7 @@ offset_top = 135.0
 offset_right = 608.0
 offset_bottom = 158.0
 scale = Vector2(3, 3)
-text = "Game Over"
+text = "Game Over!"
 
 [node name="ContinueButton" type="TextureButton" parent="Panel"]
 layout_mode = 0
@@ -42,25 +49,27 @@ scale = Vector2(3, 3)
 
 [node name="MainMenuButton" type="TextureButton" parent="Panel"]
 layout_mode = 0
-offset_left = 257.0
+offset_left = 290.0
 offset_top = 483.0
-offset_right = 321.0
+offset_right = 354.0
 offset_bottom = 547.0
 scale = Vector2(3.5, 3.5)
 texture_normal = ExtResource("3_omav0")
 texture_pressed = ExtResource("4_q1yev")
+stretch_mode = 3
 
 [node name="RestartButton" type="TextureButton" parent="Panel"]
 layout_mode = 0
-offset_left = 846.0
+offset_left = 782.0
 offset_top = 483.0
-offset_right = 911.0
+offset_right = 847.0
 offset_bottom = 547.0
 scale = Vector2(3.5, 3.5)
 texture_normal = ExtResource("5_pdkx5")
 texture_pressed = ExtResource("6_wybl2")
+stretch_mode = 3
 
 [node name="Elephant" type="Sprite2D" parent="Panel"]
-position = Vector2(654, 316)
+position = Vector2(671, 316)
 scale = Vector2(3, 3)
 texture = ExtResource("9_sepyx")
