@@ -58,7 +58,7 @@ namespace TruckGame
                 Triggered = false;
             }
         }
-        
+
         //Listens to TriggerZone's BodyEntered signal and sets the boolean Triggered to true, which causes the Freeze property to be set to false in _PhysicsProcess().
 	    public void OnTriggerZoneBodyEntered(Node node)
 		{

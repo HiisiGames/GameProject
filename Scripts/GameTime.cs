@@ -23,7 +23,6 @@ namespace TruckGame
 		{
 			get { return _totalTime; }
 			private set { _totalTime = value; }
-
 		}
 
 
@@ -46,7 +45,10 @@ namespace TruckGame
 			CountSeconds();
 		}
 
-		public void CountSeconds() // This counts seconds
+		/// <summary>
+		///
+		/// </summary>
+		public void CountSeconds()
 		{
 			// GD.Print("Alkaa");
 			if (_time >= 1.0f)
@@ -67,6 +69,10 @@ namespace TruckGame
 			}
 		}
 
+		/// <summary>
+		///
+		/// </summary>
+		/// <returns></returns>
 		public int CountStars()
 		{
 			CheckLevelScene();
@@ -92,23 +98,27 @@ namespace TruckGame
 			}
 			return _starCount;
 		}
+
+		/// <summary>
+		///
+		/// </summary>
 		private void CheckLevelScene()
 		{
 			Node currentLevel = GetTree().CurrentScene;
 
-			if (currentLevel.SceneFilePath == "res://Levels/Level_1.tscn")
+			if (currentLevel.SceneFilePath == "res://Levels/Level1.tscn")
 			{
 				_firstStar = 70;
 				_secondStar = 45;
 				_thirdStar = 30;
 			}
-			else if (currentLevel.SceneFilePath == "res://Levels/Level_2.tscn")
+			else if (currentLevel.SceneFilePath == "res://Levels/Level2.tscn")
 			{
 				_firstStar = 70;
 				_secondStar = 45;
 				_thirdStar = 30;
 			}
-			else if (currentLevel.SceneFilePath == "res://Levels/Level_3.tscn")
+			else if (currentLevel.SceneFilePath == "res://Levels/Level3.tscn")
 			{
 				_firstStar = 90;
 				_secondStar = 75;

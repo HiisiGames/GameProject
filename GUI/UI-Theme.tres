@@ -1,11 +1,12 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://d83pc62edyya"]
 
-[ext_resource type="FontFile" uid="uid://byjiufyrlwd5d" path="res://Fonts/PIXY.otf" id="1_d13se"]
+[ext_resource type="FontFile" uid="uid://c3jv1p07cw2pq" path="res://Fonts/8bitOperatorPlus-Regular.ttf" id="1_vyppy"]
 
 [resource]
-default_font = ExtResource("1_d13se")
 default_font_size = 16
 Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/fonts/font = ExtResource("1_vyppy")
 Button/styles/normal = null
 Button/styles/pressed = null
+Label/fonts/font = ExtResource("1_vyppy")
 VBoxContainer/constants/separation = 20

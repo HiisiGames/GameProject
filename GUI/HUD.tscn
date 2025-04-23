@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Scripts/GameTime.cs" id="1_ahngx"]
 [ext_resource type="Script" path="res://Scripts/HUDSettings.cs" id="1_ltner"]
+[ext_resource type="Theme" uid="uid://d83pc62edyya" path="res://GUI/UI-Theme.tres" id="2_kmyyl"]
 [ext_resource type="Texture2D" uid="uid://djryqp32q84d3" path="res://Arts/UI/Pause_Bars.png" id="3_183qu"]
 [ext_resource type="Texture2D" uid="uid://bsrrmm8ctl75p" path="res://Arts/UI/Pedal_Up_Fixed.png" id="4_clkd2"]
 [ext_resource type="Texture2D" uid="uid://cvouvbmppqwqb" path="res://Arts/UI/Pedal_Down_Fixed.png" id="5_tjef6"]
-[ext_resource type="Texture2D" uid="uid://d1i4sj4nwnamh" path="res://Arts/UI/Continue_ButtonV2.png" id="6_o8m3t"]
-[ext_resource type="Texture2D" uid="uid://c1q21dd6nkf7w" path="res://Arts/UI/Continue_PressedV2.png" id="7_hae7y"]
+[ext_resource type="Texture2D" uid="uid://d07fqikco3dkd" path="res://Arts/UI/Start_Icon_Plain.png" id="6_wbn0v"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_ahngx")
@@ -17,12 +17,13 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = ExtResource("2_kmyyl")
 script = ExtResource("1_ltner")
 
 [node name="SettingsButton" type="TextureButton" parent="HUDSettings"]
 layout_mode = 0
-offset_left = 1543.0
-offset_right = 1607.0
+offset_left = 1537.0
+offset_right = 1601.0
 offset_bottom = 64.0
 scale = Vector2(3, 3)
 texture_normal = ExtResource("3_183qu")
@@ -44,10 +45,10 @@ action = "Accelerate"
 
 [node name="Gas" type="Label" parent="HUDSettings"]
 layout_mode = 0
-offset_left = 1543.0
-offset_top = 644.0
-offset_right = 1583.0
-offset_bottom = 667.0
+offset_left = 1551.0
+offset_top = 652.0
+offset_right = 1591.0
+offset_bottom = 675.0
 scale = Vector2(5, 5)
 text = "Gas"
 
@@ -64,27 +65,27 @@ text = "Brake"
 wait_time = 3.0
 
 [node name="StartGameButton" type="TouchScreenButton" parent="HUDSettings"]
-position = Vector2(856, 503)
+position = Vector2(882, 337)
 scale = Vector2(3, 3)
-texture_normal = ExtResource("6_o8m3t")
-texture_pressed = ExtResource("7_hae7y")
+texture_normal = ExtResource("6_wbn0v")
 action = "StartGame"
 
 [node name="CountDown" type="Label" parent="HUDSettings"]
 layout_mode = 0
-offset_left = 761.0
-offset_top = 278.0
-offset_right = 857.0
-offset_bottom = 301.0
-scale = Vector2(4, 4)
+offset_left = 826.0
+offset_top = 311.0
+offset_right = 850.0
+offset_bottom = 334.0
+scale = Vector2(10, 10)
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GameTime" type="Label" parent="."]
-offset_left = 892.0
-offset_top = 66.0
-offset_right = 942.0
-offset_bottom = 89.0
+offset_left = 812.0
+offset_top = 73.0
+offset_right = 862.0
+offset_bottom = 96.0
 scale = Vector2(3, 3)
+theme = ExtResource("2_kmyyl")
 text = "Timer"

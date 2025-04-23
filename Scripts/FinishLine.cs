@@ -14,6 +14,7 @@ namespace TruckGame
 		/// </summary>
 		[Export] private string _levelCompletePath = "res://GUI/LevelComplete.tscn";
 		private PackedScene _selectLevelCompleteScene;
+		private bool hasFinished = false;
 
 		public override void _Ready()
 		{
@@ -49,7 +50,11 @@ namespace TruckGame
 		/// </summary>
 		private void InstantiateLevelComplete()
 		{
-			if (_selectLevelCompleteScene != null) // This brings up the level complete scene
+
+			if (hasFinished == false)
+			{
+				hasFinished = true;
+				if (_selectLevelCompleteScene != null) // This brings up the level complete scene
 				{
 					Node LevelCompletePanel = _selectLevelCompleteScene.Instantiate();
 					AddChild(LevelCompletePanel);
@@ -60,6 +65,7 @@ namespace TruckGame
 				{
 					GD.Print("Level complete scene not found");
 				}
+			}
 		}
 	}
 }

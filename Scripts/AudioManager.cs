@@ -1,9 +1,13 @@
 using Godot;
 using System;
+using Godot.Collections;
 
 namespace TruckGame
-
 {
+    /// <summary>
+    /// This file is for all the sounds + music for the game. Its autoloaded in the Godot project settings.
+    /// <para> Scenes/Audiomanager.tscn </para>
+    /// </summary>
     public partial class AudioManager : Node
     {
         public static AudioManager Instantiate;
@@ -29,8 +33,39 @@ namespace TruckGame
             engineSound = GetNode<AudioStreamPlayer>("SFX/EngineSound");
             collideSound = GetNode<AudioStreamPlayer>("SFX/CollideSound");
             victorySound = GetNode<AudioStreamPlayer>("SFX/VictorySound");
-            engineSound.VolumeDb = -10.0f;
-            bgMusic.VolumeDb = 20.0f;
+        }
+
+        /// <summary>
+        /// Holds the sound effects data
+        /// <para>Refer to GameSave.cs to more information on how it's used </para>
+        /// </summary>
+        /// <returns>.VolumeDb from
+        /// <para>Enginesound</para>
+        /// <para>VictorySound</para>
+        /// <para>ClickSound</para>
+        /// <para>CollideSound</para></returns>
+        public Dictionary SFXData()
+		{
+			Dictionary data = new Dictionary();
+			data.Add("CollideSound", collideSound.VolumeDb);
+			data.Add("EngineSound", engineSound.VolumeDb);
+			data.Add("VictorySound", victorySound.VolumeDb);
+            data.Add("ClickSound", clickButtonSound.VolumeDb);
+			return data;
+		}
+
+        /// <summary>
+        /// Holds the music data
+        /// <para>Refer to GameSave.cs to more information on how it's used </para>
+        /// </summary>
+        /// <returns>VolumeDb from
+        /// bgMusic
+        /// </returns>
+        public Dictionary MusicData()
+        {
+            Dictionary data = new Dictionary();
+            data.Add("bgMusic", bgMusic.VolumeDb);
+            return data;
         }
         public override void _Process(double delta)
         {

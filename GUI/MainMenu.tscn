@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://bm36tlcqd87lp"]
 
-[ext_resource type="FontFile" uid="uid://byjiufyrlwd5d" path="res://Fonts/PIXY.otf" id="1_2l0y2"]
 [ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_llnjy"]
 [ext_resource type="Theme" uid="uid://d83pc62edyya" path="res://GUI/UI-Theme.tres" id="2_4a8vh"]
 [ext_resource type="Texture2D" uid="uid://xxkudc1xsk4e" path="res://Arts/background4X.png" id="2_7jxnj"]
+[ext_resource type="FontFile" uid="uid://cc7wrwqb5csjw" path="res://Fonts/8bitOperatorPlus-Bold.ttf" id="4_c54va"]
 [ext_resource type="Texture2D" uid="uid://c0pnkow25qeuw" path="res://Arts/UI/Play_ButtonV3.png" id="5_b5lpf"]
 [ext_resource type="Texture2D" uid="uid://dql1gc8eg2c52" path="res://Arts/UI/Play_PressedV3.png" id="6_4xwxl"]
 [ext_resource type="Texture2D" uid="uid://daxsgigwjpirr" path="res://Arts/UI/Options_ButtonV3.png" id="7_saybb"]
@@ -18,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_4a8vh")
 script = ExtResource("1_llnjy")
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -30,21 +31,24 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -267.0
-offset_top = 367.0
-offset_right = 2.0
-offset_bottom = 401.0
+offset_left = -503.0
+offset_top = 408.0
+offset_right = -200.0
+offset_bottom = 454.0
 grow_horizontal = 2
-scale = Vector2(2, 2)
-theme_override_fonts/font = ExtResource("1_2l0y2")
+scale = Vector2(3.5, 3.5)
+theme = ExtResource("2_4a8vh")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_c54va")
 theme_override_font_sizes/font_size = 32
 text = "Don't Fork It Up"
 
 [node name="PlayButton" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = 750.0
+offset_left = 736.0
 offset_top = 572.0
-offset_right = 878.0
+offset_right = 864.0
 offset_bottom = 636.0
 scale = Vector2(3.5, 3.5)
 theme = ExtResource("2_4a8vh")
@@ -54,9 +58,9 @@ stretch_mode = 5
 
 [node name="SettingsButton" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = 1322.0
+offset_left = 1348.0
 offset_top = 572.0
-offset_right = 1458.0
+offset_right = 1484.0
 offset_bottom = 636.0
 scale = Vector2(3.5, 3.5)
 theme = ExtResource("2_4a8vh")
@@ -66,9 +70,9 @@ stretch_mode = 5
 
 [node name="CreditsButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 142.0
+offset_left = 61.0
 offset_top = 572.0
-offset_right = 278.0
+offset_right = 197.0
 offset_bottom = 636.0
 scale = Vector2(3.5, 3.5)
 texture_normal = ExtResource("9_8482e")

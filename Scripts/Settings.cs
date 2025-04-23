@@ -9,9 +9,11 @@ namespace TruckGame
 	/// </summary>
 	public partial class Settings : Node
 	{
+		public static Settings Instantiate;
 		[Export] private string _mainMenuScenePath = "res://GUI/MainMenu.tscn";
 		[Export] private string _levelScenePath = "res://GUI/LevelSelection.tscn";
-		[Export] private Slider _musicVolumeSlider = null;
+		private Slider _musicVolumeSlider;
+		private Slider _sfxVolumeSlider;
 		private TextureButton _selectBack;
 		private TextureButton _selectMainMenu;
 		private TextureButton _selectRestart;
@@ -21,11 +23,15 @@ namespace TruckGame
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
+			Instantiate = this;
 
-			_selectBack = GetNode<TextureButton>("BackButton");
-			_selectMainMenu = GetNode<TextureButton>("MainMenuButton");
-			_selectRestart = GetNode<TextureButton>("RestartButton");
-			_selectResume = GetNode<TextureButton>("ResumeButton");
+			_selectBack = GetNode<TextureButton>("Panel/BackButton");
+			_selectMainMenu = GetNode<TextureButton>("Panel/MainMenuButton");
+			_selectRestart = GetNode<TextureButton>("Panel/RestartButton");
+			_selectResume = GetNode<TextureButton>("Panel/ResumeButton");
+
+			_musicVolumeSlider = GetNode<Slider>("Panel/MusicSlider");
+			_sfxVolumeSlider = GetNode<Slider>("Panel/SFXSlider");
 
 			CheckScene(); // Checks if current scene is main menu
 						  // CheckMusicSlider();
@@ -35,20 +41,34 @@ namespace TruckGame
 			_selectRestart.Pressed += OnRestartPressed;
 			_selectResume.Pressed += OnResumePressed;
 
+			// These sync up the sliders to the audio.
+			_musicVolumeSlider.Value = Mathf.DbToLinear(AudioManager.Instantiate.bgMusic.VolumeDb);
+			_sfxVolumeSlider.Value = Mathf.DbToLinear(AudioManager.Instantiate.engineSound.VolumeDb);
+
+			_musicVolumeSlider.ValueChanged += OnMusicVolumeChanged;
+			_sfxVolumeSlider.ValueChanged += OnSFXVolumeChanged;
+
 			// _musicVolumeSlider.Connect(Slider.SignalName.ValueChanged, new Callable(this, nameof(OnMusicVolumeSliderChanged)));
 
 		}
 
-		private void OnBackButtonPressed() // deletes settings instance. In user eyes it just closes it
+		/// <summary>
+		/// deletes settings instance. In user eyes it just closes it
+		/// </summary>
+		private void OnBackButtonPressed()
 		{
 			this.QueueFree();
 		}
 
-		private void OnMainMenuPressed() // Goes back to main menu
+		/// <summary>
+		/// Goes back to main menu
+		/// </summary>
+		private void OnMainMenuPressed()
 		{
 			PackedScene selectMainMenuButton = ResourceLoader.Load<PackedScene>(_mainMenuScenePath);
 			if (selectMainMenuButton != null)
 			{
+
 				GetTree().Paused = false;
 				GetTree().ChangeSceneToPacked(selectMainMenuButton);
 			}
@@ -57,12 +77,17 @@ namespace TruckGame
 				GD.Print("Main menu scene not found");
 			}
 		}
+
+		/// <summary>
+		/// Reloads the current scene
+		/// </summary>
 		private void OnRestartPressed()
 		{
 			// PackedScene selectRestartButton = ResourceLoader.Load<PackedScene>(_levelScenePath);
 			Node currentScene = GetTree().CurrentScene;
 			if (currentScene != null)
 			{
+
 				GetTree().Paused = false;
 				GetTree().ReloadCurrentScene();
 			}
@@ -72,7 +97,10 @@ namespace TruckGame
 			}
 		}
 
-		private void CheckScene() // This will hide the specific buttons from the main menu
+		/// <summary>
+		/// This switches the seen buttons depending on if you are using settings in main menu or in levels.
+		/// </summary>
+		private void CheckScene()
 		{
 			Node currentScene = GetTree().CurrentScene;
 
@@ -87,28 +115,47 @@ namespace TruckGame
 			{
 				_selectMainMenu.Visible = true;
 				_selectBack.Visible = false;
+				AudioManager.Instantiate.bgMusic.StreamPaused = false;
 				GetTree().Paused = true;
 			}
 		}
+
+		/// <summary>
+		/// Continues the game / unpauses the scene tree.
+		/// </summary>
 		private void OnResumePressed()
 		{
+			AudioManager.Instantiate.engineSound.StreamPaused = false;
+			AudioManager.Instantiate.bgMusic.StreamPaused = true;
 			GetTree().Paused = false;
 			this.QueueFree();
 		}
-
-		private void UpdateVolume()
+		/// <summary>
+		/// Saves the audiochanges when changed by the player.
+		/// </summary>
+		/// <param name="value"></param>
+		private void OnMusicVolumeChanged(double value)
 		{
-			if (_musicVolumeSlider != null)
-			{
-				float linearVolume = (float)_musicVolumeSlider.Value;
+			float db = Mathf.LinearToDb((float)value);
+			AudioManager.Instantiate.bgMusic.VolumeDb = db;
 
-				float decibelVolume = Mathf.LinearToDb(linearVolume);
-			}
-		}
-		private void OnMusicVolumeSliderChanged(float value)
-		{
-			UpdateVolume();
+			GameSave.Instantiate.SaveAudio();
 		}
 
+		/// <summary>
+		/// Saves the sound effects value changes when changed by the player
+		/// </summary>
+		/// <param name="value"></param>
+		private void OnSFXVolumeChanged(double value)
+		{
+			float db = Mathf.LinearToDb((float)value);
+			AudioManager audio = AudioManager.Instantiate;
+			audio.engineSound.VolumeDb = db;
+			audio.collideSound.VolumeDb = db;
+			audio.clickButtonSound.VolumeDb = db;
+			audio.victorySound.VolumeDb = db;
+
+			GameSave.Instantiate.SaveAudio();
+		}
 	}
 }

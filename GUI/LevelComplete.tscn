@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0e3sl8252imy"]
+[gd_scene load_steps=13 format=3 uid="uid://c0e3sl8252imy"]
 
 [ext_resource type="Script" path="res://Scripts/LevelCompleteTime.cs" id="1_mv11h"]
 [ext_resource type="Script" path="res://Scripts/LevelComplete.cs" id="1_qvlmb"]
-[ext_resource type="Texture2D" uid="uid://d1i4sj4nwnamh" path="res://Arts/UI/Continue_ButtonV2.png" id="1_uyv4u"]
 [ext_resource type="Texture2D" uid="uid://db3wruogyq6wk" path="res://Arts/UI/options_background.png" id="2_5kkg0"]
-[ext_resource type="Texture2D" uid="uid://c1q21dd6nkf7w" path="res://Arts/UI/Continue_PressedV2.png" id="2_tglbm"]
-[ext_resource type="Texture2D" uid="uid://cm3x25vhpoi12" path="res://Arts/UI/Home_ButtonV2.png" id="4_vf4w3"]
-[ext_resource type="Texture2D" uid="uid://dpob7ofs07jqh" path="res://Arts/UI/Home_PressedV2.png" id="5_u2v0g"]
-[ext_resource type="Texture2D" uid="uid://bsns3t0f7cj5v" path="res://Arts/UI/Restart_ButtonV2.png" id="6_nep8s"]
-[ext_resource type="Texture2D" uid="uid://c7o5lhpqtvnrj" path="res://Arts/UI/Restart_PressedV2.png" id="7_wg8ai"]
+[ext_resource type="Theme" uid="uid://d83pc62edyya" path="res://GUI/UI-Theme.tres" id="2_7a0bi"]
+[ext_resource type="Texture2D" uid="uid://cke72cjw0w61l" path="res://Arts/UI/Restart_ButtonV3.png" id="4_ujliq"]
+[ext_resource type="Texture2D" uid="uid://dk2ai28o3o2la" path="res://Arts/UI/Restart_PressedV3.png" id="5_xpv1e"]
+[ext_resource type="Texture2D" uid="uid://cjtaq038c6tuw" path="res://Arts/UI/Continue_ButtonV3.png" id="6_p6enh"]
+[ext_resource type="Texture2D" uid="uid://c6f2rv15bbkk5" path="res://Arts/UI/Continue_PressedV3.png" id="7_r1i6b"]
+[ext_resource type="Texture2D" uid="uid://prhtpj20075k" path="res://Arts/UI/Home_ButtonV3.png" id="8_do2cn"]
+[ext_resource type="Texture2D" uid="uid://bxc06fjuys3yv" path="res://Arts/UI/Home_PressedV3.png" id="9_4obcg"]
 [ext_resource type="Texture2D" uid="uid://cvyvywumom4mr" path="res://Arts/UI/Star_Empty.png" id="10_4m0v7"]
 [ext_resource type="Texture2D" uid="uid://cuybkxekpw3qs" path="res://Arts/UI/player_cheeky.png" id="10_vw662"]
 
@@ -17,10 +18,18 @@ script = ExtResource("1_mv11h")
 
 [node name="LevelComplete" type="Panel" parent="."]
 process_mode = 3
-offset_left = 342.0
-offset_top = 173.0
-offset_right = 1631.0
-offset_bottom = 910.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -644.5
+offset_top = -368.5
+offset_right = 644.5
+offset_bottom = 368.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_7a0bi")
 script = ExtResource("1_qvlmb")
 
 [node name="Background" type="Sprite2D" parent="LevelComplete"]
@@ -35,8 +44,8 @@ offset_top = 451.0
 offset_right = 951.0
 offset_bottom = 515.0
 scale = Vector2(4, 4)
-texture_normal = ExtResource("6_nep8s")
-texture_pressed = ExtResource("7_wg8ai")
+texture_normal = ExtResource("4_ujliq")
+texture_pressed = ExtResource("5_xpv1e")
 
 [node name="ContinueButton" type="TextureButton" parent="LevelComplete"]
 layout_mode = 0
@@ -45,8 +54,8 @@ offset_top = 450.0
 offset_right = 573.0
 offset_bottom = 514.0
 scale = Vector2(4, 4)
-texture_normal = ExtResource("1_uyv4u")
-texture_pressed = ExtResource("2_tglbm")
+texture_normal = ExtResource("6_p6enh")
+texture_pressed = ExtResource("7_r1i6b")
 
 [node name="RichTextLabel" type="Label" parent="LevelComplete"]
 layout_mode = 0
@@ -65,28 +74,29 @@ offset_top = 450.0
 offset_right = 182.0
 offset_bottom = 514.0
 scale = Vector2(4, 4)
-texture_normal = ExtResource("4_vf4w3")
-texture_pressed = ExtResource("5_u2v0g")
+texture_normal = ExtResource("8_do2cn")
+texture_pressed = ExtResource("9_4obcg")
 
 [node name="Elephant" type="Sprite2D" parent="LevelComplete"]
 position = Vector2(849, 51)
 texture = ExtResource("10_vw662")
 
 [node name="TimeInTheEnd" type="Label" parent="."]
-offset_left = 747.0
-offset_top = 341.0
-offset_right = 797.0
-offset_bottom = 364.0
+offset_left = 721.0
+offset_top = 330.0
+offset_right = 771.0
+offset_bottom = 353.0
 scale = Vector2(3, 3)
+theme = ExtResource("2_7a0bi")
 text = "Timer:"
 
 [node name="StarOne" type="Sprite2D" parent="."]
-position = Vector2(639, 449)
+position = Vector2(533, 437)
 scale = Vector2(3, 3)
 texture = ExtResource("10_4m0v7")
 
 [node name="StarTwo" type="Sprite2D" parent="."]
-position = Vector2(979, 535)
+position = Vector2(959, 533)
 scale = Vector2(3, 3)
 texture = ExtResource("10_4m0v7")
 
@@ -94,3 +104,12 @@ texture = ExtResource("10_4m0v7")
 position = Vector2(1352, 437)
 scale = Vector2(3, 3)
 texture = ExtResource("10_4m0v7")
+
+[node name="HighScore" type="Label" parent="."]
+offset_left = 721.0
+offset_top = 261.0
+offset_right = 854.0
+offset_bottom = 284.0
+scale = Vector2(3, 3)
+theme = ExtResource("2_7a0bi")
+text = "New highscore!"

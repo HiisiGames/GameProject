@@ -10,15 +10,18 @@ config_version=5
 
 [application]
 
-config/name="HiabGameProject"
+config/name="Don't Fork It Up!"
 run/main_scene="res://GUI/MainMenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.207222, 0, 0.0158668, 1)
+boot_splash/image="res://Arts/UI/Logo_HG_w75_green.png"
+config/icon="res://Arts/UI/Logo_HG_w75_green.png"
 
 [autoload]
 
 AudioManager="*res://Scenes/AudioManager.tscn"
 GameState="*res://Scenes/GameState.tscn"
+GameSave="*res://Scripts/GameSave.cs"
 
 [display]
 

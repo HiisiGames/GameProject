@@ -5,7 +5,7 @@ using System;
 namespace TruckGame
 {
 	/// <summary>
-	/// GameOver contains the code side for GameOver.tscn <br/>
+	/// GameOver contains the code side for GUI/GameOver.tscn <br/>
 	/// Refer to CollisionDetector.cs for information, when this is brought up
 	/// </summary>
 	public partial class GameOver : Node
@@ -36,7 +36,7 @@ namespace TruckGame
 			//Listens to the methods listed
 			_selectMainMenu.Pressed += OnMainMenuPressed;
 			_selectRestart.Pressed += OnRestartPressed;
-			_selectResume.Pressed += OnContinuePressed;
+			// _selectResume.Pressed += OnContinuePressed;
 
 		}
 
@@ -93,26 +93,5 @@ namespace TruckGame
 				GetTree().Paused = true;
 			}
 		}
-
-		/// <summary>
-		/// This method loads the _levelscenepath and changes the current scene to it.
-		/// It also unpauses the scene tree.
-		/// </summary>
-		private void OnContinuePressed()
-		{
-			PackedScene selectLevelButton = ResourceLoader.Load<PackedScene>(_levelScenePath);
-			if (selectLevelButton != null)
-			{
-				GetTree().Paused = false;
-				GetTree().ChangeSceneToPacked(selectLevelButton);
-			}
-			else
-			{
-				GD.Print("Level selection scene not found");
-			}
-
-		}
-
-
 	}
 }
