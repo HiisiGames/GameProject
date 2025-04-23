@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://byjiufyrlwd5d"
-path="res://.godot/imported/PIXY.otf-b4c44ad8985cef107f3b17ae59dbc224.fontdata"
+uid="uid://f4jstaoo43qn"
+path="res://.godot/imported/8bitOperatorPlus8-Regular.ttf-9aa90fc9a51351eb006216c23765492f.fontdata"
 
 [deps]
 
-source_file="res://Fonts/PIXY.otf"
-dest_files=["res://.godot/imported/PIXY.otf-b4c44ad8985cef107f3b17ae59dbc224.fontdata"]
+source_file="res://Fonts/8bitOperatorPlus8-Regular.ttf"
+dest_files=["res://.godot/imported/8bitOperatorPlus8-Regular.ttf-9aa90fc9a51351eb006216c23765492f.fontdata"]
 
 [params]
 

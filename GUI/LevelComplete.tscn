@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0e3sl8252imy"]
+[gd_scene load_steps=13 format=3 uid="uid://c0e3sl8252imy"]
 
 [ext_resource type="Script" path="res://Scripts/LevelCompleteTime.cs" id="1_mv11h"]
 [ext_resource type="Script" path="res://Scripts/LevelComplete.cs" id="1_qvlmb"]
 [ext_resource type="Texture2D" uid="uid://db3wruogyq6wk" path="res://Arts/UI/options_background.png" id="2_5kkg0"]
+[ext_resource type="Theme" uid="uid://d83pc62edyya" path="res://GUI/UI-Theme.tres" id="2_7a0bi"]
 [ext_resource type="Texture2D" uid="uid://cke72cjw0w61l" path="res://Arts/UI/Restart_ButtonV3.png" id="4_ujliq"]
 [ext_resource type="Texture2D" uid="uid://dk2ai28o3o2la" path="res://Arts/UI/Restart_PressedV3.png" id="5_xpv1e"]
 [ext_resource type="Texture2D" uid="uid://cjtaq038c6tuw" path="res://Arts/UI/Continue_ButtonV3.png" id="6_p6enh"]
@@ -28,6 +29,7 @@ offset_right = 644.5
 offset_bottom = 368.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_7a0bi")
 script = ExtResource("1_qvlmb")
 
 [node name="Background" type="Sprite2D" parent="LevelComplete"]
@@ -85,6 +87,7 @@ offset_top = 330.0
 offset_right = 771.0
 offset_bottom = 353.0
 scale = Vector2(3, 3)
+theme = ExtResource("2_7a0bi")
 text = "Timer:"
 
 [node name="StarOne" type="Sprite2D" parent="."]
@@ -108,4 +111,5 @@ offset_top = 261.0
 offset_right = 854.0
 offset_bottom = 284.0
 scale = Vector2(3, 3)
+theme = ExtResource("2_7a0bi")
 text = "New highscore!"
