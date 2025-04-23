@@ -4,7 +4,7 @@ using System;
 namespace TruckGame
 {
 	/// <summary>
-	///
+	/// This is the cs file for GUI/MainMenu.tscn
 	/// </summary>
 	public partial class MainMenu : Node
 	{
@@ -27,15 +27,13 @@ namespace TruckGame
 		private TextureButton _selectCredits;
 		private PackedScene _selectSettingsScene;
 		private Button _selectQuit;
-		public bool _isSettingsOpenFromMainMenu = false;
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
-			GameSave.Instantiate.LoadAudio();
+			GameSave.Instantiate.LoadAudio(); // Loads up the saved values using GameSave.cs
 			GameSave.Instantiate.Load();
 
 			AudioManager.Instantiate.bgMusic.StreamPaused = false;
-			// AudioManager.Instantiate.engineSound.StreamPaused = true;
 
 			_selectSettingsScene = ResourceLoader.Load<PackedScene>(_settingsScenePath);
 
@@ -108,10 +106,12 @@ namespace TruckGame
 
 		private void OnQuitButtonPressed() // this will quit the game
 		{
-			PlayClickSound();
 			GetTree().Quit(); // Exits the game with the press of a button
 		}
 
+		/// <summary>
+		/// Plays the click sound from AudioManager.tscn
+		/// </summary>
 		private void PlayClickSound()
 		{
 			AudioManager.Instantiate.clickButtonSound.Play();
