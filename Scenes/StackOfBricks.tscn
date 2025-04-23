@@ -3,5 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cl33kddl1qoek" path="res://Arts/brickpile.png" id="1_65bao"]
 
 [node name="StackOfBricks" type="Sprite2D"]
+z_index = -1
 scale = Vector2(4, 4)
 texture = ExtResource("1_65bao")

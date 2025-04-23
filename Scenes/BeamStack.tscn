@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ceastmiaq2yv" path="res://Scenes/Crate2.tscn" id="2_vvg3s"]
 
 [node name="BeamStack" type="Node2D"]
+z_index = -1
 
 [node name="Beam" parent="." instance=ExtResource("1_qxcsb")]
 process_mode = 4
