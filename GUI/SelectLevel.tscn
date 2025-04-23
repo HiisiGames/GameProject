@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0jydj23whd22"]
+[gd_scene load_steps=12 format=3 uid="uid://c0jydj23whd22"]
 
 [ext_resource type="Script" path="res://Scripts/LevelCompleteTime.cs" id="1_wf7jc"]
 [ext_resource type="Script" path="res://Scripts/LevelComplete.cs" id="2_6lurk"]
+[ext_resource type="Theme" uid="uid://d83pc62edyya" path="res://GUI/UI-Theme.tres" id="2_o1ov6"]
 [ext_resource type="Texture2D" uid="uid://db3wruogyq6wk" path="res://Arts/UI/options_background.png" id="3_lr0em"]
 [ext_resource type="Texture2D" uid="uid://cke72cjw0w61l" path="res://Arts/UI/Restart_ButtonV3.png" id="4_ru01q"]
 [ext_resource type="Texture2D" uid="uid://dk2ai28o3o2la" path="res://Arts/UI/Restart_PressedV3.png" id="5_oony4"]
@@ -20,6 +21,7 @@ offset_left = 342.0
 offset_top = 173.0
 offset_right = 1631.0
 offset_bottom = 910.0
+theme = ExtResource("2_o1ov6")
 script = ExtResource("2_6lurk")
 
 [node name="Background" type="Sprite2D" parent="LevelComplete"]

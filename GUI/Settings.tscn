@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bp86dwsi2po36"]
+[gd_scene load_steps=11 format=3 uid="uid://bp86dwsi2po36"]
 
 [ext_resource type="Script" path="res://Scripts/Settings.cs" id="1_18u8v"]
+[ext_resource type="Theme" uid="uid://d83pc62edyya" path="res://GUI/UI-Theme.tres" id="2_6uyjm"]
 [ext_resource type="Texture2D" uid="uid://db3wruogyq6wk" path="res://Arts/UI/options_background.png" id="2_robg1"]
 [ext_resource type="Texture2D" uid="uid://prhtpj20075k" path="res://Arts/UI/Home_ButtonV3.png" id="3_7tmou"]
 [ext_resource type="Texture2D" uid="uid://bxc06fjuys3yv" path="res://Arts/UI/Home_PressedV3.png" id="4_uygxu"]
@@ -22,8 +23,10 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_6uyjm")
 
 [node name="MainMenuButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
 offset_left = -537.0
 offset_top = 105.0
 offset_right = -473.0
@@ -33,15 +36,18 @@ texture_normal = ExtResource("3_7tmou")
 texture_pressed = ExtResource("4_uygxu")
 stretch_mode = 3
 
-[node name="MusicLabel" type="RichTextLabel" parent="Panel"]
+[node name="MusicLabel" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = -103.0
 offset_top = -114.0
-offset_right = -55.0
+offset_right = -54.0
 offset_bottom = -89.0
 scale = Vector2(3, 3)
+theme = ExtResource("2_6uyjm")
 text = "Music"
 
 [node name="MusicSlider" type="HSlider" parent="Panel"]
+layout_mode = 0
 offset_left = -500.0
 offset_top = -92.0
 offset_right = -166.0
@@ -51,6 +57,7 @@ max_value = 1.0
 step = 0.0
 
 [node name="ResumeButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
 offset_left = -145.0
 offset_top = 105.0
 offset_right = -81.0
@@ -61,6 +68,7 @@ texture_pressed = ExtResource("9_luhd3")
 stretch_mode = 3
 
 [node name="BackButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
 offset_left = -783.0
 offset_top = -401.0
 offset_right = -713.0
@@ -71,6 +79,7 @@ texture_normal = ExtResource("6_dfdss")
 stretch_mode = 3
 
 [node name="RestartButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
 offset_left = 267.0
 offset_top = 105.0
 offset_right = 331.0
@@ -81,6 +90,7 @@ texture_pressed = ExtResource("6_jkdo5")
 stretch_mode = 3
 
 [node name="SFXSlider" type="HSlider" parent="Panel"]
+layout_mode = 0
 offset_left = -500.0
 offset_top = -297.0
 offset_right = -166.0
@@ -90,6 +100,7 @@ max_value = 1.0
 step = 0.0
 
 [node name="SFXLabel" type="Label" parent="Panel"]
+layout_mode = 0
 offset_left = -192.0
 offset_top = -318.0
 offset_right = -86.0
