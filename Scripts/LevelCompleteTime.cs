@@ -34,7 +34,7 @@ namespace TruckGame
 
 			Node currentScene = GetTree().CurrentScene;
 
-			_gameTime = currentScene.GetNode<GameTime>("PlayerVehicle/Camera2D/CanvasLayer"); //Finds the node with the script
+			_gameTime = currentScene.GetNode<GameTime>("PlayerVehicle/Camera2D/CanvasLayer"); //Finds the node with the GameTime script
 
 			_levelCompleteTimer = GetNode<Label>("TimeInTheEnd");
 			_newHighScore = GetNode<Label>("HighScore");
@@ -83,6 +83,10 @@ namespace TruckGame
 			GD.Print("LEVELCOMPLETETIMER.CS ENDS");
 		}
 
+		/// <summary>
+		/// Updates the textures to full stars depending on how many stars you had at the end.
+		/// <para>Stars are calculated in GameTime.cs refer to it for more information. </para>
+		/// </summary>
 		private void UpdateStars()
 		{
 			if (_starsAtTheEnd >= 1)
@@ -103,6 +107,11 @@ namespace TruckGame
 			}
 			GD.Print("UpdateStars Method works");
 		}
+
+		/// <summary>
+		/// Gets the current scene name
+		/// </summary>
+		/// <returns>currentScene.Name or null</returns>
 		private string GetCurrentLevel()
 		{
 			Node currentScene = GetTree().CurrentScene;
@@ -118,15 +127,26 @@ namespace TruckGame
 
 			return null;
 		}
+		/// <summary>
+		/// This method saves the total time it took the player to fnish a level.
+		/// </summary>
+		/// <returns>_gametime._totalTime</returns>
 		private float NewTime()
 		{
 			return _gameTime._totalTime;
 		}
+
+		/// <summary>
+		/// If the user gets new highscore, make the button visible. <para>Used in UpdateLevel1/2/3Time methods. </para>
+		/// </summary>
 		private void UpdateHighScore()
 		{
 			_newHighScore.Visible = true;
 		}
 
+		/// <summary>
+		/// Runs trough the update level methods and then saves.
+		/// </summary>
 		private void UpdateTimes()
 		{
 			UpdateLevel1Time();
@@ -134,6 +154,11 @@ namespace TruckGame
 			UpdateLevel3Time();
 			GameSave.Instantiate.Save();
 		}
+		/// <summary>
+		/// Takes the new time the user got and compares it to the current one saved.
+		/// <para>If the newtime is smaller, ie the player was "faster" updates the current time to the new one </para>
+		/// </summary>
+		/// <returns>_currentLevel1Time</returns>
 		private float UpdateLevel1Time()
 		{
 			float newTime = NewTime();
@@ -152,6 +177,12 @@ namespace TruckGame
 			return _currentLevel1Time;
 
 		}
+
+		/// <summary>
+		/// Takes the new time the user got and compares it to the current one saved.
+		/// <para>If the newtime is smaller, ie the player was "faster" updates the current time to the new one </para>
+		/// </summary>
+		/// <returns>_currentLevel2Time</returns>
 		private float UpdateLevel2Time()
 		{
 			float newTime = NewTime();
@@ -169,6 +200,12 @@ namespace TruckGame
 			}
 			return _currentLevel2Time;
 		}
+
+		/// <summary>
+		/// Takes the new time the user got and compares it to the current one saved.
+		/// <para>If the newtime is smaller, ie the player was "faster" updates the current time to the new one </para>
+		/// </summary>
+		/// <returns>_currentLevel3Time</returns>
 		private float UpdateLevel3Time()
 		{
 			float newTime = NewTime();
@@ -186,6 +223,12 @@ namespace TruckGame
 			}
 			return _currentLevel3Time;
 		}
+
+		/// <summary>
+		/// Adds the best time of each level to the TimeData
+		/// <para>Refer to GameSave.cs for more information on how it is used </para>
+		/// </summary>
+		/// <returns>BestTimeLevel1, BestTimeLevel2, BestTimeLevel3 as data</returns>
 		public Dictionary TimeData()
 		{
 			Dictionary data = new Dictionary();

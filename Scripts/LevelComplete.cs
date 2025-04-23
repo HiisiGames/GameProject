@@ -28,6 +28,9 @@ namespace TruckGame
 			Instantiate = this;
 
 			GD.Print("LEVELCOMPLETE.CS STARTS");
+
+			HUDSettings.Instantiate._selectSettings.Visible = false; // hides the settings button
+
 			_selectMainMenu = GetNode<TextureButton>("MainMenuButton");
 			_selectRestart = GetNode<TextureButton>("RestartButton");
 			_selectResume = GetNode<TextureButton>("ContinueButton");
@@ -45,6 +48,9 @@ namespace TruckGame
 			GD.Print("LEVELCOMPLETE.CS ENDS");
 		}
 
+		/// <summary>
+		/// Brings you back to main menu
+		/// </summary>
 		private void OnMainMenuPressed() // Goes back to main menu
 		{
 			VictorySoundStop();
@@ -60,6 +66,10 @@ namespace TruckGame
 				GD.Print("Main menu scene not found");
 			}
 		}
+
+		/// <summary>
+		/// Reloads the current scene
+		/// </summary>
 		private void OnRestartPressed()
 		{
 			VictorySoundStop();
@@ -76,19 +86,27 @@ namespace TruckGame
 			}
 		}
 
+
+		/// <summary>
+		/// Checks if the scene is main menu or not, though its used as a pause mechanism
+		/// </summary>
 		private void CheckScene() // This pauses the scene tree
 		{
 			Node currentScene = GetTree().CurrentScene;
 
 			if (currentScene.SceneFilePath == "res://GUI/MainMenu.tscn")
 			{
-
 			}
 			else
 			{
 				GetTree().Paused = true;
 			}
 		}
+
+		/// <summary>
+		/// Brings you to the next level
+		/// <para> First takes the current scene and checks its name, then updates _nextScenePath with the correct one </para>
+		/// </summary>
 		private void OnContinuePressed()
 		{
 			VictorySoundStop();
@@ -119,6 +137,10 @@ namespace TruckGame
 			}
 
 		}
+
+		/// <summary>
+		/// Stops the audio for victorySound
+		/// </summary>
 		private void VictorySoundStop()
 		{
 			AudioManager.Instantiate.victorySound.Stop();

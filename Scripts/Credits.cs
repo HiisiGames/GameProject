@@ -4,7 +4,7 @@ using System;
 namespace TruckGame
 {
 	/// <summary>
-	///
+	/// This is the cs file for GUI/Credits.tscn
 	/// </summary>
 	public partial class Credits: Node
 	{

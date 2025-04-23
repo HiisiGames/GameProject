@@ -8,17 +8,19 @@ using Dictionary = Godot.Collections.Dictionary;
 namespace TruckGame
 {
 	/// <summary>
-	///
+	/// This file makes sure that all the data for the user (time and audio) are saved
 	/// </summary>
 	public partial class GameSave : Node2D
 	{
-		private LevelComplete levelComplete;
 		public static GameSave Instantiate;
 		public override void _Ready()
 		{
 			Instantiate = this;
 		}
 
+		/// <summary>
+		/// Loads up the saved data from "autoSave.json"
+		/// </summary>
 		public void Load()
 		{
 			string savePath = ProjectSettings.GlobalizePath("user://");
@@ -68,6 +70,10 @@ namespace TruckGame
 
 			GD.Print("Load works, GameSave");
 		}
+
+		/// <summary>
+		/// Loads up the saved data from "autoSave.json"
+		/// </summary>
 		public void LoadAudio()
 		{
 			string savePath = ProjectSettings.GlobalizePath("user://");
@@ -117,13 +123,17 @@ namespace TruckGame
 			GD.Print("Load works, GameSave");
 		}
 
+		/// <summary>
+		/// Saves the data to folder "Save" and saves "autoSave.json" to there
+		/// </summary>
+		/// <returns>TimeData as savePath</returns>
 		public string Save()
 		{
-			Dictionary saveData = new Dictionary();
+			Dictionary saveData = new Dictionary(); // Creates a dictionary called saveData
 
-			if (LevelCompleteTime.Instantiate != null)
+			if (LevelCompleteTime.Instantiate != null) // checks that its not null
 			{
-				saveData.Add("TimeData", LevelCompleteTime.Instantiate.TimeData());
+				saveData.Add("TimeData", LevelCompleteTime.Instantiate.TimeData()); // Adds the data in TimeData method
 			}
 
 			string json = Json.Stringify(saveData);
@@ -143,9 +153,13 @@ namespace TruckGame
 			return savePath;
 		}
 
+		/// <summary>
+		///  Saves the data to folder "Save" and saves "audioSave.json" to there
+		/// </summary>
+		/// <returns>AudioData as savePath</returns>
 		public string SaveAudio()
 		{
-			Dictionary saveData = new Dictionary();
+			Dictionary saveData = new Dictionary(); // creates new dictionary
 
 			if (AudioManager.Instantiate != null)
 			{
@@ -169,6 +183,14 @@ namespace TruckGame
 			}
 			return savePath;
 		}
+
+		/// <summary>
+		/// Writes the provided saved data to a file
+		/// </summary>
+		/// <param name="path">The Directory where the file will be saved</param>
+		/// <param name="fileName">The name of the file to save data to</param>
+		/// <param name="json">the content of the file</param>
+		/// <returns></returns>
 		private bool SaveToFile(string path, string fileName, string json)
 		{
 			if (!Directory.Exists(path))
@@ -190,6 +212,12 @@ namespace TruckGame
 			return true;
 		}
 
+		/// <summary>
+		/// The data loaded from specified file as string.
+		/// </summary>
+		/// <param name="path">The directory path where the file is located.</param>
+		/// <param name="fileName">The name of the file to load.</param>
+		/// <returns></returns>
 		private string LoadFromFile(string path, string fileName)
 		{
 			string data = null;
@@ -208,6 +236,9 @@ namespace TruckGame
 			}
 			return data;
 		}
+
+		// This was for making defautvalues for the game, but it seems to work without it.
+
 		// public Dictionary CreateDefaultSaveValues()
 		// {
 		// 	Dictionary defaultSave = new Dictionary();

@@ -52,12 +52,18 @@ namespace TruckGame
 
 		}
 
-		private void OnBackButtonPressed() // deletes settings instance. In user eyes it just closes it
+		/// <summary>
+		/// deletes settings instance. In user eyes it just closes it
+		/// </summary>
+		private void OnBackButtonPressed()
 		{
 			this.QueueFree();
 		}
 
-		private void OnMainMenuPressed() // Goes back to main menu
+		/// <summary>
+		/// Goes back to main menu
+		/// </summary>
+		private void OnMainMenuPressed()
 		{
 			PackedScene selectMainMenuButton = ResourceLoader.Load<PackedScene>(_mainMenuScenePath);
 			if (selectMainMenuButton != null)
@@ -71,6 +77,10 @@ namespace TruckGame
 				GD.Print("Main menu scene not found");
 			}
 		}
+
+		/// <summary>
+		/// Reloads the current scene
+		/// </summary>
 		private void OnRestartPressed()
 		{
 			// PackedScene selectRestartButton = ResourceLoader.Load<PackedScene>(_levelScenePath);
@@ -87,7 +97,10 @@ namespace TruckGame
 			}
 		}
 
-		private void CheckScene() // This will hide the specific buttons from the main menu
+		/// <summary>
+		/// This switches the seen buttons depending on if you are using settings in main menu or in levels.
+		/// </summary>
+		private void CheckScene()
 		{
 			Node currentScene = GetTree().CurrentScene;
 
@@ -106,6 +119,10 @@ namespace TruckGame
 				GetTree().Paused = true;
 			}
 		}
+
+		/// <summary>
+		/// Continues the game / unpauses the scene tree.
+		/// </summary>
 		private void OnResumePressed()
 		{
 			AudioManager.Instantiate.engineSound.StreamPaused = false;
@@ -113,6 +130,10 @@ namespace TruckGame
 			GetTree().Paused = false;
 			this.QueueFree();
 		}
+		/// <summary>
+		/// Saves the audiochanges when changed by the player.
+		/// </summary>
+		/// <param name="value"></param>
 		private void OnMusicVolumeChanged(double value)
 		{
 			float db = Mathf.LinearToDb((float)value);
@@ -120,6 +141,11 @@ namespace TruckGame
 
 			GameSave.Instantiate.SaveAudio();
 		}
+
+		/// <summary>
+		/// Saves the sound effects value changes when changed by the player
+		/// </summary>
+		/// <param name="value"></param>
 		private void OnSFXVolumeChanged(double value)
 		{
 			float db = Mathf.LinearToDb((float)value);

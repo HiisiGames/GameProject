@@ -23,7 +23,6 @@ namespace TruckGame
 		{
 			get { return _totalTime; }
 			private set { _totalTime = value; }
-
 		}
 
 
@@ -46,7 +45,10 @@ namespace TruckGame
 			CountSeconds();
 		}
 
-		public void CountSeconds() // This counts seconds
+		/// <summary>
+		///
+		/// </summary>
+		public void CountSeconds()
 		{
 			// GD.Print("Alkaa");
 			if (_time >= 1.0f)
@@ -67,6 +69,10 @@ namespace TruckGame
 			}
 		}
 
+		/// <summary>
+		///
+		/// </summary>
+		/// <returns></returns>
 		public int CountStars()
 		{
 			CheckLevelScene();
@@ -92,6 +98,10 @@ namespace TruckGame
 			}
 			return _starCount;
 		}
+
+		/// <summary>
+		///
+		/// </summary>
 		private void CheckLevelScene()
 		{
 			Node currentLevel = GetTree().CurrentScene;

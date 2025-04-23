@@ -3,6 +3,9 @@ using System;
 
 namespace TruckGame
 {
+	/// <summary>
+	/// Autoloaded, refer to HUDSettings.cs for more information
+	/// </summary>
 	public partial class GameState : Node
 	{
 		public static GameState Instantiate;

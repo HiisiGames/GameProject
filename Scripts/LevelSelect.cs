@@ -21,8 +21,18 @@ namespace TruckGame
 		private Label _level1TimeLabel;
 		private Label _level2TimeLabel;
 		private Label _level3TimeLabel;
+
+		/// <summary>
+		/// This takes the saved best time in the GameSave.cs in the Load() method
+		/// </summary>
 		public float _level1Time;
+		/// <summary>
+		/// This takes the saved best time in the GameSave.cs in the Load() method
+		/// </summary>
 		public float _level2Time;
+		/// <summary>
+		/// This takes the saved best time in the GameSave.cs in the Load() method
+		/// </summary>
 		public float _level3Time;
 
 		// Called when the node enters the scene tree for the first time.
@@ -54,7 +64,9 @@ namespace TruckGame
 
 		}
 
-
+		/// <summary>
+		/// Goes back to main menu
+		/// </summary>
 		private void OnBackButtonPressed()
 		{
 			PackedScene selectBackButton = ResourceLoader.Load<PackedScene>(_mainMenuScenePath);
@@ -67,6 +79,9 @@ namespace TruckGame
 				GD.Print("Main menu scene not found");
 			}
 		}
+		/// <summary>
+		/// Brings the user to level 1 / changes the scene tree to level 2
+		/// </summary>
 		private void OnLevel1ButtonPressed()
 		{
 			PackedScene selectLevel1Button = ResourceLoader.Load<PackedScene>(_level1ScenePath);
@@ -79,6 +94,10 @@ namespace TruckGame
 				GD.Print("Level 1 scene not found");
 			}
 		}
+
+		/// <summary>
+		/// Brings the user to level 2 / changes the scene tree to level 2
+		/// </summary>
 		private void OnLevel2ButtonPressed()
 		{
 			PackedScene selectLevel2Button = ResourceLoader.Load<PackedScene>(_level2ScenePath);
@@ -92,6 +111,9 @@ namespace TruckGame
 			}
 
 		}
+		/// <summary>
+		/// Brings the user to level 3 / changes the scene tree to level 3
+		/// </summary>
 		private void OnLevel3ButtonPressed()
 		{
 			PackedScene selectLevel3Button = ResourceLoader.Load<PackedScene>(_level3ScenePath);
@@ -104,12 +126,21 @@ namespace TruckGame
 				GD.Print("Level 3 scene not found");
 			}
 		}
+
+		/// <summary>
+		/// Runs through the update "x" level methods.
+		/// </summary>
 		private void UpdateTimeLabels()
 		{
 			UpdateLevel1();
 			UpdateLevel2();
 			UpdateLevel3();
 		}
+
+		/// <summary>
+		/// Calculates the current users best time from float to int and returns it as minutes and seconds.
+		/// </summary>
+		/// <returns>_level1TimeLabel.Text</returns>
 		private string UpdateLevel1()
 		{
 			int level1Minutes = Mathf.FloorToInt(_level1Time / 60);
@@ -123,6 +154,11 @@ namespace TruckGame
 			return _level1TimeLabel.Text;
 
 		}
+
+		/// <summary>
+		/// Calculates the current users best time from float to int and returns it as minutes and seconds.
+		/// </summary>
+		/// <returns>_level2TimeLabel.Text</returns>
 		private string UpdateLevel2()
 		{
 			int level2Minutes = Mathf.FloorToInt(_level2Time / 60);
@@ -135,6 +171,11 @@ namespace TruckGame
 			return _level2TimeLabel.Text;
 
 		}
+
+		/// <summary>
+		/// Calculates the current users best time from float to int and returns it as minutes and seconds.
+		/// </summary>
+		/// <returns>_level3TimeLabel.Text</returns>
 		private string UpdateLevel3()
 		{
 
