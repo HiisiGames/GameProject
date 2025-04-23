@@ -43,7 +43,7 @@ namespace TruckGame
 				}
 				else if(Collider.IsInGroup("Obstacles"))
 				{
-					InstantiateGameOverPanel();
+					//InstantiateGameOverPanel();
 				}
 			}
 			else
@@ -53,7 +53,7 @@ namespace TruckGame
 			}
 		}
 		// Makes an instance of GameOver - scene and adds it to the scene tree as a child.
-		public void InstantiateGameOverPanel()
+		/*public void InstantiateGameOverPanel()
 		{
 			if (_gameOverScene != null)
 				{
@@ -67,6 +67,6 @@ namespace TruckGame
 				{
 					GD.Print("Game over scene not found");
 				}
-		}
+		}*/
 	}
 }

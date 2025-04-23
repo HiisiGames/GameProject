@@ -1,14 +1,15 @@
-[gd_scene load_steps=81 format=3 uid="uid://b64po7xo27yq8"]
+[gd_scene load_steps=84 format=3 uid="uid://b64po7xo27yq8"]
 
 [ext_resource type="PackedScene" uid="uid://bisp2fp0w4eew" path="res://Scenes/parallax.tscn" id="1_ce4w0"]
 [ext_resource type="Script" path="res://Scripts/Level2.cs" id="1_g4263"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape_closed.gd" id="1_gsjns"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/vertex_properties.gd" id="2_40myg"]
 [ext_resource type="Script" path="res://Scripts/Car.cs" id="2_42ddi"]
-[ext_resource type="Texture2D" uid="uid://dty3j803pb2is" path="res://Arts/buildingloop2.png" id="3_7w3bj"]
+[ext_resource type="Texture2D" uid="uid://dw1srbvmhwbds" path="res://Arts/sunsetbuildings.png" id="3_o2tgp"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point.gd" id="3_squgh"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="4_mebif"]
-[ext_resource type="Texture2D" uid="uid://bwxmk1pcqeq80" path="res://Arts/skyv5.png" id="4_v1u1t"]
+[ext_resource type="Texture2D" uid="uid://btmb64rmc3g5j" path="res://Arts/sunsetbg.png" id="4_qfpfm"]
+[ext_resource type="Texture2D" uid="uid://gxtw1k8yg0xy" path="res://Arts/sunsetclouds.png" id="5_rduo3"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="5_y48ty"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="6_bks42"]
 [ext_resource type="PackedScene" uid="uid://bll2isp8qp7uv" path="res://Scenes/RigidBodyScene.tscn" id="7_s0odn"]
@@ -27,7 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://c6s6tucaeoqey" path="res://Scenes/WarningSign.tscn" id="21_pawqi"]
 [ext_resource type="PackedScene" uid="uid://djkl24wear2is" path="res://Scenes/Truck.tscn" id="25_lyx5g"]
 [ext_resource type="PackedScene" uid="uid://cdj7bkdj2n6ql" path="res://Scenes/WreckingBallCrane.tscn" id="26_a7wfe"]
+[ext_resource type="PackedScene" uid="uid://bu8tnuvrvh8k0" path="res://Scenes/StackOfCrates.tscn" id="27_swqmi"]
 [ext_resource type="PackedScene" uid="uid://iv2n5sivxseg" path="res://Scenes/WreckingBall.tscn" id="27_vqub0"]
+[ext_resource type="Texture2D" uid="uid://djffvib7o1tbv" path="res://Arts/stars.png" id="31_lg6j4"]
 
 [sub_resource type="Resource" id="Resource_iarot"]
 script = ExtResource("2_40myg")
@@ -415,20 +418,31 @@ repeat_size = Vector2(2880, 0)
 repeat_times = 2
 
 [node name="Sprite2D" parent="Parallax" index="0"]
-position = Vector2(0, -1000)
+position = Vector2(0, -1400)
 scale = Vector2(3, 3)
-texture = ExtResource("3_7w3bj")
+texture = ExtResource("3_o2tgp")
 
 [node name="Parallax2" parent="." instance=ExtResource("1_ce4w0")]
 z_index = -21
 scroll_scale = Vector2(0.2, 1)
-repeat_size = Vector2(11520, 0)
+repeat_size = Vector2(2880, 0)
 repeat_times = 2
 
 [node name="Sprite2D" parent="Parallax2" index="0"]
-position = Vector2(0, -2800)
-scale = Vector2(12, 12)
-texture = ExtResource("4_v1u1t")
+position = Vector2(0, -2600)
+scale = Vector2(3, 3)
+texture = ExtResource("4_qfpfm")
+
+[node name="Parallax3" parent="." instance=ExtResource("1_ce4w0")]
+z_index = -21
+scroll_scale = Vector2(0.2, 1)
+repeat_size = Vector2(2880, 0)
+repeat_times = 2
+
+[node name="Sprite2D" parent="Parallax3" index="0"]
+position = Vector2(0, -1600)
+scale = Vector2(3, 3)
+texture = ExtResource("5_rduo3")
 
 [node name="Terrain" type="StaticBody2D" parent="."]
 position = Vector2(212, -247)
@@ -513,7 +527,7 @@ position = Vector2(47, -43)
 shape = SubResource("RectangleShape2D_hl5rr")
 
 [node name="TriggerZone2" type="Area2D" parent="."]
-position = Vector2(15007, -754)
+position = Vector2(14863, -754)
 collision_layer = 16
 script = ExtResource("16_q3g2s")
 
@@ -537,18 +551,53 @@ scale = Vector2(5, 5)
 [node name="WarningSign2" parent="." instance=ExtResource("21_pawqi")]
 position = Vector2(14819, -872)
 
+[node name="StackOfCrates" parent="." instance=ExtResource("27_swqmi")]
+position = Vector2(25068, -741)
+rotation = 0.0174533
+
 [node name="WreckingBallCrane" parent="." instance=ExtResource("26_a7wfe")]
-position = Vector2(16406, -1148)
+position = Vector2(16402, -1127)
 rotation = 0.0174533
 
 [node name="WreckingBallHolder" parent="." instance=ExtResource("27_vqub0")]
-position = Vector2(16009, -1603)
+position = Vector2(16009, -1565)
 
 [node name="WreckingBall" parent="WreckingBallHolder" index="2" node_paths=PackedStringArray("_triggerZone")]
 _triggerZone = NodePath("../../TriggerZone2")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
+[node name="Parallax5" parent="." instance=ExtResource("1_ce4w0")]
+z_index = -21
+scroll_scale = Vector2(0.05, 1)
+repeat_size = Vector2(2880, 0)
+repeat_times = 2
+
+[node name="Sprite2D" parent="Parallax5" index="0"]
+position = Vector2(0, -1700)
+scale = Vector2(3, 3)
+texture = ExtResource("31_lg6j4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax5"]
+position = Vector2(0, -2200)
+scale = Vector2(3, 3)
+texture = ExtResource("31_lg6j4")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="Parallax5"]
+position = Vector2(0, -2700)
+scale = Vector2(3, 3)
+texture = ExtResource("31_lg6j4")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="Parallax5"]
+position = Vector2(0, -3200)
+scale = Vector2(3, 3)
+texture = ExtResource("31_lg6j4")
+centered = false
+
 [editable path="Parallax"]
 [editable path="Parallax2"]
+[editable path="Parallax3"]
 [editable path="WreckingBallHolder"]
+[editable path="Parallax5"]

@@ -1,11 +1,11 @@
-[gd_scene load_steps=89 format=3 uid="uid://b6jvfjhxwg0si"]
+[gd_scene load_steps=90 format=3 uid="uid://b6jvfjhxwg0si"]
 
 [ext_resource type="Script" path="res://Scripts/Level1.cs" id="1_ay1ha"]
 [ext_resource type="PackedScene" uid="uid://dmu4lc48porvv" path="res://Scenes/StreetLight.tscn" id="2_x2mkn"]
 [ext_resource type="PackedScene" uid="uid://c6s6tucaeoqey" path="res://Scenes/WarningSign.tscn" id="3_p2b4w"]
 [ext_resource type="PackedScene" uid="uid://bisp2fp0w4eew" path="res://Scenes/parallax.tscn" id="4_bucjh"]
-[ext_resource type="Texture2D" uid="uid://dty3j803pb2is" path="res://Arts/buildingloop2.png" id="5_gqu4f"]
-[ext_resource type="Texture2D" uid="uid://bwxmk1pcqeq80" path="res://Arts/skyv5.png" id="6_4i1ta"]
+[ext_resource type="Texture2D" uid="uid://bynytw8omsg1t" path="res://Arts/daybuildings.png" id="5_831uk"]
+[ext_resource type="Texture2D" uid="uid://bp8m1141taxbt" path="res://Arts/daybg.png" id="6_oss6n"]
 [ext_resource type="PackedScene" uid="uid://bll2isp8qp7uv" path="res://Scenes/RigidBodyScene.tscn" id="7_chny2"]
 [ext_resource type="Script" path="res://Scripts/Car.cs" id="8_6rg6j"]
 [ext_resource type="PackedScene" uid="uid://dttsx40cfx2l3" path="res://GUI/HUD.tscn" id="9_qmj47"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://cpdjpxdgndkdn" path="res://Arts/protocrane256.png" id="27_1emf2"]
 [ext_resource type="PackedScene" uid="uid://cm2f5uw4o0qfi" path="res://Scenes/Crate.tscn" id="28_7k1og"]
 [ext_resource type="Script" path="res://Scripts/Crate.cs" id="29_vfyn1"]
+[ext_resource type="PackedScene" uid="uid://cp6648butw33" path="res://Scenes/BeamStack.tscn" id="30_0b1hd"]
 
 [sub_resource type="Resource" id="Resource_8e3wa"]
 script = ExtResource("13_t2l1y")
@@ -477,6 +478,9 @@ position = Vector2(31259, 1378)
 [node name="StreetLight5" parent="." instance=ExtResource("2_x2mkn")]
 position = Vector2(37889, 1366)
 
+[node name="StreetLight6" parent="." instance=ExtResource("2_x2mkn")]
+position = Vector2(23544, 2977)
+
 [node name="WarningSign" parent="." instance=ExtResource("3_p2b4w")]
 position = Vector2(19808, 3084)
 
@@ -487,20 +491,20 @@ repeat_size = Vector2(2880, 0)
 repeat_times = 2
 
 [node name="Sprite2D" parent="Parallax" index="0"]
-position = Vector2(0, 1800)
+position = Vector2(0, 1100)
 scale = Vector2(3, 3)
-texture = ExtResource("5_gqu4f")
+texture = ExtResource("5_831uk")
 
 [node name="Parallax2" parent="." instance=ExtResource("4_bucjh")]
 z_index = -21
 scroll_scale = Vector2(0.2, 1)
-repeat_size = Vector2(11520, 0)
+repeat_size = Vector2(2880, 0)
 repeat_times = 2
 
 [node name="Sprite2D" parent="Parallax2" index="0"]
-position = Vector2(0, -2400)
-scale = Vector2(20, 20)
-texture = ExtResource("6_4i1ta")
+position = Vector2(0, -800)
+scale = Vector2(3, 3)
+texture = ExtResource("6_oss6n")
 
 [node name="PlayerVehicle" parent="." instance=ExtResource("7_chny2")]
 position = Vector2(103, -282)
@@ -609,6 +613,12 @@ texture = ExtResource("27_1emf2")
 position = Vector2(21843, 2295)
 script = ExtResource("29_vfyn1")
 _triggerZone = NodePath("../TriggerZone")
+
+[node name="BeamStack" parent="." instance=ExtResource("30_0b1hd")]
+position = Vector2(18011, 3192)
+
+[node name="BeamStack2" parent="." instance=ExtResource("30_0b1hd")]
+position = Vector2(36051, 1438)
 
 [editable path="Parallax"]
 [editable path="Parallax2"]

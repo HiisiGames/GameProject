@@ -16,6 +16,8 @@ namespace TruckGame
 		[Export] private float _maxAngularVelocityInAir = 200f;
 		[Export] private float _bodyTorque = 5000000f;
 		private float _editorMaxSpeed;
+		private float _tempWheelAngularVelocity;
+		private float _wheelsAngularVelocity;
 
 
 
@@ -39,6 +41,8 @@ namespace TruckGame
 		public override void _PhysicsProcess(double delta)
 		{
 			MovePlayerVehicle((float)delta);
+			GetWheelsAngularVelocity();
+			//GD.Print($"Wheels angular velocity: {_wheelsAngularVelocity}");
 		}
 
 		public void MovementForward(float delta)
@@ -120,6 +124,32 @@ namespace TruckGame
 					return false;
 				}
 			return true;
+		}
+		
+		public float GetWheelsAngularVelocity()
+		{
+			_tempWheelAngularVelocity = 0f;
+			foreach (Node wheelNode in _wheelArray)
+				{
+					//GD.Print("break 2");
+					if (wheelNode is RigidBody2D wheel)
+					{
+						_tempWheelAngularVelocity += Math.Abs(wheel.AngularVelocity);
+					}
+					else
+					{
+						GD.Print("Could not get wheels angular velocity");
+					}
+				}
+			if(_wheelArray.Count > 0)
+			{
+				_wheelsAngularVelocity = _tempWheelAngularVelocity / _wheelArray.Count;
+			}
+			else
+			{
+				_wheelsAngularVelocity = 0f;
+			}
+			return _wheelsAngularVelocity;
 		}
 	}
 }

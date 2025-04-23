@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://cp6648butw33"]
+
+[ext_resource type="PackedScene" uid="uid://bkb7xw2ayq7nu" path="res://Scenes/beam.tscn" id="1_qxcsb"]
+[ext_resource type="PackedScene" uid="uid://cm2f5uw4o0qfi" path="res://Scenes/Crate.tscn" id="2_0wccs"]
+
+[node name="BeamStack" type="Node2D"]
+
+[node name="Beam" parent="." instance=ExtResource("1_qxcsb")]
+process_mode = 4
+
+[node name="Beam2" parent="." instance=ExtResource("1_qxcsb")]
+process_mode = 4
+position = Vector2(0, -57)
+
+[node name="Beam3" parent="." instance=ExtResource("1_qxcsb")]
+process_mode = 4
+position = Vector2(0, -110)
+
+[node name="Beam4" parent="." instance=ExtResource("1_qxcsb")]
+process_mode = 4
+position = Vector2(0, -162)
+
+[node name="Crate" parent="." instance=ExtResource("2_0wccs")]
+process_mode = 4
+position = Vector2(127, -52)
+
+[node name="Crate2" parent="." instance=ExtResource("2_0wccs")]
+process_mode = 4
+position = Vector2(234, -52)
