@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu8tnuvrvh8k0"]
+
+[ext_resource type="PackedScene" uid="uid://cm2f5uw4o0qfi" path="res://Scenes/Crate.tscn" id="1_imhb1"]
+
+[node name="StackOfCrates" type="Node2D"]
+
+[node name="Crate" parent="." instance=ExtResource("1_imhb1")]
+process_mode = 4
+position = Vector2(0, -3)
+
+[node name="Crate2" parent="." instance=ExtResource("1_imhb1")]
+process_mode = 4
+position = Vector2(108, -3)
+
+[node name="Crate3" parent="." instance=ExtResource("1_imhb1")]
+process_mode = 4
+position = Vector2(0, -108)
+
+[node name="Crate4" parent="." instance=ExtResource("1_imhb1")]
+process_mode = 4
+position = Vector2(0, -214)

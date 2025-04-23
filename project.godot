@@ -39,6 +39,10 @@ project/assembly_name="HiabGameProject"
 
 enabled=PackedStringArray("res://addons/rmsmartshape/plugin.cfg")
 
+[global_group]
+
+Levels=""
+
 [input]
 
 Break={

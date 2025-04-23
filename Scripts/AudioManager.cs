@@ -19,8 +19,14 @@ namespace TruckGame
         public AudioStreamPlayer collideSound;
         public AudioStreamPlayer victorySound;
         public bool isEngineOn = false;
-
-
+        private float _wheelsAngularVelocity;
+        private float _enginePitch;
+        [Export] private float _idleEnginePitch = 0.7f;
+        [Export] private float _enginePitchMultiplier = 0.03f;
+        [Export] private float _enginePitchMinClamp = 0.8f;
+        [Export] private float _enginePitchMaxClamp = 2.2f;
+        private Car _playerVehicle;
+        
         public override void _Ready()
         {
             Instantiate = this;
@@ -64,8 +70,28 @@ namespace TruckGame
             data.Add("bgMusic", bgMusic.VolumeDb);
             return data;
         }
-
+        public override void _Process(double delta)
+        {
+            Node CurrentScene = GetTree().CurrentScene;
+            if(CurrentScene != null && CurrentScene.IsInGroup("Levels"))
+            {
+                ChangeEnginePitch();
+            }
+        }
+        public void ChangeEnginePitch()
+        {
+            
+            _playerVehicle = GetTree().CurrentScene.GetNode<Car>("PlayerVehicle");
+            if(_playerVehicle != null)
+            {
+                _wheelsAngularVelocity = Math.Abs(_playerVehicle.GetWheelsAngularVelocity());
+            }
+            else
+            {
+                GD.Print("PlayerVehicle was null when ChangeEnginePitch was called");
+            }
+            _enginePitch = Mathf.Clamp(_idleEnginePitch + _wheelsAngularVelocity * _enginePitchMultiplier, _enginePitchMinClamp, _enginePitchMaxClamp);
+            engineSound.PitchScale = _enginePitch;
+        }
     }
-
-
 }
