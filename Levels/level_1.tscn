@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://bll2isp8qp7uv" path="res://Scenes/RigidBodyScene.tscn" id="7_chny2"]
 [ext_resource type="Script" path="res://Scripts/Car.cs" id="8_6rg6j"]
 [ext_resource type="PackedScene" uid="uid://dttsx40cfx2l3" path="res://GUI/HUD.tscn" id="9_qmj47"]
-[ext_resource type="Texture2D" uid="uid://b3k1pv6xnfv02" path="res://Arts/cone.png" id="10_jew20"]
 [ext_resource type="PackedScene" uid="uid://duvdko2482c62" path="res://Scenes/SpikeTrap.tscn" id="11_dq4gm"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape.gd" id="12_duxb1"]
 [ext_resource type="Script" path="res://addons/rmsmartshape/vertex_properties.gd" id="13_t2l1y"]
@@ -30,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cm2f5uw4o0qfi" path="res://Scenes/Crate.tscn" id="28_7k1og"]
 [ext_resource type="Script" path="res://Scripts/Crate.cs" id="29_vfyn1"]
 [ext_resource type="PackedScene" uid="uid://cp6648butw33" path="res://Scenes/BeamStack.tscn" id="30_0b1hd"]
+[ext_resource type="PackedScene" uid="uid://ck8lye1f51dta" path="res://Scenes/Container.tscn" id="31_tbllw"]
 
 [sub_resource type="Resource" id="Resource_8e3wa"]
 script = ExtResource("13_t2l1y")
@@ -507,7 +507,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("6_oss6n")
 
 [node name="PlayerVehicle" parent="." instance=ExtResource("7_chny2")]
-position = Vector2(103, -282)
+position = Vector2(103, -155)
 script = ExtResource("8_6rg6j")
 _wheelTorque = 65000.0
 _maxAngularVelocity = 85.0
@@ -518,21 +518,6 @@ offset = Vector2(0, -75)
 zoom = Vector2(0.7, 0.7)
 
 [node name="CanvasLayer" parent="PlayerVehicle/Camera2D" instance=ExtResource("9_qmj47")]
-
-[node name="Cone" type="Sprite2D" parent="."]
-position = Vector2(-320, -54)
-scale = Vector2(2, 2)
-texture = ExtResource("10_jew20")
-
-[node name="Cone2" type="Sprite2D" parent="."]
-position = Vector2(-256, -55)
-scale = Vector2(2, 2)
-texture = ExtResource("10_jew20")
-
-[node name="Cone3" type="Sprite2D" parent="."]
-position = Vector2(-287, -110)
-scale = Vector2(2, 2)
-texture = ExtResource("10_jew20")
 
 [node name="SpikeTrap" parent="." instance=ExtResource("11_dq4gm")]
 position = Vector2(7281, 1883)
@@ -619,6 +604,11 @@ position = Vector2(18011, 3192)
 
 [node name="BeamStack2" parent="." instance=ExtResource("30_0b1hd")]
 position = Vector2(36051, 1438)
+
+[node name="Container" parent="." instance=ExtResource("31_tbllw")]
+position = Vector2(-1285, -379)
+rotation = -0.0139626
+scale = Vector2(7, 7)
 
 [editable path="Parallax"]
 [editable path="Parallax2"]

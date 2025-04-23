@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://b64po7xo27yq8"]
+[gd_scene load_steps=85 format=3 uid="uid://b64po7xo27yq8"]
 
 [ext_resource type="PackedScene" uid="uid://bisp2fp0w4eew" path="res://Scenes/parallax.tscn" id="1_ce4w0"]
 [ext_resource type="Script" path="res://Scripts/Level2.cs" id="1_g4263"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://cdj7bkdj2n6ql" path="res://Scenes/WreckingBallCrane.tscn" id="26_a7wfe"]
 [ext_resource type="PackedScene" uid="uid://bu8tnuvrvh8k0" path="res://Scenes/StackOfCrates.tscn" id="27_swqmi"]
 [ext_resource type="PackedScene" uid="uid://iv2n5sivxseg" path="res://Scenes/WreckingBall.tscn" id="27_vqub0"]
+[ext_resource type="PackedScene" uid="uid://chtd520qocwet" path="res://Scenes/StackOfBricks.tscn" id="31_donfb"]
 [ext_resource type="Texture2D" uid="uid://djffvib7o1tbv" path="res://Arts/stars.png" id="31_lg6j4"]
 
 [sub_resource type="Resource" id="Resource_iarot"]
@@ -462,7 +463,7 @@ modulate = Color(1, 1, 1, 0.3)
 polygon = PackedVector2Array(-2750.66, 230.335, -129.433, 192.461, -58.0279, 191.12, 288.096, 230.947, 549.89, 241.696, 666.437, 226.625, 717.672, 211.688, 762.9, 190.945, 848.055, 131.513, 1125.79, -127.472, 1336.89, -292.687, 1452.44, -350.659, 1513.04, -370.218, 1575.65, -382.249, 1636.69, -383.41, 1693.01, -372.096, 1745.32, -349.978, 1794.33, -318.727, 1885.26, -235.51, 2152.45, 59.5626, 2203.6, 97.8215, 2258.53, 128.505, 2317.95, 149.942, 2382.57, 160.461, 2480.58, 146.323, 2562.79, 117.847, 2632.83, 80.0346, 2806.25, -39.4259, 2834.57, -53.6517, 2863.94, -64.5869, 2894.8, -71.6063, 2927.61, -74.085, 2961.83, -71.45, 2996.59, -64.0553, 3067.62, -38.0473, 3214.84, 37.4174, 3367.37, 103.336, 3406.11, 112.585, 3445.03, 117.412, 3484.1, 117.05, 3523.29, 110.736, 3561.25, 98.2679, 3596.79, 80.4521, 3630.16, 58.0336, 3661.58, 31.7574, 3772.57, -97.0234, 3871.36, -227.926, 3920.9, -279.272, 3946.54, -298.811, 3973.06, -313.268, 4005.09, -323.117, 4046.08, -329.584, 4148.83, -333.886, 4394.89, -318.575, 4708.53, -277.212, 5605.49, -250.79, 7004.42, -269.818, 7376.34, -301.99, 7679.16, -309.192, 7812.52, -300.944, 7915.84, -281.128, 7992.48, -250.222, 8056.25, -208.561, 8109.3, -157.954, 8153.78, -100.208, 8289.18, 165.986, 8361.49, 294.89, 8406.35, 351.965, 8459.87, 401.71, 8524.21, 442.316, 8601.53, 471.976, 8693.97, 488.88, 8803.7, 491.221, 8907.36, 470.756, 9003.44, 432.957, 9093.07, 379.707, 9177.42, 312.892, 9334.83, 146.105, 9484.86, -52.3244, 9799.55, -483.8, 9982.59, -686.688, 10195, -860.906, 10304.3, -916.715, 10403.1, -932.62, 10492.9, -913.624, 10575.4, -864.729, 10652.1, -790.937, 10724.6, -697.249, 10863.4, -470.2, 11160, 2.53931, 11247.4, 95.4278, 11343.2, 168.193, 11449.1, 215.834, 11566.5, 233.347, 11700.9, 201.885, 11817.1, 160.228, 11917.3, 109.959, 12003.2, 52.6609, 12076.7, -10.0833, 12139.9, -76.6907, 12242.8, -215.163, 12408.4, -468.818, 12452.7, -518.146, 12501.9, -558.673, 12558, -588.817, 12623, -606.995, 15353.3, -397.829, 28613, -160.668, 28811, 1440.03, 7658.38, 1334.76, -2700.08, 1070.08, -2750.66, 230.335)
 
 [node name="PlayerVehicle" parent="." instance=ExtResource("7_s0odn")]
-position = Vector2(-300, -250)
+position = Vector2(-300, -65)
 script = ExtResource("2_42ddi")
 _wheelTorque = 90000.0
 _maxAngularVelocity = 85.0
@@ -567,6 +568,10 @@ _triggerZone = NodePath("../../TriggerZone2")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
+[node name="StackOfBricks" parent="." instance=ExtResource("31_donfb")]
+position = Vector2(17313, -904)
+rotation = 0.0139626
+
 [node name="Parallax5" parent="." instance=ExtResource("1_ce4w0")]
 z_index = -21
 scroll_scale = Vector2(0.05, 1)
@@ -574,24 +579,24 @@ repeat_size = Vector2(2880, 0)
 repeat_times = 2
 
 [node name="Sprite2D" parent="Parallax5" index="0"]
-position = Vector2(0, -1700)
+position = Vector2(0, -2200)
 scale = Vector2(3, 3)
 texture = ExtResource("31_lg6j4")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Parallax5"]
-position = Vector2(0, -2200)
-scale = Vector2(3, 3)
-texture = ExtResource("31_lg6j4")
-centered = false
-
-[node name="Sprite2D3" type="Sprite2D" parent="Parallax5"]
 position = Vector2(0, -2700)
 scale = Vector2(3, 3)
 texture = ExtResource("31_lg6j4")
 centered = false
 
-[node name="Sprite2D4" type="Sprite2D" parent="Parallax5"]
+[node name="Sprite2D3" type="Sprite2D" parent="Parallax5"]
 position = Vector2(0, -3200)
+scale = Vector2(3, 3)
+texture = ExtResource("31_lg6j4")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="Parallax5"]
+position = Vector2(0, -3700)
 scale = Vector2(3, 3)
 texture = ExtResource("31_lg6j4")
 centered = false

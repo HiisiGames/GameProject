@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://chtd520qocwet"]
+
+[ext_resource type="Texture2D" uid="uid://cl33kddl1qoek" path="res://Arts/brickpile.png" id="1_65bao"]
+
+[node name="StackOfBricks" type="Sprite2D"]
+scale = Vector2(4, 4)
+texture = ExtResource("1_65bao")
